@@ -1,0 +1,12 @@
+@mixin add-classes($overlayClasses: '', $snippetClasses: '') {
+body#{$overlayClasses}#{$snippetClasses} {
+  // Change header text color based on hue of 1.0 accent color
+  --hue-difference: 16;
+  --h5-color: hsl(calc(var(--accent-h) + (var(--hue-difference) * 4)), var(--accent-s), var(--accent-l));
+  --h4-color: hsl(calc(var(--accent-h) - (var(--hue-difference) * 3)), var(--accent-s), var(--accent-l));
+  --h3-color: hsl(calc(var(--accent-h) + (var(--hue-difference) * 2)), var(--accent-s), var(--accent-l));
+  --h2-color: hsl(calc(var(--accent-h) - (var(--hue-difference) * 1)), var(--accent-s), var(--accent-l));
+  --h1-color: hsl(calc(var(--accent-h) + (var(--hue-difference) * 0)), var(--accent-s), var(--accent-l));
+  --h6-color: var(--h5-color);
+}
+}

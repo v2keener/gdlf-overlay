@@ -1,0 +1,43 @@
+// presumably select a small block reference of text (embed-block) to update how it's font displays or something
+@mixin add-classes($overlayClasses: '', $snippetClasses: '') {
+body#{$overlayClasses}#{$snippetClasses} {
+  div.markdown-source-view.is-live-preview
+    div.cm-editor
+    div.cm-contentContainer
+    div.internal-embed
+    div.markdown-embed-content.markdown-embed-block
+    > div
+    > div {
+    font-size: 110%;
+    // outline: 1px solid green;
+  }
+  div.markdown-source-view.is-live-preview
+    div.cm-editor
+    div.cm-contentContainer
+    div.internal-embed
+    div.markdown-embed-content.markdown-embed-block {
+    margin-bottom: -0.5em;
+    // outline: 1px solid green;
+  }
+  div.markdown-source-view.is-live-preview
+    div.cm-editor
+    div.cm-contentContainer
+    div.internal-embed
+    div.markdown-embed-content.markdown-embed-block
+    > div {
+    margin-bottom: 0;
+  }
+
+  // Keep from having so much space after all internal-embed
+  div.markdown-source-view.is-live-preview div.cm-editor div.cm-contentContainer div.internal-embed {
+    margin-bottom: -1em;
+  }
+
+  // The following would affect ALL line div...
+  // div.markdown-source-view.is-live-preview div.cm-editor div.cm-contentContainer > div > div{
+  //   outline: 1px solid green;
+  //   margin-bottom: 0;
+  //   padding-bottom:0;
+  // }
+}
+}

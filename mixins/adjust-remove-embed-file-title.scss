@@ -1,0 +1,13 @@
+@mixin add-classes($overlayClasses: '', $snippetClasses: '') {
+body#{$overlayClasses}#{$snippetClasses} {
+  div.internal-embed.is-loaded > div.markdown-embed > div.markdown-embed-title {
+    // visibility: hidden;
+    display: none;
+  }
+
+  .markdown-embed-title {
+    display: none;
+  }
+}
+
+}

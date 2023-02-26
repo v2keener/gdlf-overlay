@@ -1,0 +1,94 @@
+// Make printing how I want it (from 2022 or 2021 code)
+
+@media print {
+  // For testing, use 'all' to override UX:
+  // // @media all {
+  // a::before {
+  // //   // content: " (" attr(href) ") ";
+  //   content: '🔗';
+  // }
+  // html {
+  // body {
+  // font-family: 'FiraCode Nerd Font', sans-serif;
+
+  .theme-dark,
+  .theme-light,
+  .print .markdown-preview-view {
+    --text-normal: black;
+
+    // Remove custom link colors on print
+    a.external-link,
+    a.external-link:hover {
+      --external-link-color: rgb(78, 131, 255);
+      --text-accent: var(--external-link-color);
+      --text-accent-hover: var(--external-link-color);
+    }
+    a.internal-link,
+    a.tag,
+    a.footnote-link,
+    a.external-link[href^="file"],
+    a.external-link[href^="file"]:hover,
+    .cm-link,
+    .cm-hashtag,
+    .cm-hashtag-begin,
+    .cm-hashtag-end {
+      // -webkit-print-color-adjust: exact;
+      --text-accent: var(--text-normal);
+      --text-muted: var(--text-normal);
+      --text-accent-hover: var(--text-normal);
+      cursor: text;
+    }
+    code {
+      background-color: inherit;
+    }
+  }
+
+  body.theme-light.advanced-appearance {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    .advanced-light {
+      --accent-h: 23deg;
+      // --text-accent: black;
+      // --accent-h// Accent color hue, in deg
+      --accent-h: 23deg;
+      // --accent-s// Accent color saturation, in %
+      // --accent-l// Accent color lightness, in %
+      // --accent-d// Accent color lightness in Dark mode, in %
+    }
+    .advanced-dark {
+      --accent-h: 23deg;
+      // --text-accent: black;
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding: 0;
+    margin: 0;
+  }
+
+  a:before,
+  a:after {
+    content: "";
+  }
+
+  section[class="footnotes"]:before {
+    content: "Footnotes (if any)";
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  // // pre-2022, I think:
+  // // Hide h2 for Journal stuff (still shows in HTML
+  // // output, though, just not visually)
+  // h2[data-heading="Journal"] {
+  //   display: none;
+  // }
+  // section[class="footnotes"] {
+  //   ol:first-of-type > li {
+  //     display: none;
+  //   }
+  // }
+}

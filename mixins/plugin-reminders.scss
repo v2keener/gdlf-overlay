@@ -1,0 +1,91 @@
+// Updates to reflect on the Reminder plugin
+body {
+  // Change display of reminder text from plugin
+  div.modal-content > main > h1 {
+    font-size: 1.5em;
+    line-height: 1.2em;
+  }
+
+  // Depending on the theme, make reminder icon
+  //  stand out more
+  div.workspace-tab-header-inner > div > svg.clock {
+    // animation: reminder-pulse 2200ms infinite;
+    border-radius: 1em;
+    border: 0.1ex solid transparent;
+    background: var(--text-accent-hover);
+  }
+  // @keyframes reminder-pulse {
+  //   80% {
+  //     color: var(--background-primary);
+  //   }
+  //   90% {
+  //     color: var(--background-modifier-success);
+  //   }
+  //   0% {
+  //     color: var(--background-primary);
+  //   }
+  // }
+
+  // Show Overdue title in special stuff
+  main div.group-name.group-name-overdue {
+    font-weight: 551;
+    color: var(--text-accent-hover);
+    // animation: overdue-header-pulse 3000ms infinite;
+  }
+  // @keyframes overdue-header-pulse {
+  //   35% {
+  //     color: var(--text-accent-hover);
+  //   }
+  //   50% {
+  //     color: var(--text-accent);
+  //   }
+  //   65% {
+  //     color: var(--text-accent-hover);
+  //   }
+  // }
+  // Show Overdue items with a special color (depending on theme)
+  div.group-name-overdue + div > div > div > span.reminder-title {
+    color: var(--text-error-hover);
+    animation: overdue-item-pulse 2000ms infinite;
+  }
+  // Display overdue items with a marker ( ❗ )
+  div.group-name-overdue + div > div > div > span.reminder-title:before {
+    content: "❗";
+    font-size: 70%;
+    display: float;
+    padding: 0.3ex;
+    padding-left: 0;
+    vertical-align: top;
+    // animation: overdue-exclamation-pulse 1000ms infinite;
+  }
+  // @keyframes overdue-exclamation-pulse {
+  //   50% {
+  //     opacity: 0.3;
+  //   }
+  //   60% {
+  //     opacity: 0.6;
+  //   }
+  // }
+  // @keyframes overdue-item-pulse {
+  //   50% {
+  //     color: var(--interactive-error);
+  //   }
+  // }
+
+  // Reminders will show with a slightly larger font
+  span.reminder-title,
+  span.reminder-time {
+    font-size: 107%;
+  }
+  // Display title with heavier font
+  span.reminder-title {
+    font-weight: 600;
+  }
+
+  // Isolate "Today" if and only if Overdue items are not displayed
+  div.group-name:not(.group-name-overdue):nth-of-type(1) {
+    font-weight: 551;
+    color: var(--text-accent-hover);
+  }
+}
+

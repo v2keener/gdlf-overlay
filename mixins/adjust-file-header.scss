@@ -1,0 +1,162 @@
+// header
+@mixin add-classes($overlayClasses: "", $snippetClasses: "") {
+  body#{$overlayClasses}#{$snippetClasses} {
+    // settings up top...
+    --header-border-color: transparent; //rgb(255, 196, 0);
+    --header-size: inherit; //1.3em
+    // I was doing these differently
+    .theme-dark {
+      --active-file-text-color: inherit; // #0f0;
+    }
+    .theme-light {
+      --active-file-text-color: inherit; // rgb(9, 170, 9);
+    }
+
+    // selected file
+    .theme-dark
+      div.workspace-split.mod-vertical.mod-root
+      > div.workspace-leaf.mod-active
+      > div
+      > div.view-header
+      > div.view-header-title-container
+      > div,
+    .theme-light
+      div.workspace-split.mod-vertical.mod-root
+      > div.workspace-leaf.mod-active
+      > div
+      > div.view-header
+      > div.view-header-title-container
+      > div {
+      color: var(--active-file-text-color);
+      // the following more or less forces a margin (as --header-border-color
+      //  is intended as a background color
+      // border: 2px solid var(--header-border-color);
+      font-weight: 900;
+    }
+
+    .theme-dark .view-header,
+    .theme-light .view-header {
+      // not selected title
+      background-color: var(--background-secondary);
+
+      div {
+        color: var(--text-faint);
+      }
+
+      a {
+        color: var(--text-normal);
+      }
+    }
+
+    .workspace-leaf.mod-active .view-header {
+      //  note: not tested with Sliding Panes
+
+      // Top border where title of file is shown
+      // --top-border-yall: 0.7ex;
+      // border-top: var(--top-border-yall) solid var(--interactive-accent);
+      // // Keeps text from being as visually offset from vertical center
+      // top: calc(var(--top-border-yall) * -0.50);
+
+      // Set a pretty gradient background with whatever's in the theme
+      div.view-header-title {
+        background: linear-gradient(
+          0.25turn,
+          var(--background-secondary),
+          var(--background-match-highlight),
+          var(--background-secondary-alt)
+        );
+      }
+      // // Keep view-actions vertically centered
+      // div.view-actions {
+      //   margin-top: calc(var(--top-border-yall) * -1);
+      // }
+    }
+    // .workspace-split.mod-root > .workspace-leaf:first-of-type:last-of-type .view-header {
+    //   // Show bottom border with color like above
+    //   border-bottom: 0.3ex solid var(--interactive-accent);
+    // }
+    // div.view-header-title {
+    //   // Move file title to the right a pinch
+    //   padding-left:0.5ex;
+    //   // This allows vertical centering of text with different font-size values
+    //   display:flex;
+    // }
+    .workspace-leaf.mod-active div.view-header {
+      // Note that anything here affects only the active file
+
+      // div.view-header-title:before {
+      //   // Add an icon left of active document
+      //   // content: '🐱‍🏍';
+      //   // content: '🐱‍👤';
+      //   // content: '🚀 ';
+      //   content: "💫\0000a0";
+      //   // Make it smaller to be more of an accent
+      //   // font-size: 110%;
+      // }
+      // place it before the file path for Obsidian 1.x
+      div.view-header-title-container div:first-child:before {
+        // content: "\0000a0💫";
+        content: "\0000a0🤓";
+        position: relative;
+        top: 0.2em;
+      }
+      // div.view-header-title {
+      //   font-family: Georgia, 'Times New Roman', Times, serif;
+      // }
+    }
+
+    .workspace-leaf:not(.mod-active) .view-header {
+      --set-opacity: 0.4;
+      // Note that this affects all BUT the active file
+      div.view-header-title:before {
+        // Add an icon left of active document
+        // content: '🐱‍🏍';
+        // content: '🐱‍👤';
+        // content: '🚀 ';
+        // content: '🎉\0000a0';
+        content: "💤\0000a0";
+        // Make it smaller to be more of an accent
+        // font-size: 110%;
+        opacity: var(--set-opacity);
+      }
+      div.view-header-title:after {
+        // content: '\0000a0🎉';
+        content: "\0000a0💤";
+        opacity: var(--set-opacity);
+      }
+    }
+
+    // .workspace-leaf.mod-active .view-header-title/*, .workspace-leaf.mod-active .view-header-icon*/ {
+    //   // Try not to allow custom color for file title
+    //   color: var(--text-normal);
+    // }
+
+    // With Obsidian 1.0... a tab
+    .workspace-tab-header.is-active .workspace-tab-header-inner-title:before {
+      content: "✨";
+      // make it appear superscript-like
+      font-size: 70%;
+      position: relative;
+      top: -0.3em;
+    }
+  }
+
+  body:is(.theme-light, .theme-dark) {
+    // Inactive tabs show slightly thicker (depending on actual font-family)
+    div.workspace-tab-header-inner-title {
+      font-weight: 500;
+    }
+    // Active tab boldface
+    div.workspace-tab-header:is(.is-active) div.workspace-tab-header-inner-title {
+      font-weight: 900;
+      // display a :before emoji before active tab title
+      :before {
+        content: "✨";
+        // make it appear superscript-like
+        font-size: 70%;
+        position: relative;
+        top: -0.3em;
+      }
+    }
+  }
+}

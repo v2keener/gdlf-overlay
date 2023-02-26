@@ -1,0 +1,25 @@
+// Adjust Todo List plugin font sizes and button size
+//  to where it should generally match what the 
+//  theme has set (by percentage)
+// Also, I prefer not to use pixel measures for
+//  CSS dimensions as that doesn't always translate
+//  well to mobile, for instance
+
+body {
+  .group-header.page.svelte-yzsyxo .title {
+    font-size:80%; // reduce item header font-size
+  }
+
+  ul.svelte-yzsyxo {
+    font-size: 95%; // reduce list item font-size
+  }
+
+  section.group > ul > li > button > div {
+    --todoList-checkboxSize: 2ex;
+  }
+
+  div > section.group.svelte-yzsyxo > ul > li > div > ul{
+    padding:0;
+    padding-left: 1ex;
+  }
+}

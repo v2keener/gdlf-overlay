@@ -1,0 +1,87 @@
+// This is meant to be the file where stuff private to me is edited/updated
+// ****************************************************************
+// Everything after this *shouldn't
+// match the gdlf-overlay-theme.scss
+// ****************************************************************
+@use "mixins/_default-mods";
+@use "mixins/_default-style";
+
+// Adds "Delafuerza Print" @font-family (base64 string)
+@use "mixins/gdlf-add-dlfprint-font-face";
+
+@use "mixins/gdlf-cursor-rainbow";
+@use "mixins/adjust-remove-embed-file-title";
+@use "mixins/adjust-root-folder-add-title-content";
+@use "mixins/gdlf-hide-some-folders";
+@use "mixins/gdlf-named-navigation";
+// ****************************************************************
+// Everything after this *shouldn't
+// match the gdlf-overlay-theme.scss
+// ****************************************************************
+@mixin add-snippet-classes($addSnippetClasses: false) {
+  @include gdlf-add-dlfprint-font-face.add-classes;
+
+  @if ($addSnippetClasses) {
+ 
+    body {
+       --gdlf-editor-font-family: "Delafuerza Print", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
+    }
+    @include default-mods.add-classes(".gdlf-overlay.gdlf-defaults");
+    @include default-style.add-classes(".gdlf-overlay", ".gdlf-defaults");
+    @include gdlf-cursor-rainbow.add-classes(".gdlf-overlay", ".gdlf-rainbow");
+    @include adjust-remove-embed-file-title.add-classes(".gdlf-overlay", ".gdlf-remove-embed-file-title");
+    @include adjust-root-folder-add-title-content.add-classes(".gdlf-overlay", ".gdlf-add-vault-icon");
+    @include gdlf-hide-some-folders.add-classes(".gdlf-overlay", ".gdlf-hide-folders");
+    @include gdlf-named-navigation.add-classes(".gdlf-overlay", ".gdlf-named-navigation");
+    // ****************************************************************
+    // STYLE SETTINGS for GDLF Extras
+    // ****************************************************************
+
+/* @settings
+
+name: GDLF Extras
+id: gdlf-enable-extra-features
+settings:
+  - 
+    id: gdlf-rainbow
+    title: Use a 🌈 Rainbow Cursor
+    description: "The cursor shows horizontally, going from top to bottom: red, orange, yellow, blue, indigo (-ish - a darker shade of blue), and violet (purple)"
+    type: class-toggle
+  -
+    id: gdlf-defaults
+    title: 💎 GDLF defaults
+    description: These are changes I have that don't yet have their own home. It includes custom icons for some folders by looking at their data-path, a thicker <hr> tag, and a few other things.
+    type: class-toggle
+  - 
+    id: gdlf-remove-embed-file-title
+    title: 🙅 Remove Embedded Title
+    description: Remove the file title for any embedded document.
+    type: class-toggle
+  -
+    id: gdlf-add-vault-icon
+    title: 🔥 Add GDLF Vault Icon
+    description: Adds a really pretty logo image I worked hard in Inkscape to create.
+    type: class-toggle
+  -
+    id: gdlf-hide-folders
+    title: 🥷 Hide Some Folders
+    description: Hides many folders and files that begin with an underscore (e.g. folder templates for Templater, etc.). The files are still visible when searching or adding an Obsidian-internal link.
+    type: class-toggle
+  -
+    id: gdlf-named-navigation
+    title: 🎠 Show some emojis as icons for some folders with specific names 
+    description: This is very much based on my personal vault, so I'll share the folder structure as soon as I can. (Carousel emoji based on https://emojipedia.org/search/?q=change)
+    type: class-toggle
+*/
+  } @else {
+    @include default-mods.add-classes;
+    @include default-style.add-classes;
+    @include gdlf-cursor-rainbow.add-classes;
+    @include adjust-remove-embed-file-title.add-classes;
+    @include adjust-root-folder-add-title-content.add-classes;
+    @include gdlf-hide-some-folders.add-classes;
+    @include gdlf-named-navigation.add-classes;
+  }
+}
+

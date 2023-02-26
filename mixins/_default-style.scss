@@ -1,0 +1,177 @@
+// This is the place I put styles that don't 
+//  have another place (yet)
+@mixin add-classes($overlayClasses: "", $snippetClasses: "") {
+  body {
+    --luminence-mod-l: 0;
+    --text-selection: hsla(var(--interactive-accent-hsl), 0.25);
+  }
+
+  // -- Overrides for any theme
+  #{$overlayClasses}.theme-light {
+    --luminence-mod-l: 15%;
+    // Based on primary accent which is derived from
+    // --accent-h, --accent-s, and --accent-l
+    // and set to --color-accent-hsl
+    // that color-accent-hsl is the same as for
+    // --interactive-accent-hsl for the default theme as of 20221221
+    /*
+    from app.css:
+    Accent HSL values 
+    --accent-h: 254;
+    --accent-s: 80%;
+    --accent-l: 68%;
+    */
+    --text-selection: hsla(calc(var(--accent-h) + 90), var(--accent-s), var(--accent-l), 0.35);
+  }
+  #{$overlayClasses}.theme-dark {
+    --luminence-mod-l: -15%;
+    --text-selection: hsla(calc(var(--accent-h) + 30), var(--accent-s), var(--accent-l), 0.35);
+  }
+
+  body#{$overlayClasses}#{$snippetClasses} {
+    // Set variable for line width (used by app.css as of Obsidian 1.1)
+    --file-line-width: 32em; //500px;
+    // --file-line-width: 500px;
+    --gdlf-search-background-color: var(--text-highlight-bg);
+    // --text-selection: hsla(var(--color-accent-hsl), 0.2);
+
+    .theme-light,
+    .theme-dark {
+      // --font-family-editor: "Bookman Old Style", "Book Antiqua", "Bell MT", "OpenDyslexic Nerd Font", "Times New Roman", "Cascadia Code PL", Consolas, "Fira Code", monospace;
+      // --font-family-preview: Verdana, Avenir Next, sans-serif;
+      // --font-family-code: Consolas, monaco, monospace;
+      --sidebar-collapsed-width: 1em;
+      --sidebar-collapsed-color: inherit; // rgba(16, 108, 161, 0.774);
+      // // This covers selected text in preview (bluish color) (also when window inactive)
+      // --text-selection: rgba(0, 153, 255, 0.5);
+      // Background color of status bar (I think)
+      --status-color: rgba(127, 191, 221, 0.616);
+
+      --hsl-test-var-no-use: #3fa5ee;
+
+      // // A pretty green
+      // --interactive-accent-h: 147; // color you want to see
+      // --interactive-accent-s: 73%; // %
+      // --interactive-accent-l: 52%; // %
+
+      --interactive-accent-h: var(--accent-h); // color you want to see
+      --interactive-accent-s: var(--accent-s);
+      --interactive-accent-l: var(--accent-l);
+    }
+
+    // // Keeping the animation keyframes for the above
+    // // - they seem useful
+    // @keyframes irritate-pulse {
+    //   0% {
+    //     color: #0077ff;
+    //   }
+    //   50% {
+    //     color: rgb(74, 255, 119);
+    //   }
+    //   100% {
+    //     color: #ff4136;
+    //   }
+    // }
+
+    // Make it so the tilde (`) of inline code displays without extra width in padding
+    //  It should make inline code easier to edit (without weird letter spacing)
+    span.cm-formatting.cm-formatting-code.cm-inline-code.cm-list-2 {
+      padding: 0;
+    }
+
+    // // Following adjusts search highlight background and should be placed elsewhere
+    // .theme-light {
+    //   // --gdlf-search-background-image: var(--rainbow-image-url);
+    //   --gdlf-search-background-blend-mode: lighten;
+    // }
+    // .theme-dark {
+    //   // --gdlf-search-background-image: var(--rainbow-image-url);
+    //   --gdlf-search-background-blend-mode: darken;
+    // }
+    .is-flashing,
+    .is-flashing *,
+    .cm-s-obsidian span.obsidian-search-match-highlight {
+      // background-color: var(--gdlf-search-background-color);
+      background-color: hsla(calc(var(--accent-h) - 260), var(--accent-s), var(--accent-l), 0.45);
+      background-image: var(--gdlf-search-background-image);
+      // background-blend-mode: var(--gdlf-search-background-blend-mode);
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    // Set a border around iframes so they aren't distracting
+    span.cm-html-embed iframe {
+      border-style: outset;
+      border-color: var(--interactive-accent-base);
+      border-width: 0.2ex;
+    }
+
+    // before link
+    div.cm-contentContainer > div.cm-content > div > span.cm-hmd-internal-link > span.is-unresolved > span::before {
+      // content: "😲";
+      content: "👀";
+    }
+  }
+  //gdlf caret color based on accent color
+  #{$overlayClasses}.theme-light {
+    --caret-l: 40%;
+  }
+  #{$overlayClasses}.theme-dark {
+    --caret-l: 60%;
+  }
+  #{$overlayClasses}.theme-dark *,
+  #{$overlayClasses}.theme-light * {
+    //// Probably not part of Electron apps yet:
+    // caret-shape: block;
+    // caret-shape: bar;
+    // caret-shape: auto;
+    // caret-shape: underscore;
+    caret-color: hsl(calc(var(--accent-h)), 100%, var(--caret-l));
+  }
+
+  // // **********************************
+  // // CSS from app.css
+  // //
+  // // Seeing if I can affect the cursor
+  // // **********************************
+  // .CodeMirror-cursor {
+  //   border-left: 5px solid black;
+  //   border-right: none;
+  //   width: 0;
+  // }
+  // /* Shown when moving in bi-directional text */
+  // .CodeMirror div.CodeMirror-secondarycursor {
+  //   border-left: 5px solid silver;
+  // }
+  // .cm-fat-cursor .CodeMirror-cursor {
+  //   width: auto;
+  //   border: 0 !important;
+  //   background: var(--interactive-accent);
+  //   color: var(--text-on-accent);
+  // }
+  // .cm-fat-cursor div.CodeMirror-cursors {
+  //   z-index: 1;
+  // }
+  // .cm-fat-cursor-mark {
+  //   background-color: rgba(20, 255, 20, 0.5);
+  //   -webkit-animation: blink 1.06s steps(1) infinite;
+  //   -moz-animation: blink 1.06s steps(1) infinite;
+  //   animation: blink 1.06s steps(1) infinite;
+  // }
+  // .cm-animate-fat-cursor {
+  //   width: auto;
+  //   border: 0;
+  //   -webkit-animation: blink 1.06s steps(1) infinite;
+  //   -moz-animation: blink 1.06s steps(1) infinite;
+  //   animation: blink 1.06s steps(1) infinite;
+  //   background: var(--interactive-accent);
+  //   color: var(--text-on-accent);
+  // }
+  .ͼ1 .cm-cursor,
+  .ͼ1 .cm-dropCursor {
+    // Make cursor a bit larger when selecting and using multiple carets
+    // - The one caret that has OS-level focus remains controlled by the OS
+    border-left-width: 0.2ex;
+  }
+
+}

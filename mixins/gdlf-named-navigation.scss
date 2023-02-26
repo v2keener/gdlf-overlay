@@ -1,0 +1,285 @@
+// Display custom folder ::after and ::before emojis
+@mixin add-classes($overlayClasses: "", $snippetClasses: "") {
+  body#{$overlayClasses}#{$snippetClasses} {
+    // **************************************
+    // Any "_inbox" folder
+    // **************************************
+    div.nav-folder-title[data-path*="/_inbox"] div.nav-folder-title-content::before {
+      content: "📩 ";
+    }
+    div.nav-folder-title[data-path*="/_inbox"] div.nav-folder-title-content::after {
+      content: " 🚀";
+    }
+
+    // **************************************
+    // CONTACTS folder
+    // **************************************
+    div.nav-folder-title[data-path="contacts"] div.nav-folder-title-content::after {
+      content: " 🙂";
+    }
+    div.nav-folder-title[data-path^="contacts/"] div.nav-folder-title-content::before {
+      // folders under contacts folder
+      content: "📂 ";
+    }
+    div.nav-file-title[data-path^="contacts"] div.nav-file-title-content::before {
+      content: "🙂 ";
+    }
+
+    // **************************************
+    // DAILY folder
+    // **************************************
+    div.nav-folder-title[data-path="daily"] div.nav-folder-title-content::after {
+      content: " 📅";
+    }
+    div.nav-folder-title[data-path^="daily/"] div.nav-folder-title-content::before {
+      // folders under daily folder
+      content: "📂 ";
+    }
+    div.nav-folder-title[data-path="daily/_older"] div.nav-folder-title-content::before {
+      content: "📼 ";
+    }
+    div.nav-folder-title[data-path^="daily"][data-path^="daily/_older/onenote"] div.nav-folder-title-content::before,
+    div.nav-file-title[data-path^="daily"][data-path^="daily/_older/onenote"] div.nav-file-title-content::before {
+      content: "🔧";
+    }
+    // Week (Number) folders
+    // Covering weeks 01 to 09
+    div.nav-folder-title[data-path^="daily/"][data-path*="/wk0"] div.nav-folder-title-content::before {
+      content: "🌨 ";
+    }
+    // Covering weeks 10 to 19
+    div.nav-folder-title[data-path^="daily/"][data-path*="/wk1"] div.nav-folder-title-content::before {
+      content: "🌦 ";
+    }
+    // Covering weeks 20 to 29
+    div.nav-folder-title[data-path^="daily/"][data-path*="/wk2"] div.nav-folder-title-content::before {
+      content: "🌤 ";
+    }
+    // Covering weeks 30 to 39
+    div.nav-folder-title[data-path^="daily/"][data-path*="/wk3"] div.nav-folder-title-content::before {
+      content: "️🌞";
+    }
+    // Covering weeks 40 to 49
+    div.nav-folder-title[data-path^="daily/"][data-path*="/wk4"] div.nav-folder-title-content::before {
+      content: "🍻 ";
+    }
+    // Covering weeks 50 to 53 (because 54 isn't a week in a year)
+    div.nav-folder-title[data-path^="daily/"][data-path*="/wk5"] div.nav-folder-title-content::before {
+      content: "🎄 ";
+    }
+    // (Number) Month folders
+    /*
+    Taken from [❄️ January Emojis — Copy & Paste!](https://emojis.wiki/january/#:~:text=According%20to%20the%20statistics%2C%20it%20is%20this%20month,%F0%9F%8C%A6%20September%2C%20%F0%9F%8D%81%20October%2C%20%F0%9F%8D%82%20November%2C%20%F0%9F%8E%84%20December.)
+    */
+    // Covering "01 Jan"
+    div.nav-folder-title[data-path^="daily/"][data-path*="/01 Jan"] div.nav-folder-title-content::before {
+      content: "❄️ ";
+    }
+    // Covering "02 Feb"
+    div.nav-folder-title[data-path^="daily/"][data-path*="/02 Feb"] div.nav-folder-title-content::before {
+      content: "☃️ ";
+    }
+    // Covering "03 Mar"
+    div.nav-folder-title[data-path^="daily/"][data-path*="/03 Mar"] div.nav-folder-title-content::before {
+      content: "🌷 ";
+    }
+    // Covering "04 Apr"
+    div.nav-folder-title[data-path^="daily/"][data-path*="/04 Apr"] div.nav-folder-title-content::before {
+      content: "🌺 ";
+    }
+    // Covering "05 May"
+    div.nav-folder-title[data-path^="daily/"][data-path*="/05 May"] div.nav-folder-title-content::before {
+      content: "🐝 ";
+    }
+    // Covering "06 Jun"
+    div.nav-folder-title[data-path^="daily/"][data-path*="/06 Jun"] div.nav-folder-title-content::before {
+      content: "🌈 ";
+    }
+    // Covering "07 Jul"
+    div.nav-folder-title[data-path^="daily/"][data-path*="/07 Jul"] div.nav-folder-title-content::before {
+      content: "🌞 ";
+    }
+    // Covering "08 Aug"
+    div.nav-folder-title[data-path^="daily/"][data-path*="/08 Aug"] div.nav-folder-title-content::before {
+      content: "🍎 ";
+    }
+    // Covering "09 Sep"
+    div.nav-folder-title[data-path^="daily/"][data-path*="/09 Sep"] div.nav-folder-title-content::before {
+      content: "🌦 ";
+    }
+    // Covering "10 Oct"
+    div.nav-folder-title[data-path^="daily/"][data-path*="/10 Oct"] div.nav-folder-title-content::before {
+      content: "🍂 ";
+    }
+    // Covering "11 Nov"
+    div.nav-folder-title[data-path^="daily/"][data-path*="/11 Nov"] div.nav-folder-title-content::before {
+      content: "🍻 ";
+    }
+    // Covering "12 Dec"
+    div.nav-folder-title[data-path^="daily/"][data-path*="/12 Dec"] div.nav-folder-title-content::before {
+      content: "🎄 ";
+    }
+    div.nav-file-title[data-path^="daily/"][data-path*="/2021 0"] div.nav-file-title-content::before,
+    div.nav-file-title[data-path^="daily/"][data-path*="/2021 1"] div.nav-file-title-content::before,
+    div.nav-file-title[data-path^="daily/"][data-path*="/2022 0"] div.nav-file-title-content::before,
+    div.nav-file-title[data-path^="daily/"][data-path*="/2022 1"] div.nav-file-title-content::before,
+    div.nav-file-title[data-path^="daily/"][data-path*="/2023 0"] div.nav-file-title-content::before,
+    div.nav-file-title[data-path^="daily/"][data-path*="/2023 1"] div.nav-file-title-content::before {
+      content: "💡";
+    }
+    div.nav-file-title[data-path^="daily/"][data-path*="/Day Planner"] div.nav-file-title-content::before {
+      content: "💡";
+    }
+    div.nav-file-title[data-path^="daily/"] div.nav-file-title-content::before {
+      content: "❓";
+    }
+    // unique for-fun only
+    div.nav-file-title[data-path^="daily/"][data-path*="vacation all week"] div.nav-file-title-content::before {
+      content: "🎉";
+    }
+
+    // Root folder
+    div.nav-file-title[data-path^="Breathing Mantra"] div.nav-file-title-content::before {
+      content: "💨";
+    }
+    div.nav-file-title[data-path^="README"] div.nav-file-title-content::before {
+      content: "💎";
+    }
+    div.nav-file-title[data-path^="gdlf"]:not([data-path*="/"]) div.nav-file-title-content::before {
+      // all "gdlf" files at root folder (default)
+      content: "🌈";
+    }
+    // Journal Folder
+    div.nav-folder-title[data-path="daily/journal"] div.nav-folder-title-content::before {
+      content: "📝 ";
+    }
+    div.nav-file-title[data-path^="daily/journal"][data-path*="jrnl "] div.nav-file-title-content::before {
+      content: "📝";
+    }
+
+    // **************************************
+    // MEETINGS folder
+    // **************************************
+    div.nav-folder-title[data-path="meetings"] div.nav-folder-title-content::after {
+      content: " 🤝";
+    }
+    // folders under meetings folder
+    div.nav-folder-title[data-path^="meetings/"] div.nav-folder-title-content::before {
+      content: "📂 ";
+    }
+    // files under meetings folder
+    div.nav-file-title[data-path^="meetings"] div.nav-file-title-content::before {
+      content: "🤝";
+    }
+
+    // **************************************
+    // STUDY folder
+    // **************************************
+    div.nav-folder-title[data-path="study"] div.nav-folder-title-content::after {
+      // study folder
+      content: " 📚";
+    }
+    div.nav-folder-title[data-path^="study/"] div.nav-folder-title-content::before {
+      // folders under my study folder
+      content: "🔎 ";
+    }
+    div.nav-file-title[data-path^="study"] div.nav-file-title-content::before {
+      // my study files
+      content: "🔬";
+    }
+
+    // **************************************
+    // ZETTEL folder
+    // **************************************
+    div.nav-folder-title[data-path="zettel"] div.nav-folder-title-content::after {
+      // the zettel folder
+      content: " 📇";
+    }
+    div.nav-folder-title[data-path^="zettel/"] div.nav-folder-title-content::before {
+      // folders under my zettel folder
+      content: "📂 ";
+    }
+    div.nav-folder-title[data-path="zettel/applications"] div.nav-folder-title-content::before {
+      // only the zettel/applications folder
+      content: "🈸 ";
+    }
+    div.nav-folder-title[data-path="zettel/career"] div.nav-folder-title-content::before {
+      // only the zettel/applications folder
+      content: "⚒️ ";
+    }
+    div.nav-folder-title[data-path="zettel/comms"] div.nav-folder-title-content::before {
+      // only the zettel/comms folder
+      content: "🗨️ ";
+    }
+    div.nav-folder-title[data-path="zettel/food"] div.nav-folder-title-content::before {
+      // only the zettel/food folder
+      content: "️🍒 ";
+    }
+    div.nav-folder-title[data-path="zettel/health"] div.nav-folder-title-content::before {
+      // only the zettel/food folder
+      content: "️❤️‍🩹 ";
+    }
+    div.nav-folder-title[data-path="zettel/household"] div.nav-folder-title-content::before {
+      content: "🏡 ";
+    }
+    div.nav-folder-title[data-path="zettel/moments"] div.nav-folder-title-content::before {
+      content: "📸 ";
+    }
+    div.nav-folder-title[data-path="zettel/nations"] div.nav-folder-title-content::before {
+      content: "🌐 ";
+    }
+    div.nav-folder-title[data-path="zettel/servers"] div.nav-folder-title-content::before {
+      content: "🖥️ ";
+    }
+    div.nav-folder-title[data-path="zettel/vehicles"] div.nav-folder-title-content::before {
+      content: "🚕 ";
+    }
+    div.nav-file-title[data-path^="zettel"] div.nav-file-title-content::before {
+      content: "📇";
+    }
+
+    // **************************************
+    // XTRAS folder
+    // **************************************
+    div.nav-folder-title[data-path="xtras"] div.nav-folder-title-content::after {
+      content: " 📬";
+    }
+    div.nav-folder-title[data-path^="xtras/"]:not([data-path^="xtras/_inbox"]):not(
+        [data-path^="xtras/from-backup"]
+      ):not([data-path="xtras/quotes"])
+      div.nav-folder-title-content::before {
+      // folders under xtras folder (but not certain ones)
+      content: "📂 ";
+    }
+
+    // Display my symlinked folder as linked with links
+    div.nav-folder-title[data-path="xtras/from-backup"] div.nav-folder-title-content::before {
+      content: "🔗 ";
+    }
+    div.nav-folder-title[data-path="xtras/from-backup"] div.nav-folder-title-content::after {
+      content: " 🔗";
+    }
+    div.nav-file-title[data-path^="xtras/from-backup"] div.nav-file-title-content::before {
+      content: "🔗";
+    }
+    div.nav-file-title[data-path^="xtras/"]:not([data-path*="xtras/from-backup"]) div.nav-file-title-content::before {
+      content: "📭";
+    }
+    div.nav-folder-title[data-path="xtras/quotes"] div.nav-folder-title-content::before {
+      // only the quotes folder
+      content: "❣️ ";
+    }
+    // Show anything with 'from-backup' in its path as (what should be) a more visible color
+    div.nav-folder-title[data-path^="xtras/from-backup"] div.nav-folder-title-content,
+    div.nav-file-title[data-path^="xtras/from-backup"] div.nav-file-title-content {
+      color: var(--interactive-accent-text);
+    }
+
+    // **************************************
+    // " - Home" Files
+    // **************************************
+    div.nav-file-title[data-path*=" - Home"] div.nav-file-title-content::after {
+      content: " 🏠";
+    }
+  }
+}

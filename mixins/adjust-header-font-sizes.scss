@@ -1,0 +1,56 @@
+// Consistent header sizes based on one setting
+// > over a year later, I don't *for sure* know what the above means
+@mixin add-classes($overlayClasses: '', $snippetClasses: '') {
+body#{$overlayClasses}#{$snippetClasses} {
+  $max-header-size: 1.1em;
+  // $max-header-size: 2.5em;
+  $h1-size: $max-header-size;
+  $h2-size: $max-header-size * 0.92;
+  $h3-size: $max-header-size * 0.83;
+  $h4-size: $max-header-size * 0.76;
+  // Adjust headers to be like in app.css always (mostly, maybe... dunno)
+  $header5-and-6: $max-header-size * 0.6;
+
+  $headers: (
+    "cm-header-1": $h1-size,
+    "cm-header-2": $max-header-size * 0.97,
+    "cm-header-3": $max-header-size * 0.83,
+    "cm-header-4": $max-header-size * 0.76,
+    "cm-header-5": $header5-and-6,
+    "cm-header-6": $header5-and-6,
+  );
+
+  @each $header, $size in $headers {
+    // .HyperMD-header {
+    // from app.css as of 11/16/2021, because I like the consistency
+    span.cm-header.cm-inline-code.#{$header},
+    span.cm-header.#{$header},
+  // Fix size of hashtags displayed in headers for Editor as well
+    span.cm-header.cm-hashtag.#{$header} {
+      font-size: $size;
+      // same as text-accent
+      //      color: hsl(var(--accent-h), var(--accent-s), $lum);
+    }
+    // }
+  }
+
+  $header-magnification: 1.3;
+
+  h1 {
+    font-size: $h1-size * $header-magnification;
+  }
+  h2 {
+    font-size: $h2-size * $header-magnification;
+  }
+  h3 {
+    font-size: $h3-size * $header-magnification;
+  }
+  h4 {
+    font-size: $h4-size * $header-magnification;
+  }
+  h5,
+  h6 {
+    font-size: $header5-and-6 * $header-magnification;
+  }
+}
+}

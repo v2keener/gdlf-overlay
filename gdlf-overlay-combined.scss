@@ -1,0 +1,5 @@
+// Combine my SCSS parts
+@use "gdlf-overlay";
+@use "gdlf-for-me";
+
+@include gdlf-for-me.add-snippet-classes(true);

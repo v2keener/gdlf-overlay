@@ -1,0 +1,15 @@
+body:is(.theme-light, .theme-dark) {
+  // Update Grandfather (plugin) div on status bar to
+  //  show in monospace font because I can't stand to
+  //  see it wiggle as it counts seconds in non-monospace
+  //  fonts. ymmv
+  div.status-bar-item.plugin-obsidian-grandfather {
+    font-family: "Fira Code", Inconsolata, Monaco, "Lucida Console", monospace;
+  }
+  div.status-bar-item.plugin-obsidian-grandfather {
+    // color: var(--text-accent);
+    // color: hsl(calc(var(--accent-h) + 80), 100%, /*var(--accent-s),*/ var(--accent-l));
+    color: hsl(var(--accent-h), 100%, var(--accent-l));
+    font-weight: 500;
+  }
+}

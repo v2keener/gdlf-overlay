@@ -1,0 +1,14 @@
+// Trying to get status bar in Default and/or Things themes to stay at bottom of Desktop app window
+//  taken from Prism as observed in WebDev tools
+// This makes the status bar "stick" to the bottom of the screen (at least on Windows 11 desktop)
+@mixin add-classes($overlayClasses: "", $snippetClasses: "") {
+  body#{$overlayClasses}#{$snippetClasses} {
+    div.status-bar {
+      position: relative;
+    }
+    // Keep  status bar from wrapping (which hides text I may wish to see)
+    div.status-bar .status-bar-item {
+      white-space: nowrap;
+    }
+  }
+}

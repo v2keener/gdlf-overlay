@@ -1,0 +1,56 @@
+// Mods that I tested and left here and/or mods that
+//  don't yet have a more specific file or
+//  style setting 
+// Mostly, this should be specific to my vault
+@mixin add-classes($snippetClasses: "") {
+  body#{$snippetClasses} {
+    // Hide anything under a frame from being clicked
+    div.glk-noclick {
+      position: absolute;
+      width: var(--max-doc-width);
+      background-color: #00330000;
+      /* HTML for an example usage, which displays a #mem 
+  <div class="glk-noclick" style="height:35vh;"></div>
+	<iframe src="https://mem.ai/m/5PAXl5ldf3aWAG2uI3FI" style="width:100%;height:35vh;border:none"></iframe>
+  */
+    }
+
+    // Make hr split for 'new topic' (the --- in Markdown) into a heavier line
+    div > div.hr.cm-line > hr {
+      border: 3px solid var(--interactive-accent);
+    }
+
+    // Make sure to wrap code lines within blocks
+    .theme-dark code[class*="language-"],
+    .theme-dark pre[class*="language-"],
+    .theme-light code[class*="language-"],
+    .theme-light pre[class*="language-"] {
+      white-space: pre-wrap;
+    }
+
+    // Reduce indent of ol/ul elements
+    ul {
+      padding-inline-start: 1.5em;
+    }
+    ol {
+      padding-inline-start: 1.5em;
+      margin-left: 1em;
+    }
+    .is-mobile .markdown-preview-view ul,
+    .is-mobile .markdown-preview-view ol {
+      padding-inline-start: 2em;
+    }
+    .footnotes-list {
+      font-size: var(--font-adaptive-small);
+    }
+
+    // Make sure checkboxes have --text-accent for their border color
+    .markdown-preview-view,
+    .markdown-source-view.is-live-preview {
+      input.task-list-item-checkbox {
+        // input.task-list-item-checkbox { //[type=checkbox] {
+        border: 2px solid var(--text-accent);
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+@mixin add-classes($overlayClasses: "", $snippetClasses: "") {
+  
+  body#{$overlayClasses} {
+    // --gdlf-editor-font-family: inherit;
+    --gdlf-editor-font-size: 90%;
+    --gdlf-frontmatter-font-size: 85%;
+    --gdlf-codeblock-font-size: 85%;
+    --gdlf-inline-code-font-size: 95%;
+    --gdlf-inline-code-color: var(--text-accent);
+    --gdlf-tag-font-size: 90%;
+  }
+  body#{$overlayClasses}#{$snippetClasses} {
+
+    // Set all content in editor to this font
+    .cm-content {
+      font-family: var(--gdlf-editor-font-family);
+      font-size: var(--gdlf-editor-font-size);
+    }
+
+    .cm-hmd-frontmatter {
+      font-size: var(--gdlf-frontmatter-font-size);
+      line-height: var(--gdlf-frontmatter-font-size);
+    }
+
+    .cm-hmd-codeblock {
+      font-size: var(--gdlf-codeblock-font-size);
+      line-height: var(--gdlf-codeblock-font-size);
+    }
+
+    .cm-s-obsidian span.cm-inline-code,
+    .cm-s-obsidian
+      span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code):not(.obsidian-search-match-highlight) {
+      font-size: var(--gdlf-inline-code-font-size);
+      color: var(--gdlf-inline-code-color);
+    }
+    // Same for preview (sans font-size adjustment)
+    .theme-light,
+    .theme-dark {
+      .markdown-preview-view code,
+      .markdown-preview-view kbd,
+      .markdown-rendered code,
+      .markdown-rendered kbd {
+        color: var(--gdlf-inline-code-color);
+      }
+    }
+
+    .cm-hashtag.cm-hashtag-end {
+      font-size: var(--gdlf-tag-font-size);
+    }
+    .tag {
+      font-size: var(--gdlf-tag-font-size);
+    }
+
+    // // Set all preview content to default to this font
+    // // // also applies to other things
+    // .markdown-preview-view,
+    // .view-header-title {
+    //   font-family: Bahnschrift, "Arial Nova", "Arial";
+    // }
+    .theme-dark,
+    .cm-s-obsidian span.cm-inline-code,
+    .theme-dark,
+    .cm-s-obsidian
+      span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code):not(.obsidian-search-match-highlight) {
+      border-color: var(--interactive-accent-tint);
+    }
+    //}
+  }
+}

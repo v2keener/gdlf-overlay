@@ -1,0 +1,73 @@
+/* this file is not used */
+// This adds letter 'G' in place of default document with dog-eared page corner
+body {
+  .workspace-leaf.mod-active div.view-header > div.view-header-icon {
+
+    > svg.document {
+      // width: 100%;
+      // height: 100%;
+      width: 1.2em;
+      height: 1.2em;
+      border: 0.2ex dotted grey; //var(--interactive-accent-text);
+      background-color: var(--background-primary);
+
+      > path {
+        // transform: scale(0.45); //old
+        transform: matrix(1.2, 0, 0, 0.7, -25, 0);
+        // // disabling following 2022 11 02 1157
+        // animation: file-icon-pulse 2000ms infinite;
+        // stroke: green;
+        stroke-width: 0.5ex;
+
+        d: path(
+          "m 59.041473,9.6233524 q 3.746655,-1.248885 7.215779,-1.248885 8.742195,0 14.015265,6.3831896 2.359005,2.7753 2.359005,4.99554 0,2.081475 -2.49777,2.081475 -2.49777,0 -5.82813,-2.359005 -3.88542,-2.914065 -8.187135,-2.914065 -3.052829,0 -5.689364,1.38765 -3.33036,1.66518 -8.04837,7.49331 -4.579245,5.82813 -7.354545,11.517495 -8.60343,17.623155 -8.60343,31.777185 0,7.354545 2.081475,15.54168 4.44048,16.929328 16.790565,22.618698 4.44048,2.08147 8.048369,2.08147 6.10566,0 17.900685,-7.77084 3.05283,-2.081473 3.60789,-3.191593 0.693825,-1.248885 1.11012,-5.689365 0.55506,-6.66072 0.55506,-14.15403 v -8.04837 l -9.297255,-0.416295 q -9.019725,-0.416295 -10.684905,-1.66518 -1.38765,-1.11012 -1.38765,-3.05283 0,-1.66518 1.11012,-2.359005 1.94271,-1.66518 16.92933,-1.66518 6.799485,0 8.04837,0.693825 2.636535,1.248885 3.469125,4.856775 0.83259,3.60789 0.83259,14.70909 0,7.909605 -0.138765,12.905145 -0.55506,25.116463 -0.971355,26.920413 -0.27753,1.80394 -2.359005,3.05283 -0.83259,0.41629 -1.66518,0.41629 -3.469125,0 -4.579245,-8.74219 l -0.693825,-5.68937 -4.579245,3.1916 q -7.354545,5.1343 -16.37427,5.1343 -9.297254,0 -17.761919,-5.5506 -8.3259,-5.68936 -12.76638,-15.541678 -2.636535,-5.5506 -4.301715,-13.737735 -1.66518,-8.187135 -1.66518,-15.26415 0,-16.92933 10.129845,-35.80137 10.129845,-18.87204 21.231045,-22.8962246 z"
+        ); 
+        // outline: outset 2.0ex var(--text-accent);
+        // outline-offset: 0.5ex;
+      }
+    }
+  }
+
+  .theme-dark {
+    --gdlf-file-header-svg-color: white;
+  }
+  .theme-light {
+    --gdlf-file-header-svg-color: inherit;
+  }
+
+  // @keyframes file-icon-pulse {
+  //   0% {
+  //     stroke: var(--interactive-accent-text);
+  //   }
+  //   50% {
+  //     stroke: var(--text-accent);
+  //   }
+  //   100% {
+  //     stroke: var(--gdlf-file-header-svg-color);
+  //   }
+  // }
+
+  /* Excerpt from Prism theme as of 20220802 1020
+
+body:not(.pt-disable-custom-icons) svg.document path:first-of-type {
+  d: path("M 0 0 H 150 V 150 H 0 Z");
+}
+
+
+body:not(.pt-disable-custom-icons) svg.document > * {
+  display: none;
+}
+
+
+body:not(.pt-disable-custom-icons) svg.document {
+  -webkit-mask-size: 21px;
+// **this is what needed to be turned to "none" in my custom stuff**
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' style='fill: rgba(0, 0, 0, 1);transform: ;msFilter:;'%3E%3Cpath d='M19.937 8.68c-.011-.032-.02-.063-.033-.094a.997.997 0 0 0-.196-.293l-6-6a.997.997 0 0 0-.293-.196c-.03-.014-.062-.022-.094-.033a.991.991 0 0 0-.259-.051C13.04 2.011 13.021 2 13 2H6c-1.103 0-2 .897-2 2v16c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V9c0-.021-.011-.04-.013-.062a.99.99 0 0 0-.05-.258zM16.586 8H14V5.414L16.586 8zM6 20V4h6v5a1 1 0 0 0 1 1h5l.002 10H6z'%3E%3C/path%3E%3C/svg%3E");
+}
+body:not(.pt-disable-custom-icons) .nav-file-icon svg.document {
+  -webkit-mask-size: 18px;
+}
+
+*/
+}
+

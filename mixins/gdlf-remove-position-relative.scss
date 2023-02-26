@@ -1,0 +1,16 @@
+// This is not a *used* file
+body {
+  // Keep themes from messing with linked scrolling of
+  // a linked edit and view screen, for instance
+  ul ul {
+    position: unset;
+  }
+  // .markdown-preview-view .task-list-item-checkbox
+  .markdown-preview-view p,
+  .markdown-preview-view ul,
+  .markdown-preview-view ol,
+  .markdown-preview-view blockquote {
+    position: unset;
+  }
+}
+

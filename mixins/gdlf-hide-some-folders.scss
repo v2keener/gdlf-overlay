@@ -1,0 +1,45 @@
+//
+//  gdlf: 20220624 0924 began as CSS
+//  gdlf: 20221005 1724 fixing this up
+//
+//  Based on:
+//    https://forum.obsidian.md/t/the-ability-to-hide-the-folder-with-attachments/13699
+//    where recommendation of following snippet is made:
+//OLD: @mixin add-classes($cssClassOrRoot: "body") {
+@mixin add-classes($overlayClasses: "", $snippetClasses: "") {
+  body#{$overlayClasses}#{$snippetClasses} {
+  //OLD: #{$cssClassOrRoot} {
+    /* hide template folders */
+    div[data-path='_templates_scripts'], div[data-path='_templates_scripts'] + div.nav-folder-children,
+  div[data-path='_templates_child'], div[data-path='_templates_child'] + div.nav-folder-children, 
+  div[data-path='_templates'], div[data-path='_templates'] + div.nav-folder-children ,
+  /* hide folder templates and other underscore templates */
+  div[data-path='_default.md'],
+  div[data-path='meetings/_meeting.md'],
+  div[data-path='daily/journal/_journal_for_day.md'],
+  div[data-path='daily/_daily.md'],
+  div[data-path='daily/_dailytest.md'],
+  div[data-path='contacts/_contact.md'],
+  /* hide archive folders */
+  div[data-path='contacts/_archive'], div[data-path='contacts/_archive'] + div.nav-folder-children,
+  div[data-path='xtras/_archive'], div[data-path='xtras/_archive'] + div.nav-folder-children,
+  div[data-path='study/_archive'], div[data-path='study/_archive'] + div.nav-folder-children,
+  div[data-path='zettel/_archive'], div[data-path='zettel/_archive'] + div.nav-folder-children,
+  /* hide any files that should be hid */
+  div[data-path='new-admin-passwords.md'] {
+      display: none;
+    }
+
+    // Hide default folder files (that I use as a personal convention)
+    div.nav-file-title[data-path*="_default"],
+    div.nav-file-title[data-path*="_zettel"],
+    div.nav-file-title[data-path*="_meeting"],
+    div.nav-file-title[data-path*="_daily"] {
+      display: none;
+    }
+    // Hide template file (and sub-template file) folders (that I use as a personal convention)
+    div.nav-folder-title[data-path*="/_templates"] {
+      display: none;
+    }
+  }
+}

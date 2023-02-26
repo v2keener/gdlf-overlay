@@ -1,0 +1,39 @@
+// This makes it so secondary background (documents) shows as a tone of 
+// the selected accent color
+// NOTE: It also affects the titlebar and tab backgrounds
+@mixin add-classes($overlayClasses: "", $snippetClasses: "") {
+  body#{$overlayClasses}#{$snippetClasses}:is(.theme-dark) {
+    // Trying to include cool background color based on accent...
+    --background-secondary: hsl(var(--accent-h), 80%, 4%);
+    --background-secondary-alt: hsl(var(--accent-h), 80%, 10%);
+    --background-modifier-hover: rgba(var(--mono-rgb-100), 0.075);
+    --background-modifier-active-hover: hsla(var(--interactive-accent-hsl), 0.15);
+    --background-modifier-border: hsl(var(--accent-h), 80%, 20%);
+    --background-modifier-border-hover: hsl(var(--accent-h), 80%, 30%);
+    --background-modifier-border-focus: hsl(var(--accent-h), 80%, 40%);
+
+    --titlebar-background: var(--background-secondary);
+    --titlebar-background-focused: hsl(var(--accent-h), 100%, 20%);
+
+    --tab-background-active: var(--background-primary);
+    --tab-container-background: var(--background-secondary);
+    --tab-divider-color: var(--background-modifier-border-hover);
+    --tab-outline-color: var(--divider-color);
+  }
+  body#{$overlayClasses}#{$snippetClasses}:is(.theme-light) {
+    --background-secondary: hsl(var(--accent-h), 80%, 94%);
+    --background-secondary-alt: hsl(var(--accent-h), 80%, 90%);
+    --background-modifier-active-hover: hsla(var(--interactive-accent-hsl), 0.15);
+    --background-modifier-border: hsl(var(--accent-h), 80%, 80%);
+    --background-modifier-border-hover: hsl(var(--accent-h), 80%, 70%);
+    --background-modifier-border-focus: hsl(var(--accent-h), 80%, 60%);
+
+    --titlebar-background: var(--background-secondary);
+    --titlebar-background-focused: hsl(var(--accent-h), 100%, 80%);
+
+    --tab-background-active: var(--background-primary);
+    --tab-container-background: var(--background-secondary);
+    --tab-divider-color: var(--background-modifier-border-hover);
+    --tab-outline-color: var(--divider-color);
+  }
+}

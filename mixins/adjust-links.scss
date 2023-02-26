@@ -1,0 +1,53 @@
+// 20220717: This should be specific to adding a bit of
+//  content to the beginning of *external* links,
+//  but it's untested and may not work on some
+//  themes.
+@mixin add-classes($overlayClasses: "", $snippetClasses: "") {
+  body#{$overlayClasses}#{$snippetClasses} {
+    // Internal links get a dotted line
+    span.cm-hmd-internal-link.cm-link-alias span.cm-underline {
+      text-decoration-style: dashed;
+    }
+
+    span.cm-link span.cm-underline:not(:hover) {
+      // --link-external-decoration: underline;
+      text-decoration-style: dashed;
+    }
+
+    // all links that aren't Obsidian links get a link emoji before
+    // .cm-s-obsidian.is-live-preview .cm-line:not(.cm-active) .cm-link::before {
+    //   // content: "🔗";
+    //   content: "🌐";
+    //   opacity: 0.4;
+    // }
+
+    // -------------------------------
+    // stop displaying little thing after a link
+    // .cm-s-obsidian.is-live-preview .cm-line:not(.cm-active) .cm-url {
+    //   display: none;
+    // }
+
+    // links will display as inline-block (can cause some formatting weirdness)
+    // .cm-s-obsidian.is-live-preview .cm-line:not(.cm-active) .cm-link
+    // {
+    //   display: inline-block;
+    // }
+
+    // external links indicators get lightning
+    //  (it's the class is at the end of each external link)
+    //  the text of the span is a little link box
+    span.external-link {
+      --link-external-decoration: none;
+    }
+    // span.external-link:before {
+    //   content: "⚡";
+    // }
+    span.external-link:hover {
+      text-decoration-style: dotted;
+    }
+
+    span.cm-link span.cm-underline {
+      overflow-wrap: break-word;
+    }
+  }
+}

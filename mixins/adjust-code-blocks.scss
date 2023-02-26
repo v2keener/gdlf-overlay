@@ -1,0 +1,27 @@
+// Control more of how code blocks display,
+//  overriding Obsidian app.css defaults.
+body {
+  // 2021 12 03 - checked for consistency between light/dark - OK
+  .theme-light {
+    --variable-color: blue;
+  }
+  .theme-dark {
+    --variable-color: rgb(191, 214, 255);
+  }
+
+  .theme-light,
+  .theme-dark {
+    .token.variable {
+      color: var(--variable-color);
+    }
+    .token.table-header {
+      color: var(--text-accent);
+    }
+
+    .markdown-rendered code {
+      position: relative;
+      top: -0.15em;
+    }
+  }
+}
+

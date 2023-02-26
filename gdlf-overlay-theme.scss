@@ -1,0 +1,209 @@
+/*!
+    Overlay Theme for Obsidian.md (Version: 0.2)
+    > A custom theme by Gustavo DeLaFuerza
+*/
+@use "mixins/adjust-background-to-accent-color.scss";
+@use "mixins/adjust-background-secondary-to-accent-color.scss";
+@use "mixins/adjust-bold-italic-to-accent-color";
+@use "mixins/adjust-cursor-and-activeline-background";
+@use "mixins/adjust-editor-font";
+@use "mixins/adjust-embed-blocks";
+@use "mixins/adjust-file-header";
+@use "mixins/adjust-fold-ellipsis";
+@use "mixins/adjust-footnotes";
+@use "mixins/adjust-header-colors-on-accent";
+@use "mixins/adjust-header-font-sizes";
+@use "mixins/adjust-images";
+@use "mixins/adjust-links";
+@use "mixins/adjust-mark-html";
+@use "mixins/adjust-status-bar";
+@use "mixins/adjust-tags-to-pills";
+@use "mixins/adjust-tag-colors-by-name";
+
+// Optional stuff that's also included (for Obsidian Snippet CSS) as part of gdlf-for-me.scss
+@use "gdlf-for-me";
+
+body {
+  --gdlf-editor-font-family: "Delafuerza Print", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
+}
+
+@include adjust-bold-italic-to-accent-color.add-classes;
+@include adjust-cursor-and-activeline-background.add-classes;
+@include adjust-background-to-accent-color.add-classes("", ".gdlf-background");
+@include adjust-background-secondary-to-accent-color.add-classes("", ".gdlf-background-secondary");
+@include adjust-editor-font.add-classes;
+@include adjust-embed-blocks.add-classes;
+@include adjust-file-header.add-classes;
+@include adjust-fold-ellipsis.add-classes;
+@include adjust-footnotes.add-classes;
+@include adjust-header-colors-on-accent.add-classes;
+@include adjust-header-font-sizes.add-classes;
+@include adjust-images.add-classes;
+@include adjust-links.add-classes;
+@include adjust-mark-html.add-classes;
+@include adjust-status-bar.add-classes;
+@include adjust-tags-to-pills.add-classes;
+@include adjust-tag-colors-by-name.add-classes("", ".gdlf-tag-colors-by-name");
+
+@include gdlf-for-me.add-snippet-classes;
+
+// ****************************************************************
+// STYLE SETTINGS for GDLF Overlay
+//  - these should be the same as for gdlf-overlay.scss
+//    - exceptions: tag-colors-by-name, background, background-secondary
+//
+// The best method I have for keeping this from being confusing
+// is to diff between gldf-overlay.scss and this file to see 
+// that the Style Settings match between files.
+// ****************************************************************
+
+/* @settings
+
+name: GDLF Overlay Theme features and settings
+id: gdlf-enable-overlay-features
+settings:
+  - 
+    id: gdlf-editor-font-family
+    title: 📏🔨 Editor font-family
+    description: Change the editor font (via gdlf-editor-font.scss)
+    type: variable-select
+    default: '"Delafuerza Print","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    options: 
+    -
+      label: Default
+      value: inherit
+    -
+      label: Bradley Hand
+      value: '"Bradley Hand","Delafuerza Print","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'  
+    -
+      label: Book Antiqua
+      value: '"Book Antiqua","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    -
+      label: Cascadia Mono PL
+      value: '"Cascadia Mono PL","FiraCode Nerd Font","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    -
+      label: Corbel
+      value: 'Corbel,"FiraCode Nerd Font","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    -
+      label: Consolas
+      value: 'Consolas,"FiraCode Nerd Font","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    -
+      label: Convection
+      value: 'Convection,"FiraCode Nerd Font","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    -
+      label: DM Mono
+      value: '"DM Mono","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    -
+      label: FiraCode
+      value: '"FiraCode","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    -
+      label: FiraMono Nerd Font
+      value: '"FiraMono Nerd Font","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    -
+      label: Hack Nerd Font
+      value: '"Hack Nerd Font","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    -
+      label: Inconsolata
+      value: 'Inconsolata,"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    -
+      label: Ink Journal
+      value: '"Ink Journal","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    -
+      label: Lucida Console
+      value: '"Lucida Console","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    -
+      label: Noto Sans
+      value: '"Noto Sans","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    -
+      label: Prompt
+      value: 'Prompt,"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    -
+      label: Times New Roman
+      value: '"Times New Roman","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    -
+      label: Veranda
+      value: 'Veranda,"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    -
+      label: Inter
+      value: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif
+    -
+      label: 💎 DeLaFuerza Print (GDLF Overlay Default)
+      description: The GDLF Overlay default font via @font-family declaration
+      value: '"Delafuerza Print","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+  -
+    id: gdlf-editor-font-size
+    title: 📏🔨 Editor font size (adjustment)
+    description: The percent font size when in Edit mode. Default is 90%
+    type: variable-number-slider
+    format: '%'
+    default: 90
+    min: 60
+    max: 130
+    step: 5
+  -
+    id: gdlf-tag-font-size
+    title: 🏷️🔨 Tag font size (adjustment)
+    description: The percent font size for tags in edit and preview. Default is 90%
+    type: variable-number-slider
+    format: '%'
+    default: 90
+    min: 60
+    max: 130
+    step: 5
+  -
+    id: gdlf-frontmatter-font-size
+    title: ️🔨 Frontmatter font size (adjustment)
+    description: The Frontmatter percent font size when in Edit mode. Default is 85%
+    type: variable-number-slider
+    format: '%'
+    default: 85
+    min: 60
+    max: 130
+    step: 5
+  -
+    id: gdlf-codeblock-font-size
+    title: 🧑‍💻 Code block font size (adjustment)
+    description: The Code block percent font size when in Edit mode. Default is 85%
+    type: variable-number-slider
+    format: '%'
+    default: 85
+    min: 60
+    max: 130
+    step: 5
+  -
+    id: gdlf-inline-code-font-size
+    title: 🧑‍💻 Inline code font size (adjustment)
+    description: The inline code percent font size when in Edit mode. Default is 95%
+    type: variable-number-slider
+    format: '%'
+    default: 95
+    min: 60
+    max: 130
+    step: 5
+  -
+    id: gdlf-inline-code-color
+    title: 🧑‍💻🎨 Inline code text color
+    description: The inline code color. Default is var(--text-accent). You may change it to whatever, since it's a string field
+    default: "var(--text-accent)"
+    type: variable-text
+  -
+    id: gdlf-tag-colors-by-name
+    title: 🏷️🖌️ Tag Colors on Accent Color
+    description: Allows certain-named tags to display with specific colors. At present, only adjustable at the level of SCSS/CSS.
+    type: class-toggle
+    default: true    
+  - 
+    id: gdlf-background
+    title: 🌈 Adjust primary (document) background tones to match the Accent Color
+    description: The primary background for your documents will be a tone of the Accent Color you choose.
+    type: class-toggle  
+    default: true
+  - 
+    id: gdlf-background-secondary
+    title: 🌈 Adjust secondary (app) background tones to match the Accent Color
+    description: The secondary background for Obsidian will be a tone of the Accent Color you choose.
+    type: class-toggle  
+    default: true
+*/
+
