@@ -23,11 +23,12 @@ sass -w ".\gdlf-for-me-wrapper.scss" "$snippets\gdlf-for-me.css" --no-source-map
 
 # Settings for other themes (Default, Prism)
 # From https://github.com/mgmeyers/obsidian-style-settings/blob/main/obsidian-default-theme.css
-sass -w ".\mixins\obsidian-default-settings.scss" "$snippets\obsidian-default-settings.css" --no-source-map &
+# sass -w ".\mixins\obsidian-default-settings.scss" "$snippets\obsidian-default-settings.css" --no-source-map &
 # sass -w ".\mixins\gdlf-theme-prism-extras.scss" "$snippets\gdlf-theme-prism-extras.css" --no-source-map &
 
 sass -w ".\gdlf-overlay-combined.scss" "$snippets\gdlf-full-overlay.css" --no-source-map &
-sass -w ".\gdlf-overlay-theme.scss" "$snippets\..\themes\Gdlf Overlay\theme.css" --no-source-map &
+# For the next command to work, you need an "Overlay" folder under your "themes" directory...
+sass -w ".\gdlf-overlay-theme.scss" "$snippets\..\themes\Overlay\theme.css" --no-source-map &
 sass -w ".\gdlf-overlay-theme.scss" "theme.css" --no-source-map &
 
 # Now do plugins last
