@@ -1,11 +1,9 @@
-# Don't run this in PowerShell Integrated whatever that VS Code has...
-# (meant for pwsh 7.2 LTS or above)
 # Must have sass available to CLI
 
 # Note that all the following is using PowerShell (pwsh) on Windows 10/11
 
 # directory of $dot_obsidian_folder should be `your-vault/.obsidian`
-#  It's the first parameter (e.g. `.\deploySASSY.ps1 'C:\your-vault\.obsidian')
+#  It's the first parameter (e.g. `.\deploySASSY.ps1 'C:\your-vault\.obsidian' `)
 
 #  (The .obsidian folder)
 
@@ -57,6 +55,7 @@ sass -w ".\gdlf-overlay-combined.scss" "$dot_obsidian_folder\snippets\gdlf-full-
 $overlay_path = $( Join-Path $dot_obsidian_folder "/themes/Overlay" )
 If(!(Test-Path -Path $overlay_path))
 {
+  Write-Host "Creating Overlay theme folder..."
   # adapted from https://stackoverflow.com/questions/16906170/create-directory-if-it-does-not-exist#46714857 
   New-Item -ItemType Directory -Path $overlay_path -Force | Out-Null
   Copy-Item .\manifest.json $overlay_path -Force | Out-Null
