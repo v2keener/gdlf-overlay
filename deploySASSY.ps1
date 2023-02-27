@@ -35,6 +35,7 @@ This will run some jobs to create:
   - snippets/plugin-todo-list.css
 
   Of the optional ones, the grandfather.css CSS is most current
+
 '@
 Write-Output ("CSS for the dot_obsidian_folder will be written to " + $dot_obsidian_folder)
 
