@@ -6,17 +6,36 @@
 
 # directory of $dot_obsidian_folder should be `your-vault/.obsidian`
 #  It's the first parameter (e.g. `.\deploySASSY.ps1 'C:\your-vault\.obsidian')
+
 #  (The .obsidian folder)
+
 $dot_obsidian_folder = $args[0]
 
-# if(!(Test-Path $dot_obsidian_folder))
-# {
-#   Exit-PSHostProcess
-# }
+# Don't do this if the folder isn't a folder
+if(!(Test-Path $dot_obsidian_folder))
+{
+  # (Note that Test-Path didn't care if the 
+  # folder is really a vault's .obsidian folder)
+  
+  Write-Host (".obsidian folder of '" + $dot_obsidian_folder + "' not found")
+  Exit
+}
 
-# echo $dot_obsidian_folder
+Write-Output @'
+This will run some jobs to create:
 
-Write-Output "This will run some jobs."
+- snippets/gdlf-overlay.css
+- snippets/gdlf-for-me.css
+- snippets/gdlf-full-overlay.css
+- themes/Overlay/theme.css
+
+- (optional, uncomment the lines)
+  - snippets/plugin-reminders.css
+  - snippets/plugin-grandfather.css 
+  - snippets/plugin-todo-list.css
+
+  Of the optional ones, the grandfather.css CSS is most current
+'@
 Write-Output ("CSS for the dot_obsidian_folder will be written to " + $dot_obsidian_folder)
 
 # Print settings (settings for PDF, printing)
@@ -28,25 +47,24 @@ sass -w .\mixins\gdlf-media-print.scss "$dot_obsidian_folder\snippets\gdlf-media
 sass -w ".\gdlf-overlay.scss" "$dot_obsidian_folder\snippets\gdlf-overlay.css" --no-source-map &
 sass -w ".\gdlf-for-me-wrapper.scss" "$dot_obsidian_folder\snippets\gdlf-for-me.css" --no-source-map &
 
-# Settings for other themes (Default, Prism)
-# From https://github.com/mgmeyers/obsidian-style-settings/blob/main/obsidian-default-theme.css
-# sass -w ".\mixins\obsidian-default-settings.scss" "$dot_obsidian_folder\snippets\obsidian-default-settings.css" --no-source-map &
-# sass -w ".\mixins\gdlf-theme-prism-extras.scss" "$dot_obsidian_folder\snippets\gdlf-theme-prism-extras.css" --no-source-map &
-
+# Overlay with stuff for me included
 sass -w ".\gdlf-overlay-combined.scss" "$dot_obsidian_folder\snippets\gdlf-full-overlay.css" --no-source-map &
-# For the next command to work, you need an "Overlay" folder under your "themes" directory...
-$overlay_path = ( Join-Path $dot_obsidian_folder "/themes/Overlay")
-# echo $overlay_path
+
+# For the next command to work, you need an "Overlay" 
+# folder under your "themes" directory...
+
+$overlay_path = $( Join-Path $dot_obsidian_folder "/themes/Overlay" )
 If(!(Test-Path -Path $overlay_path))
 {
-  # this is from https://stackoverflow.com/questions/16906170/create-directory-if-it-does-not-exist#46714857
-  New-Item -ItemType Directory -Path $overlay_path
+  # adapted from https://stackoverflow.com/questions/16906170/create-directory-if-it-does-not-exist#46714857 
+  New-Item -ItemType Directory -Path $overlay_path -Force | Out-Null
+  Copy-Item .\manifest.json $overlay_path -Force | Out-Null
 }
-sass -w ".\gdlf-overlay-theme.scss" "$dot_obsidian_folder\themes\Overlay\theme.css" --no-source-map &
-# Render to the root of project
-sass -w ".\gdlf-overlay-theme.scss" "theme.css" --no-source-map &
 
-# Now do plugins last
-sass -w ".\mixins\plugin-reminders.scss" "$dot_obsidian_folder\snippets\plugin-reminders.css" --no-source-map &
-sass -w ".\mixins\plugin-grandfather.scss" "$dot_obsidian_folder\snippets\plugin-grandfather.css" --no-source-map &
-sass -w ".\mixins\plugin-todo-list.scss" "$dot_obsidian_folder\snippets\plugin-todo-list.css" --no-source-map &
+# Render the actual theme.css
+sass -w ".\gdlf-overlay-theme.scss" "$dot_obsidian_folder\themes\Overlay\theme.css" --no-source-map &
+
+# # Now do plugins last
+# sass -w ".\mixins\plugin-reminders.scss" "$dot_obsidian_folder\snippets\plugin-reminders.css" --no-source-map &
+# sass -w ".\mixins\plugin-grandfather.scss" "$dot_obsidian_folder\snippets\plugin-grandfather.css" --no-source-map &
+# sass -w ".\mixins\plugin-todo-list.scss" "$dot_obsidian_folder\snippets\plugin-todo-list.css" --no-source-map &

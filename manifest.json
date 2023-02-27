@@ -1,0 +1,11 @@
+{
+	"name": "Overlay",
+	"version": "0.31",
+	"minAppVersion": "1.1.0",
+	"author": "@v2keener",
+	"authorUrl": "https://vidadelafuerza.com",
+  "repo": "v2keener/gdlf-overlay",
+  "screenshot": "overlay-1920x1080.png",
+  "modes": ["dark", "light"],
+  "branch": "main"
+}
