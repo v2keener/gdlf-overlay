@@ -112,20 +112,22 @@ body {
 
 body {
   --activeline-border-radius: 0.9ex;
-}
-body div.cm-active.cm-line,
-body div.cm-content div.cm-active.cm-line.HyperMD-list-line {
   --active-background-color-2: hsla(var(--accent-h), 70%, calc(var(--accent-s) + var(--saturation-mod-s)), 4%);
   --active-background-color-3: hsla(var(--accent-h), 90%, calc(var(--accent-s) + var(--saturation-mod-s)), 8%);
   --active-background-color-1: hsla(var(--accent-h), 70%, calc(var(--accent-s) + var(--saturation-mod-s)), 12%);
+}
+body div.cm-active.cm-line,
+body div.cm-content div.cm-active.cm-line.HyperMD-list-line {
   background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) 70%);
   border-radius: var(--activeline-border-radius);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 body .markdown-source-view .cm-gutters .cm-lineNumbers div.cm-gutterElement.cm-active {
-  background: hsla(var(--accent-h), 100%, calc(var(--accent-s) - 30%), 0.1);
+  background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) 70%);
   border-radius: var(--activeline-border-radius);
+  border-top: 1px solid var(--background-secondary-alt);
+  border-bottom: 1px solid var(--background-secondary-alt);
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
