@@ -276,10 +276,13 @@
     }
 
     // **************************************
-    // " - Home" Files
+    // " - Home" Files, including the README.md
     // **************************************
-    div.nav-file-title[data-path*=" - Home"] div.nav-file-title-content::after {
-      content: " 🏠";
+    div.nav-file-title[data-path*=" - Home"],
+    div.nav-file-title[data-path="README.md"] {
+      div.nav-file-title-content::after {
+        content: " 🏠";
+      }
     }
   }
 }

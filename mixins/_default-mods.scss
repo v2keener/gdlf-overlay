@@ -1,13 +1,13 @@
 // Mods that I tested and left here and/or mods that
 //  don't yet have a more specific file or
-//  style setting 
+//  style setting
 // Mostly, this should be specific to my vault
 @mixin add-classes($snippetClasses: "") {
   body#{$snippetClasses} {
     // Hide anything under a frame from being clicked
     div.glk-noclick {
       position: absolute;
-      width: var(--max-doc-width);
+      // width: var(--max-doc-width);
       background-color: #00330000;
       /* HTML for an example usage, which displays a #mem 
   <div class="glk-noclick" style="height:35vh;"></div>
@@ -28,18 +28,20 @@
       white-space: pre-wrap;
     }
 
-    // Reduce indent of ol/ul elements
-    ul {
-      padding-inline-start: 1.5em;
-    }
-    ol {
-      padding-inline-start: 1.5em;
-      margin-left: 1em;
-    }
-    .is-mobile .markdown-preview-view ul,
-    .is-mobile .markdown-preview-view ol {
-      padding-inline-start: 2em;
-    }
+    // // Reduce indent of ol/ul elements
+    // disabled because it doesn't seem like it does anything anymore since sometime before 2023 04 19
+    // ul {
+    //   padding-inline-start: 1.5em;
+    // }
+    // ol {
+    //   padding-inline-start: 1.5em;
+    //   margin-left: 1em;
+    // }
+    // .is-mobile .markdown-preview-view ul,
+    // .is-mobile .markdown-preview-view ol {
+    //   padding-inline-start: 2em;
+    // }
+
     .footnotes-list {
       font-size: var(--font-adaptive-small);
     }
@@ -52,5 +54,33 @@
         border: 2px solid var(--text-accent);
       }
     }
+
+    // Tags that are not collapsible (i.e. have no subtags)
+    //  display with a bullet, which is `#u2022;` in html
+    //  with a heavy font-weight
+    // This aligns them with items that *do* have subtags
+    //  without making the time seem like a subtag of
+    //  the collapsible tag above or below it
+    .tree-item-self.tag-pane-tag.is-clickable:not(.mod-collapsible)::before {
+      // content: '\2043'; // unicode 'hyphen bullet'
+      font-weight: 900;
+      content: "\2022";
+      color: var(--nav-collapse-icon-color);
+      width: 2ex;
+    }
+
+    // Change view-header height (default is 40px as of 2023 04 19)
+    --header-height: 30px; // anything lower than this cuts off icons
+    // Change view-header-title-container a.k.a. titlebar height (2023 04 21)
+    --titlebar-height: var(--header-height);
+
+    // .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer {
+    //   // margin-right: auto; // same as app.css
+    //   // padding-right: 1em;
+    // }
+    // .markdown-source-view.mod-cm6 .cm-sizer {
+    //   width: 110%; // no observed effect
+    //   align-items: stretch;
+    // }
   }
 }

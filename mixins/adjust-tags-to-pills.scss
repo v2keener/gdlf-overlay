@@ -6,64 +6,69 @@
 // class for this is (below)
 @mixin add-classes($overlayClasses: "", $snippetClasses: "") {
   body#{$overlayClasses}:is(.theme-dark) {
-    --tag-text-color: var(--background-primary);
+    // --tag-text-color: var(--background-primary);
+    --tag-text-color: var(--text-normal);
   }
   body#{$overlayClasses}:is(.theme-light) {
     --tag-text-color: var(--text-normal);
   }
   body#{$overlayClasses}#{$snippetClasses} {
     // Editor tags display to be seen in editor
-    .cm-hashtag.cm-hashtag-end {
-      // font-size: var(--editor-tag-font-size);
+
+    .cm-hashtag.cm-hashtag-end, .cm-hashtag.cm-hashtag-begin {
+      vertical-align: top;
       font-weight: 600;
       color: var(--tag-text-color);
       border-radius: 1.7ex;
-      padding: 0 0.5ex 0 0.5ex;
-      // margin-left: -0.5ex;
-      margin-right: -0.5ex;
-      padding-bottom: 0.5ex;
       padding-top: 0.3ex;
-      vertical-align: top;
-    }
+      padding-bottom: 0.2ex;
 
-    :not(.pt-disable-custom-icons) .cm-line .cm-hashtag-end {
-      padding-right: 0.5ex;
-      // account for margin-right
-      //  (slightly, I don't want kerning/spacing to look bad)
-      margin-right: -0.3ex;
+    }
+    // this is the '#' of the tag
+    .cm-hashtag.cm-hashtag-begin {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      padding-left: 0.1ex;
+      // margin-left: -0.5ex;
+    }
+    // this is the text portion of the tag
+    .cm-hashtag.cm-hashtag-end {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      padding-right: 0.4ex;
+      //padding-left: 0.1ex;
+      margin-right: -0.5ex;
+    }
+    // on hover, show underline
+    .cm-hashtag.cm-hashtag-end:hover,
+    .cm-hashtag.cm-hashtag-begin:hover{
+      text-decoration: underline;
+      outline: 0.2ex solid hsl(var(--accent-h), var(--accent-s), var(--accent-l))
     }
 
     // Tags in Preview (where pills will show)
     .tag {
-      background-color: var(--tag-default-bg-color);
+      // cursor: pointer;
+      // background-color: var(--tag-default-bg-color);
       border: none;
       color: var(--tag-text-color);
       // font-size: var(--tag-font-size);
-      line-height: 1.6em;
+      line-height: 1.4em;
       text-align: center;
       text-decoration: none;
       font-style: normal;
       display: inline-block;
-      cursor: pointer;
       border-radius: 1.7ex;
-      padding: 0 0.5ex 0 0.5ex;
-      margin: 0.1ex 0 0.1ex -0.2ex;
+      padding: 0 0.3ex 0 0;
+      margin: 0.1ex 0 0 -0.2ex;
       border-bottom-width: 0.2ex; // not sure this has an effect
       position: relative;
       top: -0.1em;
     }
-    // Tags in Editor - no pills will show, just the background color
-    span[class~="cm-hashtag"][class~="cm-hashtag-end"] {
-      background-color: var(--tag-default-bg-color);
-    }
     // default
     .tag:hover {
-      color: var(--tag-text-color);
-      // background-color: var(--hover-color);
-      //filter: drop-shadow(0.25rem 0 0.75rem var(--hover-color));
       border-style: dashed;
-      border-width: 0.1ex;
-      // margin: 0 0 0 -0.4ex;
+      outline: 0.3ex solid hsl(var(--accent-h), var(--accent-s), var(--accent-l))
     }
 
     // .theme-light and .theme-dark have different hover effects
@@ -73,24 +78,5 @@
     .theme-dark .tag:hover {
       filter: drop-shadow(0.25rem 0 0.75rem var(--hover-color));
     }
-
-
-    // Show the hashtag with no background or border or padding
-    span.cm-formatting.cm-formatting-hashtag.cm-hashtag.cm-hashtag-begin {
-      border: none;
-      background: transparent;
-      padding: 0;
-    }
-
-    /*
-    // Might be more specific to Prism theme - removes a pretty tag icon that makes
-    //  the tag pills look out-of-place (which they somewhat are in Prism theme).
-    //  I get the impression that the cool thing about Prism is that I could adapt
-    //  my tags to be more fitting with whichever color scheme because all
-    //  the HSLA values are there.
-    :not(.pt-disable-custom-icons) .cm-line span.cm-hashtag-begin::before {
-      display: none;
-    }
-    */
   }
 }

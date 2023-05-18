@@ -1,5 +1,13 @@
 @mixin add-classes($overlayClasses: "", $snippetClasses: "") {
   
+    // Set all content in editor to this font
+    // .cm-content, 
+    .markdown-source-view.mod-cm6 .cm-scroller,
+    .markdown-source-view {
+      font-family: var(--gdlf-editor-font-family);
+      // font-size: var(--gdlf-editor-font-size);
+    }
+    
   body#{$overlayClasses} {
     // --gdlf-editor-font-family: inherit;
     --gdlf-editor-font-size: 90%;
@@ -11,20 +19,20 @@
   }
   body#{$overlayClasses}#{$snippetClasses} {
 
-    // Set all content in editor to this font
-    .cm-content {
-      font-family: var(--gdlf-editor-font-family);
-      font-size: var(--gdlf-editor-font-size);
-    }
+    // Here, I tried using :has() to 
+    // select the div.cm-line *FOR* the span.cm-hmd.frontmatter,
+    // but that's not supported by Electron and/or Obsidian.md
+    // 
+    // Since 2021, it's supported by most browsers
+    // 
+    // (See https://developer.mozilla.org/en-US/docs/Web/CSS/:has ) 
 
     .cm-hmd-frontmatter {
       font-size: var(--gdlf-frontmatter-font-size);
-      line-height: var(--gdlf-frontmatter-font-size);
     }
 
     .cm-hmd-codeblock {
       font-size: var(--gdlf-codeblock-font-size);
-      line-height: var(--gdlf-codeblock-font-size);
     }
 
     .cm-s-obsidian span.cm-inline-code,
@@ -44,19 +52,16 @@
       }
     }
 
-    .cm-hashtag.cm-hashtag-end {
+    // Tags for editor
+    .cm-hashtag.cm-hashtag-end, .cm-hashtag.cm-hashtag-begin {
       font-size: var(--gdlf-tag-font-size);
     }
+    // Tags for preview
     .tag {
       font-size: var(--gdlf-tag-font-size);
     }
 
-    // // Set all preview content to default to this font
-    // // // also applies to other things
-    // .markdown-preview-view,
-    // .view-header-title {
-    //   font-family: Bahnschrift, "Arial Nova", "Arial";
-    // }
+    // Set all preview content to default to this font
     .theme-dark,
     .cm-s-obsidian span.cm-inline-code,
     .theme-dark,

@@ -3,11 +3,12 @@
 // Everything after this *shouldn't
 // match the gdlf-overlay-theme.scss
 // ****************************************************************
-@use "mixins/_default-mods";
-@use "mixins/_default-style";
 
 // Adds "Delafuerza Print" @font-family (base64 string)
 @use "mixins/gdlf-add-dlfprint-font-face";
+
+@use "mixins/_default-mods";
+@use "mixins/_default-style";
 
 @use "mixins/gdlf-cursor-rainbow";
 @use "mixins/adjust-remove-embed-file-title";
@@ -76,7 +77,9 @@ settings:
 */
   } @else {
     @include default-mods.add-classes;
+    // something here busts docs in their own app window: 
     @include default-style.add-classes;
+
     @include gdlf-cursor-rainbow.add-classes;
     @include adjust-remove-embed-file-title.add-classes;
     @include adjust-root-folder-add-title-content.add-classes;

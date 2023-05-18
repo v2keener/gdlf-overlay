@@ -1,19 +1,21 @@
-// This is the place I put styles that don't 
+// This is the place I put styles that don't
 //  have another place (yet)
 @mixin add-classes($overlayClasses: "", $snippetClasses: "") {
   body {
     --luminence-mod-l: 0;
     --text-selection: hsla(var(--interactive-accent-hsl), 0.25);
+    // Comments are easily visible in editor view
+    --code-comment: var(--color-base-60);
+    // Start and end '%%' for comments still display as faint text
+    .cm-comment-start,
+    .cm-comment-end {
+      color: var(--text-faint);
+    }
   }
 
   // -- Overrides for any theme
   #{$overlayClasses}.theme-light {
     --luminence-mod-l: 15%;
-    // Based on primary accent which is derived from
-    // --accent-h, --accent-s, and --accent-l
-    // and set to --color-accent-hsl
-    // that color-accent-hsl is the same as for
-    // --interactive-accent-hsl for the default theme as of 20221221
     /*
     from app.css:
     Accent HSL values 
@@ -30,10 +32,8 @@
 
   body#{$overlayClasses}#{$snippetClasses} {
     // Set variable for line width (used by app.css as of Obsidian 1.1)
-    --file-line-width: 32em; //500px;
-    // --file-line-width: 500px;
+    --file-line-width: 35em;
     --gdlf-search-background-color: var(--text-highlight-bg);
-    // --text-selection: hsla(var(--color-accent-hsl), 0.2);
 
     .theme-light,
     .theme-dark {
@@ -59,35 +59,12 @@
       --interactive-accent-l: var(--accent-l);
     }
 
-    // // Keeping the animation keyframes for the above
-    // // - they seem useful
-    // @keyframes irritate-pulse {
-    //   0% {
-    //     color: #0077ff;
-    //   }
-    //   50% {
-    //     color: rgb(74, 255, 119);
-    //   }
-    //   100% {
-    //     color: #ff4136;
-    //   }
-    // }
-
     // Make it so the tilde (`) of inline code displays without extra width in padding
     //  It should make inline code easier to edit (without weird letter spacing)
     span.cm-formatting.cm-formatting-code.cm-inline-code.cm-list-2 {
       padding: 0;
     }
 
-    // // Following adjusts search highlight background and should be placed elsewhere
-    // .theme-light {
-    //   // --gdlf-search-background-image: var(--rainbow-image-url);
-    //   --gdlf-search-background-blend-mode: lighten;
-    // }
-    // .theme-dark {
-    //   // --gdlf-search-background-image: var(--rainbow-image-url);
-    //   --gdlf-search-background-blend-mode: darken;
-    // }
     .is-flashing,
     .is-flashing *,
     .cm-s-obsidian span.obsidian-search-match-highlight {
@@ -112,66 +89,31 @@
       content: "👀";
     }
   }
-  //gdlf caret color based on accent color
-  #{$overlayClasses}.theme-light {
-    --caret-l: 40%;
-  }
-  #{$overlayClasses}.theme-dark {
-    --caret-l: 60%;
-  }
-  #{$overlayClasses}.theme-dark *,
-  #{$overlayClasses}.theme-light * {
-    //// Probably not part of Electron apps yet:
-    // caret-shape: block;
-    // caret-shape: bar;
-    // caret-shape: auto;
-    // caret-shape: underscore;
-    caret-color: hsl(calc(var(--accent-h)), 100%, var(--caret-l));
+
+  body .view-header {
+    border-bottom: var(--divider-width) solid var(--divider-color);
   }
 
-  // // **********************************
-  // // CSS from app.css
-  // //
-  // // Seeing if I can affect the cursor
-  // // **********************************
-  // .CodeMirror-cursor {
-  //   border-left: 5px solid black;
-  //   border-right: none;
-  //   width: 0;
-  // }
-  // /* Shown when moving in bi-directional text */
-  // .CodeMirror div.CodeMirror-secondarycursor {
-  //   border-left: 5px solid silver;
-  // }
-  // .cm-fat-cursor .CodeMirror-cursor {
-  //   width: auto;
-  //   border: 0 !important;
-  //   background: var(--interactive-accent);
-  //   color: var(--text-on-accent);
-  // }
-  // .cm-fat-cursor div.CodeMirror-cursors {
-  //   z-index: 1;
-  // }
-  // .cm-fat-cursor-mark {
-  //   background-color: rgba(20, 255, 20, 0.5);
-  //   -webkit-animation: blink 1.06s steps(1) infinite;
-  //   -moz-animation: blink 1.06s steps(1) infinite;
-  //   animation: blink 1.06s steps(1) infinite;
-  // }
-  // .cm-animate-fat-cursor {
-  //   width: auto;
-  //   border: 0;
-  //   -webkit-animation: blink 1.06s steps(1) infinite;
-  //   -moz-animation: blink 1.06s steps(1) infinite;
-  //   animation: blink 1.06s steps(1) infinite;
-  //   background: var(--interactive-accent);
-  //   color: var(--text-on-accent);
-  // }
-  .ͼ1 .cm-cursor,
-  .ͼ1 .cm-dropCursor {
-    // Make cursor a bit larger when selecting and using multiple carets
-    // - The one caret that has OS-level focus remains controlled by the OS
-    border-left-width: 0.2ex;
+  // Add a line left and right of text to show left margin
+  //  along with a little padding to keep text from running
+  //  into those edges
+  div.cm-sizer div.cm-contentContainer div[class="cm-content"] {
+    border-left: 1px dashed var(--background-secondary-alt);
+    border-right: 1px dashed var(--background-secondary-alt);
+    padding-left: 2px;
+    padding-right: 2px;
   }
 
+  // Remove right and inline-end padding for line numbers`
+  div.cm-sizer div.cm-contentContainer div[class="cm-gutters"] {
+    padding-inline-end: 0px; 
+    padding-right: 0px; 
+  }
+  // Add (some) right padding for line numbers
+  div[class="cm-lineNumbers"] div[class="cm-gutterElement"]{
+    // The following will keep the active-line background in 
+    //  the padding
+    padding-right: calc(var(--file-folding-offset) * 0.3);
+  }
+  
 }

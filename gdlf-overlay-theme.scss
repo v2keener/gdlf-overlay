@@ -23,21 +23,21 @@
 // Optional stuff that's also included (for Obsidian Snippet CSS) as part of gdlf-for-me.scss
 @use "gdlf-for-me";
 
-body {
+:root {
   --gdlf-editor-font-family: "Delafuerza Print", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
 }
 
+@include adjust-editor-font.add-classes;
 @include adjust-bold-italic-to-accent-color.add-classes;
+@include adjust-header-colors-on-accent.add-classes;
 @include adjust-cursor-and-activeline-background.add-classes;
 @include adjust-background-to-accent-color.add-classes("", ".gdlf-background");
 @include adjust-background-secondary-to-accent-color.add-classes("", ".gdlf-background-secondary");
-@include adjust-editor-font.add-classes;
 @include adjust-embed-blocks.add-classes;
 @include adjust-file-header.add-classes;
 @include adjust-fold-ellipsis.add-classes;
 @include adjust-footnotes.add-classes;
-@include adjust-header-colors-on-accent.add-classes;
 @include adjust-header-font-sizes.add-classes;
 @include adjust-images.add-classes;
 @include adjust-links.add-classes;

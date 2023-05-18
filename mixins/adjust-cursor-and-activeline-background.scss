@@ -12,6 +12,8 @@
   }
 
   body#{$overlayClasses}#{$snippetClasses} {
+    --activeline-border-radius: 0.9ex;
+
     // For 2022 editor (while also previewing)
     div.cm-active.cm-line,
     div.cm-content div.cm-active.cm-line.HyperMD-list-line {
@@ -28,14 +30,18 @@
       ); 
 
       // background-color: var(--active-background-color-1);
-      border-radius: 0.5ex;
+      border-radius: var(--activeline-border-radius);
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
 
     // Copied from theme "Cyber Glow" 20221122 1532
     // This highlights the active line number
     .markdown-source-view .cm-gutters .cm-lineNumbers div.cm-gutterElement.cm-active {
       background: hsla(var(--accent-h), 100%, calc(var(--accent-s) - 30%), 0.1);
-      border-radius: 0.5ex;
+      border-radius: var(--activeline-border-radius);
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
 
   }

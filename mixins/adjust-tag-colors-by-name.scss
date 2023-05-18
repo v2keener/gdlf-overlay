@@ -1,25 +1,64 @@
 /* Custom tag colors for specific tags */
 @mixin add-classes($overlayClasses: "", $snippetClasses: "") {
-  body#{$overlayClasses}.theme-dark{
-    --school-color: #aea1e8;
-    --server-color: hsl(0, 79%, 87%);
-    --banner-color: hsl(120, 59%, 75%);
-    --tech-color: hsl(61, 59%, 75%);
-    --app-color: hsl(212, 77%, 85%);
-    --slack-color: hsl(37, 66%, 57%);
-    --share-color: hsl(310, 93%, 73%);
-    --issue-color: hsl(0, 100%, 72%);
-    --knowledge-color: rgb(240, 240, 124);
-    --tag-default-bg-color: hsl(204, 25%, 61%);
+  // set hue
+  body#{$overlayClasses}{
+    // this is just to see what hue I pick before I try it below
+    // --ye-color-tester-for-vs-code: hsl(204, 88%, 41%);
+
+    // shade of purple
+    --school-h: 271;
+    // shade of pink/red
+    --server-h: 324;
+    // shade of blue
+    --banner-h: 120;
+    // different shade of purple-ish
+    --tech-h: 300;
+    // different shade of blue-ish
+    --app-h: 226;
+    // shade of green
+    --slack-h: 65;
+    // shade of pink
+    --gdlf-h: 310;
+    // shade of red
+    --issue-h: 0;
+    // different shade of green
+    --knowledge-h: 153;
+    // shade of gray
+    --default-h: 204;
   }
+  // theme-dark tag pill colors
+  body#{$overlayClasses}.theme-dark{
+    --school-color: hsl(var(--school-h), 55%, 36%);
+    --server-color: hsl(var(--server-h), 79%, 40%);
+    --banner-color: hsl(var(--banner-h), 67%, 24%);
+    --tech-color: hsl(var(--tech-h), 83%, 39%);
+    --app-color: hsl(var(--app-h), 73%, 36%);
+    --slack-color: hsl(var(--slack-h), 90%, 27%);
+    --gdlf-color: hsl(var(--gdlf-h), 91%, 30%);
+    --issue-color: hsl(var(--issue-h), 87%, 38%);
+    --knowledge-color: hsl(var(--knowledge-h), 81%, 30%);
+    --tag-default-bg-color: hsl(var(--default-h), 91%, 31%);
+  }
+  // theme-light tag pill colors
+  body#{$overlayClasses}.theme-light {
+    --school-color: hsl(var(--school-h), 61%, 77%);
+    --server-color: hsl(var(--server-h), 67%, 75%);
+    --banner-color: hsl(var(--banner-h), 59%, 75%);
+    --tech-color: hsl(var(--tech-h), 60%, 72%);
+    --app-color: hsl(var(--app-h), 77%, 85%);
+    --slack-color: hsl(var(--slack-h), 66%, 67%);
+    --gdlf-color: hsl(var(--gdlf-h), 93%, 83%);
+    --issue-color: hsl(var(--issue-h), 100%, 74%);
+    --knowledge-color: hsl(var(--knowledge-h), 67%, 64%);
+    --tag-default-bg-color: hsl(var(--default-h), 25%, 71%);
+  }
+
+  // This "based on accent" stuff may not work...
   body#{$overlayClasses}#{$snippetClasses}.theme-dark {
     // Accent HSL values from app.css on 20230213
     // --accent-h: 254;
     // --accent-s: 80%;
     // --accent-l: 68%;
-    // original colors (keep, I'll just overwrite them below)
-    // --tag-default-bg-color: #547fa7; //replaced
-    // --gray-color: #666; //replaced
 
     --school-color: hsl(calc(var(--accent-h) - 4), 47%, 44%);
     --server-color: hsl(calc(var(--accent-h) - 254), 47%, 35%);
@@ -27,109 +66,97 @@
     --tech-color: hsl(calc(var(--accent-h) - 124), 75%, 30%);
     --app-color: hsl(calc(var(--accent-h) - 55), 84%, 42%);
     --slack-color: hsl(calc(var(--accent-h) + 49), 65%, 31%);
-    --share-color: hsl(calc(var(--accent-h) + 71), 72%, 45%);
+    --gdlf-color: hsl(calc(var(--accent-h) + 71), 72%, 45%);
     --issue-color: hsl(calc(var(--accent-h) - 254), 100%, 61%);
     --knowledge-color: hsl(calc(var(--accent-h) - 215), 88%, 44%);
     --tag-default-bg-color: hsl(calc(var(--accent-h) - 36), calc(var(--accent-s) * 0.8), 23%);
-
-  }
-  body#{$overlayClasses}:is(.theme-dark){
-    // new colors (keep with the old colors until tested with UX, maybe in two weeks around or after 20230201)
-    --gray-color: hsl(0, 0%, 40%);
   }
 
-  body#{$overlayClasses}.theme-light {
-    --school-color: #aea1e8;
-    --server-color: hsl(0, 79%, 87%);
-    --banner-color: hsl(120, 59%, 75%);
-    --tech-color: hsl(61, 59%, 75%);
-    --app-color: hsl(212, 77%, 85%);
-    --slack-color: hsl(37, 66%, 57%);
-    --share-color: hsl(310, 93%, 73%);
-    --issue-color: hsl(0, 100%, 72%);
-    --knowledge-color: rgb(240, 240, 124);
-    --tag-default-bg-color: hsl(204, 25%, 61%);
-  }
+  // This "based on accent" stuff may not work...
   body#{$overlayClasses}#{$snippetClasses}.theme-light {
-    // original colors (keep, I'll just overwrite them below)
-    // example from elsewhere: hsla(calc(var(--accent-h) + 90), var(--accent-s), var(--accent-l), 0.35);
-    // --tag-default-bg-color: #def3ca; //replaced
-    // --gray-color: rgb(204, 204, 204); //replaced
-
-    --school-color: #ded8fa;
+    --school-color: hsl(251, 77%, 91%);
     --server-color: hsl(calc(var(--accent-h) - 254), 79%, 87%); //0
     --banner-color: hsl(calc(var(--accent-h) - 134), 59%, 75%);//120
     --tech-color: hsl(calc(var(--accent-h) - 193), 59%, 75%);//61
     --app-color: hsl(calc(var(--accent-h) - 42), 77%, 85%);//212
     --slack-color: hsl(calc(var(--accent-h) - 217), 66%, 57%);//37
-    --share-color: hsl(calc(var(--accent-h) + 56), 93%, 73%);//310
+    --gdlf-color: hsl(calc(var(--accent-h) + 56), 93%, 73%);//310
     --issue-color: hsl(calc(var(--accent-h) - 254), 100%, 72%);//0
     --knowledge-color: hsl(calc(var(--accent-h) - 194), 79%, 71%);//60
     --tag-default-bg-color: hsl(calc(var(--accent-h) - 36), calc(var(--accent-s) * 0.8), 87%);
   }
-  body#{$overlayClasses}:is(.theme-light) {
-    // new colors (keep with the old colors until tested with UX, maybe in two weeks around or after 20230201)
-    --gray-color: hsl(0, 0%, 80%);
-  }
 
   body#{$overlayClasses}:is(.theme-dark, .theme-light) {
     // note: all span selectors apply to Editor
-    .tag[href^="#sch/"], 
-    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="sch"] {
+    // default
+    .tag,
+    span[class~="cm-hashtag"][class~="cm-hashtag-end"],
+    span[class~="cm-hashtag"][class~="cm-hashtag-begin"] {
+      background-color: var(--tag-default-bg-color);
+    }
+    // schools
+    .tag[href^="#org/sch/"], 
+    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="org/sch"],
+    span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="org/sch"] {
       background-color: var(--school-color);
     }
+    // servers
     .tag[href^="#xe/"],
     .tag[href^="#server/"],
     span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="xe"],
-    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="server"] {
+    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="server"],
+    span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="xe"],
+    span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="server"] {
       background-color: var(--server-color);
     }
-    .tag[href^="#banner/"],
-    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="banner"] {
-      background-color: var(--banner-color);
-    }
+    // apps
     .tag[href^="#app/"],
-    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="app"] {
+    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="app"],
+    span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="app"] {
       background-color: var(--app-color);
     }
+    // Banner
+    .tag[href^="#app/Banner/"],
+    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="Banner"],
+    span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="Banner"] {
+      background-color: var(--banner-color);
+    }
+    // Slack
     .tag[href^="#app/Slack"],
-    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="Slack"] {
+    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="Slack"],
+    span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="Slack"] {
       background-color: var(--slack-color);
     }
-    .tag[href^="#share"],
-    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="share"] {
-      background-color: var(--share-color);
+    // Tag for my stuff
+    .tag[href^="#gdlf"],
+    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="gdlf"], 
+    span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="gdlf"]{
+      background-color: var(--gdlf-color);
     }
+    // issues
     .tag[href^="#issue"],
-    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="issue"] {
+    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="issue"],
+    span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="issue"] {
       background-color: var(--issue-color);
     }
+    // tech
     .tag[href^="#tech/"],
-    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="tech"] {
+    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="tech"],
+    span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="tech"] {
       background-color: var(--tech-color);
     }
-    // Make Obsidian plugins, themes, so forth stand out less
-    // Make Windows features (or whatever) stand out less
-    .tag[href^="#app/Obsidian/"],
-    .tag[href^="#app/Windows/"] {
-      // Both string-token and ident-token that can go into the class attribute selector
-      //  do not support pattern matching within their values (only A-za-z0-9, that kind of thing)
-      // SOURCE: https://drafts.csswg.org/css-syntax-3/#typedef-string-token
-      //  I also did some web searching and then gave up
-      // NOPE: span[class*="Obsidian?"][class~="cm-hashtag"],
-      // NOPE: span[class*="Windows?"][class~="cm-hashtag"] {
-      background-color: var(--gray-color);
-    }
-
     // (k)nowledge, (conf)erence, (doc)uments
-    // With a one-letter starting tag, this one was a challenge to figure out
-    // .tag[href^="#"], // <-- not sure if needed... 20220407
+    .tag[href^="#conf/"],
+    .tag[href^="#k/"],
+    .tag[href^="#doc/"],
     span[class*="tag-conf"][class~="cm-hashtag-end"][class~="cm-hashtag"],
     span[class*="tag-doc"][class~="cm-hashtag-end"][class~="cm-hashtag"],
-    span[class*="tag-k"][class~="cm-hashtag-end"][class~="cm-hashtag"] {
-      // span[class~="cm-hashtag"]
-      // span[class*="cm-tagc"]
+    span[class*="tag-k"][class~="cm-hashtag-end"][class~="cm-hashtag"],
+    span[class*="tag-conf"][class~="cm-hashtag-begin"][class~="cm-hashtag"],
+    span[class*="tag-doc"][class~="cm-hashtag-begin"][class~="cm-hashtag"],
+    span[class*="tag-k"][class~="cm-hashtag-begin"][class~="cm-hashtag"] {
       background-color: var(--knowledge-color);
     }
+
   }
 }

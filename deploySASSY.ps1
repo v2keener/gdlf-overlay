@@ -19,6 +19,11 @@ if(!(Test-Path $dot_obsidian_folder))
   Exit
 }
 
+# # The pwsh commands I use to administer these `sass` Jobs are typically:
+# Get-Job # see what's running
+# Get-Job | Receive-Job # look at output
+# Get-Job | Stop-Job ; Get-Job | Remove-Job # Stop and remove jobs
+
 Write-Output @'
 This will run some jobs to create:
 
@@ -63,8 +68,10 @@ If(!(Test-Path -Path $overlay_path))
 
 # Render the actual theme.css
 sass -w ".\gdlf-overlay-theme.scss" "$dot_obsidian_folder\themes\Overlay\theme.css" --no-source-map &
+# ...and one for the project folder
+sass -w ".\gdlf-overlay-theme.scss" ".\theme.css" --no-source-map &
 
 # # Now do plugins last
 # sass -w ".\mixins\plugin-reminders.scss" "$dot_obsidian_folder\snippets\plugin-reminders.css" --no-source-map &
-# sass -w ".\mixins\plugin-grandfather.scss" "$dot_obsidian_folder\snippets\plugin-grandfather.css" --no-source-map &
+sass -w ".\mixins\plugin-grandfather.scss" "$dot_obsidian_folder\snippets\plugin-grandfather.css" --no-source-map &
 # sass -w ".\mixins\plugin-todo-list.scss" "$dot_obsidian_folder\snippets\plugin-todo-list.css" --no-source-map &

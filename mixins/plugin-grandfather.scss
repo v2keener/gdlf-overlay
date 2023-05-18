@@ -5,11 +5,17 @@ body:is(.theme-light, .theme-dark) {
   //  fonts. ymmv
   div.status-bar-item.plugin-obsidian-grandfather {
     font-family: "Fira Code", Inconsolata, Monaco, "Lucida Console", monospace;
-  }
-  div.status-bar-item.plugin-obsidian-grandfather {
     // color: var(--text-accent);
     // color: hsl(calc(var(--accent-h) + 80), 100%, /*var(--accent-s),*/ var(--accent-l));
+    // Use accent color
     color: hsl(var(--accent-h), 100%, var(--accent-l));
     font-weight: 500;
+    order: 1; // show on far right - use -1 to show on far left
+
+    span.grandfather-emoji {
+      font-size: 190%;
+      margin-bottom: -5%;
+      margin-top: -6%;
+    }
   }
 }
