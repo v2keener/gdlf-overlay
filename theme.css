@@ -679,6 +679,15 @@ body .theme-dark {
   --interactive-accent-s: var(--accent-s);
   --interactive-accent-l: var(--accent-l);
 }
+body div.app-container div.view-content > div.markdown-source-view div.cm-contentContainer div.HyperMD-footnote.cm-line {
+  border-top: 0.3ex dotted #fff;
+}
+body div.app-container div.view-content > div.markdown-source-view div.cm-contentContainer div.HyperMD-footnote.cm-line div.markdown-embed-content.node-insert-event div {
+  font-size: 95%;
+}
+body div.app-container div.view-content > div.markdown-reading-view em {
+  margin-right: 0.16ex;
+}
 body span.cm-formatting.cm-formatting-code.cm-inline-code.cm-list-2 {
   padding: 0;
 }
