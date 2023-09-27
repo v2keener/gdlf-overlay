@@ -1,4 +1,3 @@
 *.map
 themes/**
 !themes/README.md
-driver.ps1
