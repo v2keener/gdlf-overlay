@@ -68,6 +68,13 @@
       }
     }
 
+    // Make bold today's day number as displayed
+    //  in the month calendar for the Calendar
+    //  plugin
+    div.day.today {
+      font-weight: bold;
+    }
+
     // Make it so *italics* have a slight push on the right
     //  to keep text from kerning together with adjacent (e.g.) `*letter*s`
     //  such that the 's' in letters wouldn't mash into the 'r'

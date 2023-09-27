@@ -1,6 +1,5 @@
 @charset "UTF-8";
-/* Custom tag colors for specific tags */
-/*!
+/* Custom tag colors for specific tags */ /*!
     Overlay Theme for Obsidian.md (Version: 0.2)
     > A custom theme by Gustavo DeLaFuerza
 */
@@ -609,7 +608,7 @@ body {
 }
 body div.glk-noclick {
   position: absolute;
-  background-color: #00330000;
+  background-color: rgba(0, 51, 0, 0);
   /* HTML for an example usage, which displays a #mem 
    <div class="glk-noclick" style="height:35vh;"></div>
   <iframe src="https://mem.ai/m/5PAXl5ldf3aWAG2uI3FI" style="width:100%;height:35vh;border:none"></iframe>
@@ -684,6 +683,9 @@ body div.app-container div.view-content > div.markdown-source-view div.cm-conten
 }
 body div.app-container div.view-content > div.markdown-source-view div.cm-contentContainer div.HyperMD-footnote.cm-line div.markdown-embed-content.node-insert-event div {
   font-size: 95%;
+}
+body div.day.today {
+  font-weight: bold;
 }
 body div.app-container div.view-content > div.markdown-reading-view em {
   margin-right: 0.16ex;
