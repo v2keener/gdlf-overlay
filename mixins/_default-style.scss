@@ -33,6 +33,7 @@
   body#{$overlayClasses}#{$snippetClasses} {
     // Set variable for line width (used by app.css as of Obsidian 1.1)
     --file-line-width: 35em;
+    --text-highlight-bg: hsla(calc(var(--accent-h) + 120), var(--accent-s), calc(var(--accent-l) + var(--luminence-mod-l)), 0.4);
     --gdlf-search-background-color: var(--text-highlight-bg);
 
     .theme-light,
@@ -92,8 +93,8 @@
     .is-flashing,
     .is-flashing *,
     .cm-s-obsidian span.obsidian-search-match-highlight {
-      // background-color: var(--gdlf-search-background-color);
-      background-color: hsla(calc(var(--accent-h) - 260), var(--accent-s), var(--accent-l), 0.45);
+      //background-color: var(--gdlf-search-background-color);
+      //background-color: hsla(calc(var(--accent-h) - 260), var(--accent-s), var(--accent-l), 0.45);
       background-image: var(--gdlf-search-background-image);
       // background-blend-mode: var(--gdlf-search-background-blend-mode);
       border-radius: 0;

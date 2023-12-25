@@ -1,5 +1,6 @@
 @charset "UTF-8";
-/* Custom tag colors for specific tags */ /*!
+/* Custom tag colors for specific tags */
+/*!
     Overlay Theme for Obsidian.md (Version: 0.2)
     > A custom theme by Gustavo DeLaFuerza
 */
@@ -608,7 +609,7 @@ body {
 }
 body div.glk-noclick {
   position: absolute;
-  background-color: rgba(0, 51, 0, 0);
+  background-color: #00330000;
   /* HTML for an example usage, which displays a #mem 
    <div class="glk-noclick" style="height:35vh;"></div>
   <iframe src="https://mem.ai/m/5PAXl5ldf3aWAG2uI3FI" style="width:100%;height:35vh;border:none"></iframe>
@@ -666,6 +667,7 @@ body .cm-comment-end {
 
 body {
   --file-line-width: 35em;
+  --text-highlight-bg: hsla(calc(var(--accent-h) + 120), var(--accent-s), calc(var(--accent-l) + var(--luminence-mod-l)), 0.4);
   --gdlf-search-background-color: var(--text-highlight-bg);
 }
 body .theme-light,
@@ -696,7 +698,6 @@ body span.cm-formatting.cm-formatting-code.cm-inline-code.cm-list-2 {
 body .is-flashing,
 body .is-flashing *,
 body .cm-s-obsidian span.obsidian-search-match-highlight {
-  background-color: hsla(calc(var(--accent-h) - 260), var(--accent-s), var(--accent-l), 0.45);
   background-image: var(--gdlf-search-background-image);
   border-radius: 0;
   box-shadow: none;
