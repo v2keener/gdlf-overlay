@@ -1,4 +1,6 @@
-# The Overlay Theme
+![](overlay-1920x1080.png)
+
+## The Overlay Theme
 
 This is a minimal theme for Obsidian. It's also a Snippet you can use against other themes, though how well the snippet works is untested on any theme other than the Default.
 
