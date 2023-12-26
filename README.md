@@ -1,4 +1,4 @@
-![](/overlay-1920x1080.png)
+![](/cover.png)
 
 ## The Overlay Theme
 
