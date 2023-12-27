@@ -99,4 +99,4 @@ Most of the features of the theme depend on [Style Settings](https://github.com/
 
 The theme defaults to using a font I built with [Calligraphr](https://www.calligraphr.com/) using [Inkscape](https://inkscape.org/) and an active stylus. (One may also print sheets of paper and manually ink their letters.) It also features a transparent logo of "GDLF", which represents "Gustavo DeLaFuerza", which will display next to your vault's title.
 
-The best way to look at this theme is to place it in the `themes` and `snippets` folders for the Help vault. (That is the vault shown in the cover image, above.) Just be aware that when Obsidian is updated, that Help vault will be overwritten.
+The best way to look at this theme is to place it in the `themes` and `snippets` folders for the Help vault. Just be aware that when Obsidian is updated, that Help vault will be overwritten.
