@@ -49,10 +49,17 @@ sass -w .\mixins\gdlf-media-print.scss "$dot_obsidian_folder\snippets\gdlf-media
 # containing all the Style Settings for each mixin in each of 
 # the two following files
 sass -w ".\gdlf-overlay.scss" "$dot_obsidian_folder\snippets\gdlf-overlay.css" --no-source-map &
+# ...and one for the project folder
+sass -w ".\gdlf-overlay.scss" ".\gdlf-overlay.css" --no-source-map &
+
 sass -w ".\gdlf-for-me-wrapper.scss" "$dot_obsidian_folder\snippets\gdlf-for-me.css" --no-source-map &
+# ...and one for the project folder
+sass -w ".\gdlf-for-me-wrapper.scss" ".\gdlf-for-me.css" --no-source-map &
 
 # Overlay with stuff for me included
 sass -w ".\gdlf-overlay-combined.scss" "$dot_obsidian_folder\snippets\gdlf-full-overlay.css" --no-source-map &
+# ...and one for the project folder
+sass -w ".\gdlf-overlay-combined.scss" ".\gdlf-full-overlay.css" --no-source-map &
 
 # For the next command to work, you need an "Overlay" 
 # folder under your "themes" directory...
