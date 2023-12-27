@@ -44,6 +44,7 @@ Write-Output ("CSS for the dot_obsidian_folder will be written to " + $dot_obsid
 
 # Print settings (settings for PDF, printing)
 sass -w .\mixins\gdlf-media-print.scss "$dot_obsidian_folder\snippets\gdlf-media-print.css" --no-source-map &
+sass -w .\mixins\gdlf-media-print.scss ".\gdlf-media-print.css" --no-source-map &
 
 # The SCSS files that combine all the mixins to be useful while 
 # containing all the Style Settings for each mixin in each of 
@@ -80,5 +81,8 @@ sass -w ".\gdlf-overlay-theme.scss" ".\theme.css" --no-source-map &
 
 # # Now do plugins last
 # sass -w ".\mixins\plugin-reminders.scss" "$dot_obsidian_folder\snippets\plugin-reminders.css" --no-source-map &
+# sass -w ".\mixins\plugin-reminders.scss" ".\plugin-reminders.css" --no-source-map &
 sass -w ".\mixins\plugin-grandfather.scss" "$dot_obsidian_folder\snippets\plugin-grandfather.css" --no-source-map &
+sass -w ".\mixins\plugin-grandfather.scss" ".\plugin-grandfather.css" --no-source-map &
 # sass -w ".\mixins\plugin-todo-list.scss" "$dot_obsidian_folder\snippets\plugin-todo-list.css" --no-source-map &
+# sass -w ".\mixins\plugin-todo-list.scss" ".\plugin-todo-list.css" --no-source-map &

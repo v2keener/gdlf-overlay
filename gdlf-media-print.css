@@ -1,0 +1,82 @@
+@media print {
+  .theme-dark,
+  .theme-light,
+  .print .markdown-preview-view {
+    --text-normal: black;
+  }
+  .theme-dark a.external-link,
+  .theme-dark a.external-link:hover,
+  .theme-light a.external-link,
+  .theme-light a.external-link:hover,
+  .print .markdown-preview-view a.external-link,
+  .print .markdown-preview-view a.external-link:hover {
+    --external-link-color: rgb(78, 131, 255);
+    --text-accent: var(--external-link-color);
+    --text-accent-hover: var(--external-link-color);
+  }
+  .theme-dark a.internal-link,
+  .theme-dark a.tag,
+  .theme-dark a.footnote-link,
+  .theme-dark a.external-link[href^=file],
+  .theme-dark a.external-link[href^=file]:hover,
+  .theme-dark .cm-link,
+  .theme-dark .cm-hashtag,
+  .theme-dark .cm-hashtag-begin,
+  .theme-dark .cm-hashtag-end,
+  .theme-light a.internal-link,
+  .theme-light a.tag,
+  .theme-light a.footnote-link,
+  .theme-light a.external-link[href^=file],
+  .theme-light a.external-link[href^=file]:hover,
+  .theme-light .cm-link,
+  .theme-light .cm-hashtag,
+  .theme-light .cm-hashtag-begin,
+  .theme-light .cm-hashtag-end,
+  .print .markdown-preview-view a.internal-link,
+  .print .markdown-preview-view a.tag,
+  .print .markdown-preview-view a.footnote-link,
+  .print .markdown-preview-view a.external-link[href^=file],
+  .print .markdown-preview-view a.external-link[href^=file]:hover,
+  .print .markdown-preview-view .cm-link,
+  .print .markdown-preview-view .cm-hashtag,
+  .print .markdown-preview-view .cm-hashtag-begin,
+  .print .markdown-preview-view .cm-hashtag-end {
+    --text-accent: var(--text-normal);
+    --text-muted: var(--text-normal);
+    --text-accent-hover: var(--text-normal);
+    cursor: text;
+  }
+  .theme-dark code,
+  .theme-light code,
+  .print .markdown-preview-view code {
+    background-color: inherit;
+  }
+  body.theme-light.advanced-appearance {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  body.theme-light.advanced-appearance .advanced-light {
+    --accent-h: 23deg;
+    --accent-h: 23deg;
+  }
+  body.theme-light.advanced-appearance .advanced-dark {
+    --accent-h: 23deg;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding: 0;
+    margin: 0;
+  }
+  a:before,
+  a:after {
+    content: "";
+  }
+  section[class=footnotes]:before {
+    content: "Footnotes (if any)";
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}
