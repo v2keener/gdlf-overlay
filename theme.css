@@ -663,7 +663,7 @@ body .cm-comment-end {
 }
 
 .theme-dark {
-  --luminence-mod-l: -15%;
+  --luminence-mod-l: -5%;
   --text-selection: hsla(calc(var(--accent-h) + 30), var(--accent-s), var(--accent-l), 0.35);
 }
 
