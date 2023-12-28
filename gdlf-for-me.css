@@ -45,6 +45,7 @@ body.gdlf-overlay.gdlf-defaults .tree-item-self.tag-pane-tag.is-clickable:not(.m
 }
 
 body {
+  --list-indent: 1.5em;
   --luminence-mod-l: 0;
   --text-selection: hsla(var(--interactive-accent-hsl), 0.25);
   --code-comment: var(--color-base-60);
@@ -137,6 +138,23 @@ div[class=cm-lineNumbers] div[class=cm-gutterElement] {
   padding-right: calc(var(--file-folding-offset) * 0.3);
 }
 
+.markdown-source-view.mod-cm6 .cm-gutters {
+  margin-inline-end: 0;
+}
+.markdown-source-view.mod-cm6 .cm-gutters ::after {
+  color: transparent;
+  content: "X";
+}
+
+.cm-formatting-list-ul,
+.cm-formatting-list-ol {
+  padding-inline-start: 0.3ex;
+}
+
+.suggestion-item.is-selected {
+  background-color: var(--text-highlight-bg);
+}
+
 body.gdlf-overlay.gdlf-rainbow {
   --rainbow-image-url: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAOCAYAAADuQ3ZcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAA0SURBVBhXY3gro/KfiQEImISSmRnALIb/nxigYsr7faBiDIteQMXslz2BiDGlMN4AsRgYANawDGjt96QeAAAAAElFTkSuQmCC);
   --ye-rainbow-width: 1ex;
@@ -147,17 +165,10 @@ body.gdlf-overlay.gdlf-rainbow .theme-dark {
 body.gdlf-overlay.gdlf-rainbow .theme-light {
   --foreground-blink-color: white;
 }
-body.gdlf-overlay.gdlf-rainbow .ͼo:not(.cm-focused) .cm-fat-cursor {
-  background-image: var(--rainbow-image-url);
+body.gdlf-overlay.gdlf-rainbow .ͼo.cm-focused .cm-fat-cursor, body.gdlf-overlay.gdlf-rainbow .cm-fat-cursor, body.gdlf-overlay.gdlf-rainbow .cm-animate-fat-cursor {
+  background-image: var(--rainbow-image-url) !important;
   background-repeat: repeat;
-  background-size: contain;
-  color: var(--foreground-blink-color);
-  min-width: var(--ye-rainbow-width);
-}
-body.gdlf-overlay.gdlf-rainbow .ͼo.cm-focused .cm-fat-cursor {
-  background-image: var(--rainbow-image-url);
-  background-repeat: repeat;
-  background-size: contain;
+  background-size: contain !important;
   color: var(--foreground-blink-color);
   min-width: var(--ye-rainbow-width);
 }

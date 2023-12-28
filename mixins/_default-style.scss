@@ -2,6 +2,8 @@
 //  have another place (yet)
 @mixin add-classes($overlayClasses: "", $snippetClasses: "") {
   body {
+    --list-indent: 1.5em; // reduced from default preview list-indent of 2.5em
+
     --luminence-mod-l: 0;
     --text-selection: hsla(var(--interactive-accent-hsl), 0.25);
     // Comments are easily visible in editor view
@@ -139,5 +141,35 @@
     // The following will keep the active-line background in
     //  the padding
     padding-right: calc(var(--file-folding-offset) * 0.3);
+  }
+
+  // Adjusting how line numbers display in Windows 10 
+  //  (for whatever reason, this isn't the case for Windows 11)
+  .markdown-source-view.mod-cm6 .cm-gutters {
+    margin-inline-end: 0; //var(--file-folding-offset);
+    //padding-inline-end: var(--file-folding-offset);
+
+    // Create the same horizontal separation as was done
+    //  with margin-inline-end, but using pseudo class
+    //  and transparent content
+    //  (it could hypothetically be selectable)
+    ::after{
+      color: transparent;
+      content: 'X';
+    }
+  }
+
+  // Remove most of the padding-inline-start for ul, ol
+  //  since I like it aligned further to the left
+  .cm-formatting-list-ul,
+  .cm-formatting-list-ol {
+    padding-inline-start: 0.3ex;
+  }
+
+  // Make the selected item in the popup selection box display with a higher contrast
+  .suggestion-item.is-selected {
+    // // Obsidian default:
+    // background-color: var(--background-modifier-hover);
+    background-color: var(--text-highlight-bg);
   }
 }

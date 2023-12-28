@@ -14,25 +14,22 @@
       --foreground-blink-color: white;
     }
 
-    // vim COMMAND mode cursor (classes pulled directly from web dev tools)
-    //  this only applies when cursor or focus is active in another app window
-    .ͼo:not(.cm-focused) .cm-fat-cursor {
-      // --vim-command-color: red;
-      // background-color: var(--vim-command-color);
+    // // vim COMMAND mode cursor (classes pulled directly from web dev tools)
+    // //  this only applies when cursor or focus is active in another app window
+    // .ͼo:not(.cm-focused) .cm-fat-cursor, .cm-fat-cursor, .cm-animate-fat-cursor {
+    //   // Displays a 2px per color vertical rainbow 1px wide that repeats
+    //   background-image: var(--rainbow-image-url) !important;
+    //   background-repeat: repeat;
+    //   background-size: contain !important;
+    //   color: var(--foreground-blink-color);
+    //   min-width: var(--ye-rainbow-width);
+    // }
 
-      // Displays a 2px per color vertical rainbow 1px wide that repeats
-      background-image: var(--rainbow-image-url);
-      background-repeat: repeat;
-      background-size: contain;
-      color: var(--foreground-blink-color);
-      min-width: var(--ye-rainbow-width);
-    }
-
-    .ͼo.cm-focused .cm-fat-cursor {
+    .ͼo.cm-focused .cm-fat-cursor, .cm-fat-cursor, .cm-animate-fat-cursor {
       // opacity: 0.7; // I like it pastel a bit, but it dulls the foreground, too, which isn't ideal
-      background-image: var(--rainbow-image-url);
+      background-image: var(--rainbow-image-url) !important;
       background-repeat: repeat;
-      background-size: contain;
+      background-size: contain !important;
       color: var(--foreground-blink-color);
       min-width: var(--ye-rainbow-width);
     }

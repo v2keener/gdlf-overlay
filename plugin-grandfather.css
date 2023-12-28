@@ -1,0 +1,11 @@
+body:is(.theme-light, .theme-dark) div.status-bar-item.plugin-obsidian-grandfather {
+  font-family: "Fira Code", Inconsolata, Monaco, "Lucida Console", monospace;
+  color: hsl(var(--accent-h), 100%, var(--accent-l));
+  font-weight: 500;
+  order: 1;
+}
+body:is(.theme-light, .theme-dark) div.status-bar-item.plugin-obsidian-grandfather span.grandfather-emoji {
+  font-size: 190%;
+  margin-bottom: -5%;
+  margin-top: -6%;
+}

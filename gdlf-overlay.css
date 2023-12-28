@@ -37,7 +37,8 @@ body.gdlf-overlay.gdlf-bold-italic-to-accent-color .cm-em {
 }
 
 body {
-  --saturation-mod-s: 0;
+  --saturation-mod-s: 0%;
+  --opacity-mod-s: 0%;
 }
 
 .gdlf-overlay.theme-light {
@@ -45,14 +46,15 @@ body {
 }
 
 .gdlf-overlay.theme-dark {
-  --saturation-mod-s: -30%;
+  --saturation-mod-s: 20%;
+  --opacity-mod-s: 4%;
 }
 
 body.gdlf-overlay.gdlf-cursor-and-activeline {
   --activeline-border-radius: 0.9ex;
-  --active-background-color-2: hsla(var(--accent-h), 70%, calc(var(--accent-s) + var(--saturation-mod-s)), 4%);
-  --active-background-color-3: hsla(var(--accent-h), 90%, calc(var(--accent-s) + var(--saturation-mod-s)), 8%);
-  --active-background-color-1: hsla(var(--accent-h), 70%, calc(var(--accent-s) + var(--saturation-mod-s)), 12%);
+  --active-background-color-2: hsla(var(--accent-h), 60%, calc(var(--accent-s) + var(--saturation-mod-s)), calc(4% + var(--opacity-mod-s)));
+  --active-background-color-3: hsla(var(--accent-h), 90%, calc(var(--accent-s) + var(--saturation-mod-s)), calc(8% + var(--opacity-mod-s)));
+  --active-background-color-1: hsla(var(--accent-h), 70%, calc(var(--accent-s) + var(--saturation-mod-s)), calc(12% + var(--opacity-mod-s)));
 }
 body.gdlf-overlay.gdlf-cursor-and-activeline div.cm-active.cm-line,
 body.gdlf-overlay.gdlf-cursor-and-activeline div.cm-content div.cm-active.cm-line.HyperMD-list-line {

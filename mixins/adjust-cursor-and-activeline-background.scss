@@ -1,20 +1,22 @@
 // work-vault
 @mixin add-classes($overlayClasses: "", $snippetClasses: "") {
   body {
-    --saturation-mod-s: 0;
+    --saturation-mod-s: 0%;
+    --opacity-mod-s: 0%;
   }
   #{$overlayClasses}.theme-light {
     --saturation-mod-s: -35%;
   }
   #{$overlayClasses}.theme-dark {
-    --saturation-mod-s: -30%;
+    --saturation-mod-s: 20%;
+    --opacity-mod-s: 4%;
   }
 
   body#{$overlayClasses}#{$snippetClasses} {
     --activeline-border-radius: 0.9ex;
-    --active-background-color-2: hsla(var(--accent-h), 70%, calc(var(--accent-s) + var(--saturation-mod-s)), 4%);
-    --active-background-color-3: hsla(var(--accent-h), 90%, calc(var(--accent-s) + var(--saturation-mod-s)), 8%);
-    --active-background-color-1: hsla(var(--accent-h), 70%, calc(var(--accent-s) + var(--saturation-mod-s)), 12%);
+    --active-background-color-2: hsla(var(--accent-h), 60%, calc(var(--accent-s) + var(--saturation-mod-s)), calc(4% + var(--opacity-mod-s)));
+    --active-background-color-3: hsla(var(--accent-h), 90%, calc(var(--accent-s) + var(--saturation-mod-s)), calc(8% + var(--opacity-mod-s)));
+    --active-background-color-1: hsla(var(--accent-h), 70%, calc(var(--accent-s) + var(--saturation-mod-s)), calc(12% + var(--opacity-mod-s)));
 
     // For 2022 editor (while also previewing)
     div.cm-active.cm-line,
