@@ -8,6 +8,7 @@
     --text-selection: hsla(var(--interactive-accent-hsl), 0.25);
     // Comments are easily visible in editor view
     --code-comment: var(--color-base-60);
+
     // Start and end '%%' for comments still display as faint text
     .cm-comment-start,
     .cm-comment-end {
@@ -35,8 +36,14 @@
   body#{$overlayClasses}#{$snippetClasses} {
     // Set variable for line width (used by app.css as of Obsidian 1.1)
     --file-line-width: 35em;
-    --text-highlight-bg: hsla(calc(var(--accent-h) + 120), var(--accent-s), calc(var(--accent-l) + var(--luminence-mod-l)), 0.4);
+    --text-highlight-bg: hsla(
+      calc(var(--accent-h) + 120),
+      var(--accent-s),
+      calc(var(--accent-l) + var(--luminence-mod-l)),
+      0.8
+    );
     --gdlf-search-background-color: var(--text-highlight-bg);
+    --code-line-height-augment: 1.4;
 
     .theme-light,
     .theme-dark {
@@ -95,9 +102,9 @@
     .is-flashing,
     .is-flashing *,
     .cm-s-obsidian span.obsidian-search-match-highlight {
-      //background-color: var(--gdlf-search-background-color);
+      background-color: var(--gdlf-search-background-color);
       //background-color: hsla(calc(var(--accent-h) - 260), var(--accent-s), var(--accent-l), 0.45);
-      background-image: var(--gdlf-search-background-image);
+      //background-image: var(--gdlf-search-background-image);
       // background-blend-mode: var(--gdlf-search-background-blend-mode);
       border-radius: 0;
       box-shadow: none;
@@ -114,6 +121,17 @@
     div.cm-contentContainer > div.cm-content > div > span.cm-hmd-internal-link > span.is-unresolved > span::before {
       // content: "😲";
       content: "👀";
+    }
+
+    // Reduce line-height for code blocks
+    // // in editor
+    .cm-line.HyperMD-codeblock {
+      line-height: calc(var(--code-size) * var(--code-line-height-augment));
+    }
+    // // in preview (based on app.css as of 2024 01 05)
+    code[class*="language-"],
+    pre[class*="language-"] {
+      line-height: calc(var(--code-size) * var(--code-line-height-augment));
     }
   }
 
@@ -143,7 +161,7 @@
     padding-right: calc(var(--file-folding-offset) * 0.3);
   }
 
-  // Adjusting how line numbers display in Windows 10 
+  // Adjusting how line numbers display in Windows 10
   //  (for whatever reason, this isn't the case for Windows 11)
   .markdown-source-view.mod-cm6 .cm-gutters {
     margin-inline-end: 0; //var(--file-folding-offset);
@@ -153,9 +171,9 @@
     //  with margin-inline-end, but using pseudo class
     //  and transparent content
     //  (it could hypothetically be selectable)
-    ::after{
+    ::after {
       color: transparent;
-      content: 'X';
+      content: "X";
     }
   }
 

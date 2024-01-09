@@ -669,8 +669,14 @@ body .cm-comment-end {
 
 body {
   --file-line-width: 35em;
-  --text-highlight-bg: hsla(calc(var(--accent-h) + 120), var(--accent-s), calc(var(--accent-l) + var(--luminence-mod-l)), 0.4);
+  --text-highlight-bg: hsla(
+    calc(var(--accent-h) + 120),
+    var(--accent-s),
+    calc(var(--accent-l) + var(--luminence-mod-l)),
+    0.8
+  );
   --gdlf-search-background-color: var(--text-highlight-bg);
+  --code-line-height-augment: 1.4;
 }
 body .theme-light,
 body .theme-dark {
@@ -700,7 +706,7 @@ body span.cm-formatting.cm-formatting-code.cm-inline-code.cm-list-2 {
 body .is-flashing,
 body .is-flashing *,
 body .cm-s-obsidian span.obsidian-search-match-highlight {
-  background-image: var(--gdlf-search-background-image);
+  background-color: var(--gdlf-search-background-color);
   border-radius: 0;
   box-shadow: none;
 }
@@ -711,6 +717,13 @@ body span.cm-html-embed iframe {
 }
 body div.cm-contentContainer > div.cm-content > div > span.cm-hmd-internal-link > span.is-unresolved > span::before {
   content: "👀";
+}
+body .cm-line.HyperMD-codeblock {
+  line-height: calc(var(--code-size) * var(--code-line-height-augment));
+}
+body code[class*=language-],
+body pre[class*=language-] {
+  line-height: calc(var(--code-size) * var(--code-line-height-augment));
 }
 
 body .view-header {
