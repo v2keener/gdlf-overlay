@@ -11,6 +11,18 @@
   // body {
   // font-family: 'FiraCode Nerd Font', sans-serif;
 
+  /*
+  The following works
+  */
+  code[class*="language-"],
+  pre[class*="language-"] {
+    background-color: inherit;
+  }
+
+  /*
+  The following hasn't been tested in ages and 
+  appears to no longer be functional
+  */
   .theme-dark,
   .theme-light,
   .print .markdown-preview-view {
@@ -44,7 +56,7 @@
   }
 
   body.theme-light.advanced-appearance {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    // font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     .advanced-light {
       --accent-h: 23deg;
       // --text-accent: black;
