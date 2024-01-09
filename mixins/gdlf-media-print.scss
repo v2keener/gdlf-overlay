@@ -1,4 +1,5 @@
 // Make printing how I want it (from 2022 or 2021 code)
+// This applies to Export to PDF
 
 @media print {
   // For testing, use 'all' to override UX:
@@ -14,9 +15,13 @@
   /*
   The following works
   */
+  // Remove background color from code blocks for print/PDF
   code[class*="language-"],
   pre[class*="language-"] {
     background-color: inherit;
+  }
+  body{
+    padding-left: 5em;
   }
 
   /*
