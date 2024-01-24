@@ -14,6 +14,8 @@
     .cm-comment-end {
       color: var(--text-faint);
     }
+
+    border: 0.3ex dashed hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.5);
   }
 
   // -- Overrides for any theme
