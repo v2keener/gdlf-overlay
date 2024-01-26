@@ -1,80 +1,67 @@
-// Make printing how I want it (from 2022 or 2021 code)
-// This applies to Export to PDF
+/**
+ * Print Stylesheet fuer Deinewebsite.de
+* @version         1.0
+* @lastmodified    16.06.2016
+*/
 
 @media print {
-  // For testing, use 'all' to override UX:
-  // // @media all {
-  // a::before {
-  // //   // content: " (" attr(href) ") ";
-  //   content: '🔗';
-  // }
-  // html {
-  // body {
-  // font-family: 'FiraCode Nerd Font', sans-serif;
-
-  /*
-  The following works
-  */
   // Remove background color from code blocks for print/PDF
   code[class*="language-"],
   pre[class*="language-"] {
     background-color: inherit;
   }
-  body{
-    padding-left: 5em;
+
+  /* Inhaltsbreite setzen, Floats und Margins aufheben */
+  /* Achtung: Die Klassen und IDs variieren von Theme zu Theme. Hier also eigene Klassen setzen */
+  #content,
+  #page {
+    width: 100%;
+    margin: 0;
+    float: none;
   }
 
-  /*
-  The following hasn't been tested in ages and 
-  appears to no longer be functional
-  */
-  .theme-dark,
-  .theme-light,
-  .print .markdown-preview-view {
-    --text-normal: black;
-
-    // Remove custom link colors on print
-    a.external-link,
-    a.external-link:hover {
-      --external-link-color: rgb(78, 131, 255);
-      --text-accent: var(--external-link-color);
-      --text-accent-hover: var(--external-link-color);
-    }
-    a.internal-link,
-    a.tag,
-    a.footnote-link,
-    a.external-link[href^="file"],
-    a.external-link[href^="file"]:hover,
-    .cm-link,
-    .cm-hashtag,
-    .cm-hashtag-begin,
-    .cm-hashtag-end {
-      // -webkit-print-color-adjust: exact;
-      --text-accent: var(--text-normal);
-      --text-muted: var(--text-normal);
-      --text-accent-hover: var(--text-normal);
-      cursor: text;
-    }
-    code {
-      background-color: inherit;
-    }
+  /** Seitenränder einstellen */
+  @page {
+    margin-bottom: 1cm;
+    // margin: 1.5cm;
   }
 
-  body.theme-light.advanced-appearance {
-    // font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    .advanced-light {
-      --accent-h: 23deg;
-      // --text-accent: black;
-      // --accent-h// Accent color hue, in deg
-      --accent-h: 23deg;
-      // --accent-s// Accent color saturation, in %
-      // --accent-l// Accent color lightness, in %
-      // --accent-d// Accent color lightness in Dark mode, in %
-    }
-    .advanced-dark {
-      --accent-h: 23deg;
-      // --text-accent: black;
-    }
+  /* Font auf 16px/13pt setzen, Background auf Weiß und Schrift auf Schwarz setzen.*/
+  /* Das spart Tinte */
+  body {
+    font:
+      12pt Georgia,
+      "Times New Roman",
+      Times,
+      serif;
+    line-height: 1.1;
+    background: #fff !important;
+    color: #000;
+    border: none;
+  }
+
+  hr {
+    margin: 0;
+    // padding: 0;
+  }
+
+  h1 {
+    font-size: 24pt;
+  }
+
+  h2,
+  h3,
+  h4 {
+    font-size: 14pt;
+    margin-top: 1.5em;
+  }
+
+  /* Alle Seitenumbrüche definieren */
+  a {
+    page-break-inside: avoid;
+  }
+  blockquote {
+    page-break-inside: avoid;
   }
   h1,
   h2,
@@ -82,30 +69,136 @@
   h4,
   h5,
   h6 {
-    padding: 0;
-    margin: 0;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+  img {
+    page-break-inside: avoid;
+    page-break-after: avoid;
+  }
+  table,
+  pre {
+    page-break-inside: avoid;
+  }
+  ul,
+  ol,
+  dl {
+    page-break-before: avoid;
   }
 
-  a:before,
-  a:after {
+  /* Linkfarbe und Linkverhalten darstellen */
+  a:link,
+  a:visited,
+  a {
+    background: transparent;
+    // color: #520;
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: left;
+  }
+
+  a {
+    page-break-inside: avoid;
+  }
+
+  // a[href^="http"]:after {
+  //   content: " <" attr(href) "> ";
+  // }
+
+  a:after > img {
     content: "";
   }
 
-  section[class="footnotes"]:before {
-    content: "Footnotes (if any)";
-    font-size: 1.5em;
-    font-weight: bold;
+  // article a[href^="#"]:after {
+  //   content: "";
+  // }
+
+  // a:not(:local-link):after {
+  //   content: " <" attr(href) "> ";
+  // }
+
+  /**
+   * Eingebundene Videos verschwinden lassen und den Whitespace der iframes auf null reduzieren.
+   */
+  .entry iframe,
+  ins {
+    display: none;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    line-height: 0pt !important;
+    white-space: nowrap;
+  }
+  .embed-youtube,
+  .embed-responsive {
+    position: absolute;
+    height: 0;
+    overflow: hidden;
   }
 
-  // // pre-2022, I think:
-  // // Hide h2 for Journal stuff (still shows in HTML
-  // // output, though, just not visually)
-  // h2[data-heading="Journal"] {
-  //   display: none;
+  /* Unnötige Elemente ausblenden für den Druck */
+
+  #header-widgets,
+  nav,
+  aside.mashsb-container,
+  .sidebar,
+  .mashshare-top,
+  .mashshare-bottom,
+  .content-ads,
+  .make-comment,
+  .author-bio,
+  .heading,
+  .related-posts,
+  #decomments-form-add-comment,
+  #breadcrumbs,
+  #footer,
+  .post-byline,
+  .meta-single,
+  .site-title img,
+  .post-tags,
+  .readability {
+    display: none;
+  }
+
+  // /* Benutzerdefinierte Nachrichten vor und nach dem Inhalt einfügen */
+  // .entry:after {
+  //   content: "\ Alle Rechte vorbehalten. (c) 2014 - 2016 TechBrain - techbrain.de";
+  //   color: #999 !important;
+  //   font-size: 1em;
+  //   padding-top: 30px;
   // }
-  // section[class="footnotes"] {
-  //   ol:first-of-type > li {
-  //     display: none;
-  //   }
+  // #header:before {
+  //   content: "\ Vielen herzlichen Dank für das Ausdrucken unseres Artikels. Wir hoffen, dass auch andere Artikel von uns Ihr Interesse wecken können.";
+  //   color: #777 !important;
+  //   font-size: 1em;
+  //   padding-top: 30px;
+  //   text-align: center !important;
   // }
+
+  /* Wichtige Elemente definieren */
+  p,
+  address,
+  li,
+  dt,
+  dd,
+  blockquote {
+    font-size: 90%;
+  }
+
+  /* Zeichensatz fuer Code Beispiele */
+  code,
+  pre {
+    font-family: "Courier New", Courier, mono;
+  }
+
+  ul,
+  ol {
+    list-style: square;
+    margin-left: 1ex;
+    margin-bottom: 1ex;
+  }
+
+  li {
+    line-height: 1.2em;
+  }
 }
