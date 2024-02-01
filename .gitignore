@@ -4,3 +4,4 @@ themes/**
 !themes/README.md
 *.css
 !theme.css
+*.zip
