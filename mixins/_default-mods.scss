@@ -28,20 +28,6 @@
       white-space: pre-wrap;
     }
 
-    // // Reduce indent of ol/ul elements
-    // disabled because it doesn't seem like it does anything anymore since sometime before 2023 04 19
-    // ul {
-    //   padding-inline-start: 1.5em;
-    // }
-    // ol {
-    //   padding-inline-start: 1.5em;
-    //   margin-left: 1em;
-    // }
-    // .is-mobile .markdown-preview-view ul,
-    // .is-mobile .markdown-preview-view ol {
-    //   padding-inline-start: 2em;
-    // }
-
     .footnotes-list {
       font-size: var(--font-adaptive-small);
     }

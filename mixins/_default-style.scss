@@ -14,7 +14,12 @@
     .cm-comment-end {
       color: var(--text-faint);
     }
+    
+  }
 
+  // Show a body border (handy for multiple windows, imo) 
+  //  EXCEPT if this is a mobile app instance
+  body:not(.is-mobile) {
     border: 0.3ex dashed hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.5);
   }
 
