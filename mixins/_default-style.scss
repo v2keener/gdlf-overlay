@@ -14,10 +14,9 @@
     .cm-comment-end {
       color: var(--text-faint);
     }
-    
   }
 
-  // Show a body border (handy for multiple windows, imo) 
+  // Show a body border (handy for multiple windows, imo)
   //  EXCEPT if this is a mobile app instance
   body:not(.is-mobile) {
     border: 0.3ex dashed hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.5);
@@ -76,6 +75,13 @@
       --interactive-accent-l: var(--accent-l);
     }
 
+    // Make the restore stand out as "Restore"
+    div.titlebar-button.mod-maximize[aria-label="Restore down"]::after {
+      margin: -7px;
+      font-size: 8px;
+      content: '-';
+    }
+
     div.app-container div.view-content > div.markdown-source-view div.cm-contentContainer {
       div.HyperMD-footnote.cm-line {
         border-top: 0.3ex dotted #fff;
@@ -124,8 +130,8 @@
       border-width: 0.2ex;
     }
 
-    // before link
-    div.cm-contentContainer > div.cm-content > div > span.cm-hmd-internal-link > span.is-unresolved > span::before {
+    // before link, show eyes for unresolved wiki links
+    span.cm-hmd-internal-link > span.is-unresolved > a.cm-underline::before {
       // content: "😲";
       content: "👀";
     }

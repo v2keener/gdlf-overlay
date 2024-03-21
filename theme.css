@@ -1,8 +1,9 @@
 @charset "UTF-8";
-/* Custom tag colors for specific tags */ /*!
+/*!
     Overlay Theme for Obsidian.md (Version: 0.2)
     > A custom theme by Gustavo DeLaFuerza
 */
+/* Custom tag colors for specific tags */
 :root {
   --gdlf-editor-font-family: "Delafuerza Print", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
@@ -692,6 +693,11 @@ body .theme-dark {
   --interactive-accent-s: var(--accent-s);
   --interactive-accent-l: var(--accent-l);
 }
+body div.titlebar-button.mod-maximize[aria-label="Restore down"]::after {
+  margin: -7px;
+  font-size: 8px;
+  content: "-";
+}
 body div.app-container div.view-content > div.markdown-source-view div.cm-contentContainer div.HyperMD-footnote.cm-line {
   border-top: 0.3ex dotted #fff;
 }
@@ -719,7 +725,7 @@ body span.cm-html-embed iframe {
   border-color: var(--interactive-accent-base);
   border-width: 0.2ex;
 }
-body div.cm-contentContainer > div.cm-content > div > span.cm-hmd-internal-link > span.is-unresolved > span::before {
+body span.cm-hmd-internal-link > span.is-unresolved > a.cm-underline::before {
   content: "👀";
 }
 body .cm-line.HyperMD-codeblock {
