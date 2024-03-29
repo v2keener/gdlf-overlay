@@ -75,6 +75,11 @@
       --interactive-accent-l: var(--accent-l);
     }
 
+    // Make it so links show strikethrough when they have it
+    .markdown-source-view.mod-cm6 .cm-link.cm-strikethrough .cm-underline, .markdown-source-view.mod-cm6 .cm-url.cm-strikethrough .cm-underline {
+      text-decoration: inherit, underline;
+    }
+
     // Make the restore stand out as "Restore"
     div.titlebar-button.mod-maximize[aria-label="Restore down"]::after {
       margin: -7px;

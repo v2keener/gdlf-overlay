@@ -693,6 +693,9 @@ body .theme-dark {
   --interactive-accent-s: var(--accent-s);
   --interactive-accent-l: var(--accent-l);
 }
+body .markdown-source-view.mod-cm6 .cm-link.cm-strikethrough .cm-underline, body .markdown-source-view.mod-cm6 .cm-url.cm-strikethrough .cm-underline {
+  text-decoration: inherit, underline;
+}
 body div.titlebar-button.mod-maximize[aria-label="Restore down"]::after {
   margin: -7px;
   font-size: 8px;
