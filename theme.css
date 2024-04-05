@@ -364,7 +364,6 @@ body h6 {
   font-size: 0.858em;
 }
 
-body div.cm-contentContainer > div > img,
 body div.view-content > div.markdown-source-view > div > div > div.cm-contentContainer > div > div > img:not(.cm-widgetBuffer),
 body div.view-content > div.markdown-reading-view > div.markdown-preview-view > div > div > p > img {
   outline: 0.2ex dashed var(--interactive-accent);

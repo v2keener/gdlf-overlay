@@ -1,7 +1,7 @@
 // Show an outline around images
 @mixin add-classes($overlayClasses: '', $snippetClasses: '') {
 body#{$overlayClasses}#{$snippetClasses} {
-  div.cm-contentContainer > div > img,
+  // div.cm-contentContainer > div > img,
   div.view-content > div.markdown-source-view > div > div > div.cm-contentContainer > div > div > img:not(.cm-widgetBuffer),
   // account for preview (at least main images, may not handle images under certain tags
   div.view-content > div.markdown-reading-view > div.markdown-preview-view > div > div > p > img {
