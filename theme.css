@@ -395,7 +395,7 @@ body .theme-dark.pt-highlight-text-color-dt .cm-highlight {
 body mark,
 body .cm-highlight {
   font-size: 1em;
-  border-radius: 0;
+  border-radius: 0.5ex;
   padding-left: 0.3ex;
   padding-right: 0.3ex;
 }
