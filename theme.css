@@ -68,24 +68,7 @@ body .cm-s-obsidian span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented
 }
 
 body {
-  --bold-color: hsl(
-    calc(var(--accent-h) - 7),
-    calc(var(--accent-s) * var(--bold-italic-adjust-s)),
-    calc(var(--accent-l) + var(--bold-italic-adjust-l))
-  );
-  --italic-color: hsl(
-    calc(var(--accent-h) + 15),
-    calc(var(--accent-s) * var(--bold-italic-adjust-s)),
-    calc(var(--accent-l) + var(--bold-italic-adjust-l))
-  );
-}
-body strong,
-body .cm-strong {
-  color: var(--bold-color);
-}
-body em,
-body .cm-em {
-  color: var(--italic-color);
+  --bold-filler-not-a-color: blue;
 }
 
 body {

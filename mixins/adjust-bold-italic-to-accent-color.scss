@@ -11,25 +11,27 @@
 }
 
 body#{$overlayClasses}#{$snippetClasses} {
-  --bold-color: hsl(
-    calc(var(--accent-h) - 7),
-    calc(var(--accent-s) * var(--bold-italic-adjust-s)),
-    calc(var(--accent-l) + var(--bold-italic-adjust-l))
-  ); // + var(--bold-italic-adjust-l)));
-  --italic-color: hsl(
-    calc(var(--accent-h) + 15),
-    calc(var(--accent-s) * var(--bold-italic-adjust-s)),
-    calc(var(--accent-l) + var(--bold-italic-adjust-l))
-  ); // + var(--bold-italic-adjust-l)));
+  --bold-filler-not-a-color: blue;
+  // // GDLF: As of 2024 06 07, I'd like to make this optional. Instead, I'm removing it.
+  // --bold-color: hsl(
+  //   calc(var(--accent-h) - 7),
+  //   calc(var(--accent-s) * var(--bold-italic-adjust-s)),
+  //   calc(var(--accent-l) + var(--bold-italic-adjust-l))
+  // ); // + var(--bold-italic-adjust-l)));
+  // --italic-color: hsl(
+  //   calc(var(--accent-h) + 15),
+  //   calc(var(--accent-s) * var(--bold-italic-adjust-s)),
+  //   calc(var(--accent-l) + var(--bold-italic-adjust-l))
+  // ); // + var(--bold-italic-adjust-l)));
 
-  strong,
-  .cm-strong {
-    color: var(--bold-color);
-  }
-  em,
-  .cm-em {
-    color: var(--italic-color);
-  }
+  // strong,
+  // .cm-strong {
+  //   color: var(--bold-color);
+  // }
+  // em,
+  // .cm-em {
+  //   color: var(--italic-color);
+  // }
 }
 
 // conditionally, I'd like to do the same thing as above, but only within the body class/tag identifier
