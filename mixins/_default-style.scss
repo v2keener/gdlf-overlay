@@ -116,6 +116,12 @@
     span.cm-formatting.cm-formatting-code.cm-inline-code.cm-list-2 {
       padding: 0;
     }
+    // This is to correct for a thing with 1.6 where addition L/R padding was added for inline code
+    //  making it look "wrong" to my eyes.
+    .cm-s-obsidian .cm-inline-code:not(.cm-formatting) {
+      border-radius: 0;
+      padding: 0.1em 0;
+    }
 
     .is-flashing,
     .is-flashing *,
