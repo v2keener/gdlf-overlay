@@ -424,7 +424,6 @@ body .cm-hashtag.cm-hashtag-end {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   padding-right: 0.4ex;
-  margin-right: -0.5ex;
 }
 body .cm-hashtag.cm-hashtag-end:hover,
 body .cm-hashtag.cm-hashtag-begin:hover {
