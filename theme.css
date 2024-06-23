@@ -12,6 +12,7 @@
 .markdown-source-view.mod-cm6 .cm-scroller,
 .markdown-source-view {
   font-family: var(--gdlf-editor-font-family);
+  font-size: var(--gdlf-editor-font-size);
 }
 
 body {
