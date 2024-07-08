@@ -409,22 +409,26 @@ body:is(.theme-light) {
 }
 
 body .cm-hashtag.cm-hashtag-end, body .cm-hashtag.cm-hashtag-begin {
+  position: relative;
+  top: 0.4ex;
   vertical-align: top;
   font-weight: 600;
   color: var(--tag-text-color);
   border-radius: 1.7ex;
   padding-top: 0.3ex;
-  padding-bottom: 0.2ex;
 }
 body .cm-hashtag.cm-hashtag-begin {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  padding-left: 0.1ex;
+  padding-left: 0.5ex;
+  padding-right: 0.2ex;
+  margin-left: -0.4ex;
 }
 body .cm-hashtag.cm-hashtag-end {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   padding-right: 0.4ex;
+  margin-right: -0.4ex;
 }
 body .cm-hashtag.cm-hashtag-end:hover,
 body .cm-hashtag.cm-hashtag-begin:hover {
@@ -442,6 +446,7 @@ body .tag {
   border-radius: 1.7ex;
   padding: 0 0.3ex 0 0;
   margin: 0.1ex 0 0 -0.2ex;
+  margin-top: 1.2ex;
   border-bottom-width: 0.2ex;
   position: relative;
   top: -0.1em;
