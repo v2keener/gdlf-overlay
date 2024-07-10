@@ -1,6 +1,12 @@
 // This is the place I put styles that don't
 //  have another place (yet)
 @mixin add-classes($overlayClasses: "", $snippetClasses: "") {
+  // // The following still only applies to multiple cursors and 
+  // //  not the active cursor
+  // div.cm-cursorLayer.cm-vimCursorLayer, div.cm-layer.cm-layer-above.cm-cursorLayer {
+  //   * {outline: 2px solid red;}
+  // }
+
   body {
     --list-indent: 1.5em; // reduced from default preview list-indent of 2.5em
 
@@ -14,6 +20,17 @@
     .cm-comment-end {
       color: var(--text-faint);
     }
+
+    // // From Faded theme:
+    // --custom-global-drop-shadow: drop-shadow(2px 2px 1px gray) drop-shadow(0px 0px 2px gray);
+
+    // // From Faded theme:
+    // div.view-content > div.markdown-source-view.cm-s-obsidian.mod-cm6.node-insert-event.is-readable-line-width.is-live-preview.is-folding > div > div.cm-scroller > div.cm-sizer > div.cm-contentContainer > div.cm-content.cm-lineWrapping > div.cm-active {
+    //   filter: var(--custom-global-drop-shadow);
+    //   /* filter: drop-shadow(2px 2px 1px black) drop-shadow(0px 0px 2px black); */
+    //   /* filter: drop-shadow(2px 2px 1px var(--custom-black-300)) drop-shadow(2px 2px 1px var(--custom-black-300)); */
+    //   /* filter: drop-shadow(2px 2px 1px black) drop-shadow(2px 2px 1px black); */
+    // }
   }
 
   // Show a body border (handy for multiple windows, imo)
@@ -34,6 +51,7 @@
     */
     --text-selection: hsla(calc(var(--accent-h) + 90), var(--accent-s), var(--accent-l), 0.35);
   }
+
   #{$overlayClasses}.theme-dark {
     --luminence-mod-l: -5%;
     --text-selection: hsla(calc(var(--accent-h) + 30), var(--accent-s), var(--accent-l), 0.35);
@@ -42,12 +60,10 @@
   body#{$overlayClasses}#{$snippetClasses} {
     // Set variable for line width (used by app.css as of Obsidian 1.1)
     --file-line-width: 35em;
-    --text-highlight-bg: hsla(
-      calc(var(--accent-h) + 120),
-      var(--accent-s),
-      calc(var(--accent-l) + var(--luminence-mod-l)),
-      0.8
-    );
+    --text-highlight-bg: hsla(calc(var(--accent-h) + 120),
+        var(--accent-s),
+        calc(var(--accent-l) + var(--luminence-mod-l)),
+        0.8);
     --gdlf-search-background-color: var(--text-highlight-bg);
     --code-line-height-augment: 1.4;
 
@@ -75,8 +91,18 @@
       --interactive-accent-l: var(--accent-l);
     }
 
+    // .cm-focused > .cm-scroller > .cm-cursorLayer { 
+    //   animation: steps(1) cm-blink 1.2s infinite;
+    // }
+    // @keyframes cm-blink{
+    // 50% {opacity: 0;}}
+
+    // @keyframes cm-blink2{
+    // 50% {opacity: 0;}}
+
     // Make it so links show strikethrough when they have it
-    .markdown-source-view.mod-cm6 .cm-link.cm-strikethrough .cm-underline, .markdown-source-view.mod-cm6 .cm-url.cm-strikethrough .cm-underline {
+    .markdown-source-view.mod-cm6 .cm-link.cm-strikethrough .cm-underline,
+    .markdown-source-view.mod-cm6 .cm-url.cm-strikethrough .cm-underline {
       text-decoration: inherit, underline;
     }
 
@@ -87,13 +113,19 @@
       content: '-';
     }
 
-    div.app-container div.view-content > div.markdown-source-view div.cm-contentContainer {
+    div.app-container div.view-content>div.markdown-source-view div.cm-contentContainer {
       div.HyperMD-footnote.cm-line {
         border-top: 0.3ex dotted #fff;
+
         div.markdown-embed-content.node-insert-event div {
           font-size: 95%;
         }
       }
+    }
+
+    .cm-s-obsidian .cm-cursor,
+    .cm-s-obsidian .cm-dropCursor {
+      border-left-width: 3px;
     }
 
     // Make bold today's day number as displayed
@@ -103,19 +135,20 @@
       font-weight: bold;
     }
 
-    // Make it so *italics* have a slight push on the right
-    //  to keep text from kerning together with adjacent (e.g.) `*letter*s`
-    //  such that the 's' in letters wouldn't mash into the 'r'
-    // div.markdown-reading-view em {
-    div.app-container div.view-content > div.markdown-reading-view em {
-      margin-right: 0.16ex;
-    }
+    // // Make it so *italics* have a slight push on the right
+    // //  to keep text from kerning together with adjacent (e.g.) `*letter*s`
+    // //  such that the 's' in letters wouldn't mash into the 'r'
+    // // div.markdown-reading-view em {
+    // div.app-container div.view-content>div.markdown-reading-view em {
+    //   margin-right: 0.16ex;
+    // }
 
     // Make it so the tilde (`) of inline code displays without extra width in padding
     //  It should make inline code easier to edit (without weird letter spacing)
     span.cm-formatting.cm-formatting-code.cm-inline-code.cm-list-2 {
       padding: 0;
     }
+
     // This is to correct for a thing with 1.6 where addition L/R padding was added for inline code
     //  making it look "wrong" to my eyes.
     .cm-s-obsidian .cm-inline-code:not(.cm-formatting) {
@@ -142,7 +175,7 @@
     }
 
     // before link, show eyes for unresolved wiki links
-    span.cm-hmd-internal-link > span.is-unresolved > a.cm-underline::before {
+    span.cm-hmd-internal-link>span.is-unresolved>a.cm-underline::before {
       // content: "😲";
       content: "👀";
     }
@@ -152,6 +185,7 @@
     .cm-line.HyperMD-codeblock {
       line-height: calc(var(--code-size) * var(--code-line-height-augment));
     }
+
     // // in preview (based on app.css as of 2024 01 05)
     code[class*="language-"],
     pre[class*="language-"] {
@@ -178,6 +212,7 @@
     padding-inline-end: 0px;
     padding-right: 0px;
   }
+
   // Add (some) right padding for line numbers
   div[class="cm-lineNumbers"] div[class="cm-gutterElement"] {
     // The following will keep the active-line background in
@@ -191,15 +226,22 @@
     margin-inline-end: 0; //var(--file-folding-offset);
     //padding-inline-end: var(--file-folding-offset);
 
-    // Create the same horizontal separation as was done
-    //  with margin-inline-end, but using pseudo class
-    //  and transparent content
-    //  (it could hypothetically be selectable)
+    /*
+    As of 2024 07 10, version 1.6.5 on Win11, the following
+    causes the cursor to be 1px wide.
+
+    - It was because I had a string *other than* a space (" ") as
+    content. 
+    */
+
     ::after {
-      color: transparent;
-      content: "X";
+      color: red;
+      margin: 0.5ex;
+      // content: "X";
+      content: " ";
     }
   }
+
 
   // Remove most of the padding-inline-start for ul, ol
   //  since I like it aligned further to the left

@@ -661,12 +661,10 @@ body:not(.is-mobile) {
 
 body {
   --file-line-width: 35em;
-  --text-highlight-bg: hsla(
-    calc(var(--accent-h) + 120),
-    var(--accent-s),
-    calc(var(--accent-l) + var(--luminence-mod-l)),
-    0.8
-  );
+  --text-highlight-bg: hsla(calc(var(--accent-h) + 120),
+      var(--accent-s),
+      calc(var(--accent-l) + var(--luminence-mod-l)),
+      0.8);
   --gdlf-search-background-color: var(--text-highlight-bg);
   --code-line-height-augment: 1.4;
 }
@@ -680,7 +678,8 @@ body .theme-dark {
   --interactive-accent-s: var(--accent-s);
   --interactive-accent-l: var(--accent-l);
 }
-body .markdown-source-view.mod-cm6 .cm-link.cm-strikethrough .cm-underline, body .markdown-source-view.mod-cm6 .cm-url.cm-strikethrough .cm-underline {
+body .markdown-source-view.mod-cm6 .cm-link.cm-strikethrough .cm-underline,
+body .markdown-source-view.mod-cm6 .cm-url.cm-strikethrough .cm-underline {
   text-decoration: inherit, underline;
 }
 body div.titlebar-button.mod-maximize[aria-label="Restore down"]::after {
@@ -694,11 +693,12 @@ body div.app-container div.view-content > div.markdown-source-view div.cm-conten
 body div.app-container div.view-content > div.markdown-source-view div.cm-contentContainer div.HyperMD-footnote.cm-line div.markdown-embed-content.node-insert-event div {
   font-size: 95%;
 }
+body .cm-s-obsidian .cm-cursor,
+body .cm-s-obsidian .cm-dropCursor {
+  border-left-width: 3px;
+}
 body div.day.today {
   font-weight: bold;
-}
-body div.app-container div.view-content > div.markdown-reading-view em {
-  margin-right: 0.16ex;
 }
 body span.cm-formatting.cm-formatting-code.cm-inline-code.cm-list-2 {
   padding: 0;
@@ -752,10 +752,18 @@ div[class=cm-lineNumbers] div[class=cm-gutterElement] {
 
 .markdown-source-view.mod-cm6 .cm-gutters {
   margin-inline-end: 0;
+  /*
+  As of 2024 07 10, version 1.6.5 on Win11, the following
+  causes the cursor to be 1px wide.
+
+  - It was because I had a string *other than* a space (" ") as
+  content. 
+  */
 }
 .markdown-source-view.mod-cm6 .cm-gutters ::after {
-  color: transparent;
-  content: "X";
+  color: red;
+  margin: 0.5ex;
+  content: " ";
 }
 
 .cm-formatting-list-ul,
