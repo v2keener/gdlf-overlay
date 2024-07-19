@@ -10,9 +10,12 @@ body#{$overlayClasses}#{$snippetClasses} {
     // content: '∴≫≣≡≻⊕⊞⊿⋇⋗⋑⋙⋺⋱⊾';
     // content: '⊾';
     // content: '⊕';
-    content: "⊞";
-
-    vertical-align: sub;
+    // content: "⊞";
+    content: ' ➕';
+    // content: ' >';
+    // vertical-align: middle;
+    vertical-align: -13%;
+    font-size: 70%;
   }
 
   div.HyperMD-header {

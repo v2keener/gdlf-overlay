@@ -240,8 +240,9 @@ body:is(.theme-light, .theme-dark) div.workspace-tab-header:is(.is-active) div.w
 
 body span.cm-foldPlaceholder::after {
   font-weight: 900;
-  content: "⊞";
-  vertical-align: sub;
+  content: " ➕";
+  vertical-align: -13%;
+  font-size: 70%;
 }
 body div.HyperMD-header {
   border-bottom: 3px dotted var(--interactive-accent-base);
