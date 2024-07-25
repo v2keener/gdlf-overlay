@@ -9,6 +9,7 @@
 
   body {
     --list-indent: 1.5em; // reduced from default preview list-indent of 2.5em
+    --caret-color: #5050ff;
 
     --luminence-mod-l: 0;
     --text-selection: hsla(var(--interactive-accent-hsl), 0.25);

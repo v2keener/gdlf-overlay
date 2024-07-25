@@ -630,6 +630,7 @@ body .tree-item-self.tag-pane-tag.is-clickable:not(.mod-collapsible)::before {
 
 body {
   --list-indent: 1.5em;
+  --caret-color: #5050ff;
   --luminence-mod-l: 0;
   --text-selection: hsla(var(--interactive-accent-hsl), 0.25);
   --code-comment: var(--color-base-60);
