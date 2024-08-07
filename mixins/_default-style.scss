@@ -123,7 +123,9 @@
 
     div.app-container div.view-content>div.markdown-source-view div.cm-contentContainer {
       div.HyperMD-footnote.cm-line {
-        border-top: 0.3ex dotted #fff;
+        //border-top: 0.3ex dotted #fff;
+        border-top: 0.3ex dotted hsla(var(--interactive-accent-hsl), 1);
+        border-top-right-radius: 0;
 
         div.markdown-embed-content.node-insert-event div {
           font-size: 95%;

@@ -42,16 +42,18 @@ body#{$overlayClasses}#{$snippetClasses} {
     border-left: none;
   }
 
-  section.footnotes::before {
-    color: var(--text-title-h1);
-    content: "Footnotes";
-    font-size: var(--footnotes-text-font-size);
-    font-weight: var(--footnotes-font-weight);
-    border-top: 0.1em solid var(--background-modifier-border);
-    display: block;
-    clear: both;
-    width: 100%;
-  }
+  // section.footnotes::before {
+  //   color: var(--text-title-h1);
+  //   content: "Footnotes";
+  //   content: " ";
+  //   font-size: var(--footnotes-text-font-size);
+  //   font-size: 0; //var(--footnotes-text-font-size);
+  //   font-weight: var(--footnotes-font-weight);
+  //   // border-top: 0.1em solid var(--background-modifier-border);
+  //   // display: block;
+  //   // clear: both;
+  //   width: 100%;
+  // }
 
   // Hide section.footnotes header rows, but show them within the citations themselves
   section.footnotes hr {

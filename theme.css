@@ -277,16 +277,6 @@ body a.footnote-backref.footnote-link::after {
   content: " ";
   border-left: none;
 }
-body section.footnotes::before {
-  color: var(--text-title-h1);
-  content: "Footnotes";
-  font-size: var(--footnotes-text-font-size);
-  font-weight: var(--footnotes-font-weight);
-  border-top: 0.1em solid var(--background-modifier-border);
-  display: block;
-  clear: both;
-  width: 100%;
-}
 body section.footnotes hr {
   display: none;
 }
@@ -696,7 +686,8 @@ body div.titlebar-button.mod-maximize[aria-label="Restore down"]::after {
   content: "-";
 }
 body div.app-container div.view-content > div.markdown-source-view div.cm-contentContainer div.HyperMD-footnote.cm-line {
-  border-top: 0.3ex dotted #fff;
+  border-top: 0.3ex dotted hsla(var(--interactive-accent-hsl), 1);
+  border-top-right-radius: 0;
 }
 body div.app-container div.view-content > div.markdown-source-view div.cm-contentContainer div.HyperMD-footnote.cm-line div.markdown-embed-content.node-insert-event div {
   font-size: 95%;
