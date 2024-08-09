@@ -32,6 +32,11 @@
     //   /* filter: drop-shadow(2px 2px 1px var(--custom-black-300)) drop-shadow(2px 2px 1px var(--custom-black-300)); */
     //   /* filter: drop-shadow(2px 2px 1px black) drop-shadow(2px 2px 1px black); */
     // }
+
+    div { // just adds enough specificity to override app.css
+      --background-modifier-hover: rgba(var(--mono-rgb-100), 0.25);
+      --nav-item-background-active: rgba(var(--mono-rgb-100), 0.20);
+    }
   }
 
   // Show a body border (handy for multiple windows, imo)
@@ -55,6 +60,7 @@
     .markdown-source-view .cm-editor {
       background: linear-gradient(0deg, #e0e0e0e0, transparent)
     }
+
   }
 
   #{$overlayClasses}.theme-dark {
@@ -63,6 +69,9 @@
     .markdown-source-view .cm-editor {
       background: linear-gradient(0deg, #000000e0, transparent)
     }
+    // .tree-item-self.is-active {
+    //   background-color: orange;
+    // }
   }
 
   body#{$overlayClasses}#{$snippetClasses} {
