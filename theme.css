@@ -635,7 +635,10 @@ body div {
 }
 
 body:not(.is-mobile) {
-  border: 0.3ex dashed hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.5);
+  border: 0.3ex dashed transparent;
+}
+body:not(.is-mobile).is-focused {
+  border: 0.3ex dashed hsla(calc(var(--accent-h) - 180), var(--accent-s), calc(var(--accent-l) + 5%), 0.5);
 }
 
 .theme-light {
