@@ -8,6 +8,21 @@
   // }
 
   body {
+    div{
+      // Reduces how much the window minimize / close buttons take up
+      //  by reducing the right padding for the right leaf tab buttons.
+      --frame-right-space: 100px;
+    }
+    div.titlebar-button-container.mod-right div.titlebar-button {
+      // Makes it so right leaf buttons show after reduction 
+      //  of --frame-right-space from default value of 126px
+      padding: 0 1.5ex;
+    }
+    div.titlebar-button-container.mod-right {
+      // Makes it so app border displays around top right corner
+      margin: 0.3ex;
+    }
+  
     --list-indent: 1.5em; // reduced from default preview list-indent of 2.5em
     --caret-color: #5050ff;
 
@@ -279,5 +294,20 @@
     // // Obsidian default:
     // background-color: var(--background-modifier-hover);
     background-color: var(--text-highlight-bg);
+  }
+
+  // Tried to get right leaf tabs to show with a scrollbar on their containing div, but couldn't figure it out
+  // Tried modeling it off of main window's scrollbar (.cm-scroller)
+  div.workspace-split.mod-horizontal.mod-sidedock.mod-right-split > div.workspace-tabs > div.workspace-tab-header-container > div.workspace-tab-header-container-inner {
+    // // Confirm I have what I want to select:
+    // color: red;
+    // background: green;
+    // // ...got it!
+
+    // background: linear-gradient(360deg, #f00, #00f);
+    background: linear-gradient(90deg in hsl longer hue, #ff000051, #56008c58);
+    background-clip: content-box;
+    background-attachment: local;
+    border-radius: 0.5ex;
   }
 }

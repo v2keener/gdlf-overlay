@@ -625,6 +625,15 @@ body {
   --text-selection: hsla(var(--interactive-accent-hsl), 0.25);
   --code-comment: var(--color-base-60);
 }
+body div {
+  --frame-right-space: 100px;
+}
+body div.titlebar-button-container.mod-right div.titlebar-button {
+  padding: 0 1.5ex;
+}
+body div.titlebar-button-container.mod-right {
+  margin: 0.3ex;
+}
 body .cm-comment-start,
 body .cm-comment-end {
   color: var(--text-faint);
@@ -779,6 +788,13 @@ div[class=cm-lineNumbers] div[class=cm-gutterElement] {
 
 .suggestion-item.is-selected {
   background-color: var(--text-highlight-bg);
+}
+
+div.workspace-split.mod-horizontal.mod-sidedock.mod-right-split > div.workspace-tabs > div.workspace-tab-header-container > div.workspace-tab-header-container-inner {
+  background: linear-gradient(90deg in hsl longer hue, rgba(255, 0, 0, 0.3176470588), rgba(86, 0, 140, 0.3450980392));
+  background-clip: content-box;
+  background-attachment: local;
+  border-radius: 0.5ex;
 }
 
 body {
