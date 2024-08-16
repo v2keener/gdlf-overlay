@@ -310,4 +310,11 @@
     background-attachment: local;
     border-radius: 0.5ex;
   }
+
+  // // With the following, I *could* make span.cm-blockid hidden or display:none,
+  // //  but doing so doesn't keep the UX from interacting with the element
+  // //  when moving the caret/cursor around with arrow keys.
+  // .cm-s-obsidian span.cm-blockid {
+  //   visibility: hidden;
+  // }
 }
