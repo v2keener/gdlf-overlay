@@ -1,75 +1,98 @@
 // Add some text to footnote citations 
 @mixin add-classes($overlayClasses: '', $snippetClasses: '') {
 
-body#{$overlayClasses}#{$snippetClasses} {
-  // For in-text footnote citations
-  --citation-color: var(--text-faint);
-  --citation-link-font-weight: 600;
-  // For footnotes section
-  --footnotes-font-weight: 900;
-  --footnotes-text-font-size: 1.59em;
-  --footnote-shadow: var(--background-primary); //#50b683;
+  body#{$overlayClasses}#{$snippetClasses} {
+    // For in-text footnote citations
+    --citation-color: var(--text-faint);
+    --citation-link-font-weight: 600;
+    // For footnotes section
+    --footnotes-font-weight: 900;
+    --footnotes-text-font-size: 1.59em;
+    --footnote-shadow: var(--background-primary); //#50b683;
 
-  // On 4/6/2022, it doesn't seem like any of this is working as I made it to work...
+    // On 4/6/2022, it doesn't seem like any of this is working as I made it to work...
 
-  // a.footnote-link::before{
-  //   color: var(--citation-color);
-  //   content: '|';
-  // }
-  a.footnote-link {
-    font-weight: var(--citation-link-font-weight);
-    color: var(--citation-color);
-  }
+    // a.footnote-link {
+    //   font-weight: var(--citation-link-font-weight);
+    //   color: var(--citation-color);
+    // }
 
-  .cm-s-obsidian span.cm-footref {
-    font-size: 0.73em;
-  }
-  a.footnote-backref.footnote-link {
-    //, a.footnote-backref.footnote-link::before, a.footnote-backref.footnote-link::after {
-    font-weight: normal;
-  }
+    // .cm-s-obsidian span.cm-footref {
+    //   font-size: 0.73em;
+    // }
 
-  a.footnote-backref.footnote-link::before {
-    content: "\0d\0a\0d\0a\ <<< return to citation ";
-    font-size: 90%;
-    white-space: pre;
-    border-bottom: 3px double var(--footnote-shadow);
-    border-top: 3px double var(--footnote-shadow);
-    border-radius: 0.5em;
-  }
-  a.footnote-backref.footnote-link::after {
-    content: " ";
-    border-left: none;
-  }
+    // a.footnote-backref.footnote-link {
+    //   //, a.footnote-backref.footnote-link::before, a.footnote-backref.footnote-link::after {
+    //   font-weight: normal;
+    // }
 
-  // section.footnotes::before {
-  //   color: var(--text-title-h1);
-  //   content: "Footnotes";
-  //   content: " ";
-  //   font-size: var(--footnotes-text-font-size);
-  //   font-size: 0; //var(--footnotes-text-font-size);
-  //   font-weight: var(--footnotes-font-weight);
-  //   // border-top: 0.1em solid var(--background-modifier-border);
-  //   // display: block;
-  //   // clear: both;
-  //   width: 100%;
-  // }
+    a.footnote-backref.footnote-link::before {
+      position:relative;
+      left: -1ex;
+      content: "<<< return to citation";
+      // font-size: 90%;
+      white-space: pre;
+      // border-bottom: 3px double var(--footnote-shadow);
+      // border-top: 3px double var(--footnote-shadow);
+      // border-radius: 0.5em;
+    }
 
-  // Hide section.footnotes header rows, but show them within the citations themselves
-  section.footnotes hr {
-    // Hide hr for "Footnotes" in viewer
-    display: none;
+    section.footnotes ol li {
+      border-bottom: solid 1px red;
+      border-bottom: 0.3ex dotted hsla(var(--interactive-accent-hsl), 0.2);
+    }
+
+    // a.footnote-backref.footnote-link::after {
+    //   content: " ";
+    //   border-left: none;
+    // }
+
+    // section.footnotes::before {
+    //   color: var(--text-title-h1);
+    //   content: "Footnotes";
+    //   content: " ";
+    //   font-size: var(--footnotes-text-font-size);
+    //   font-size: 0; //var(--footnotes-text-font-size);
+    //   font-weight: var(--footnotes-font-weight);
+    //   // border-top: 0.1em solid var(--background-modifier-border);
+    //   // display: block;
+    //   // clear: both;
+    //   width: 100%;
+    // }
+
+    // Hide section.footnotes header rows, but show them within the citations themselves
+    // section.footnotes hr {
+    //   // Hide hr for "Footnotes" in viewer
+    //   display: none;
+    // }
+
+    // section.footnotes ol hr {
+    //   display: block;
+    //   height: 0.1em;
+    //   margin: 0.2em 0 0.2em 0;
+    // }
+
+    // section.footnotes>ol>li {
+    //   border-bottom: 0.27em dotted var(--background-modifier-border);
+    // }
+
+    // section.footnotes>ol>li::marker {
+    //   font-weight: var(--citation-link-font-weight);
+    // }
+
+    // // Adds a border for each footnote line, which looks bad in editor, sadly
+    // div.app-container div.view-content>div.markdown-source-view div.cm-contentContainer {
+    //   div.HyperMD-footnote.cm-line {
+    //     //border-top: 0.3ex dotted #fff;
+    //     border-top: 0.3ex dotted hsla(var(--interactive-accent-hsl), 1);
+    //     border-top-right-radius: 0;
+
+    //     div.markdown-embed-content.node-insert-event div {
+    //       font-size: 95%;
+    //     }
+    //   }
+    // }
+
+
   }
-  section.footnotes ol hr {
-    display: block;
-    height: 0.1em;
-    margin: 0.2em 0 0.2em 0;
-  }
-  section.footnotes > ol > li {
-    border-bottom: 0.27em dotted var(--background-modifier-border);
-  }
-  section.footnotes > ol > li::marker {
-    font-weight: var(--citation-link-font-weight);
-  }
-}
 }

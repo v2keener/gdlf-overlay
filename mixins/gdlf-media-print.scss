@@ -9,6 +9,7 @@ https://www.jotform.com/blog/css-perfect-print-stylesheet-98272/
 */
 
 @media print {
+
   // Remove background color from code blocks for print/PDF
   code[class*="language-"],
   pre[class*="language-"] {
@@ -41,6 +42,22 @@ https://www.jotform.com/blog/css-perfect-print-stylesheet-98272/
     background: #fff !important;
     color: #000;
     border: none;
+
+    // a.footnote-backref.footnote-link::before {
+    //   content: '';
+    //   display: none;
+    // }
+
+    // Target the last footnote, which can display its backreference link weirdly
+    section.footnotes ol li:last-of-type a.footnote-backref.footnote-link {
+      display: block;
+
+      // &::before {
+      //   content: "\0d\0a\0d\0a<<< return to citation\ ";
+      //   white-space: pre;
+      //   color: blue;
+      // }
+    }
   }
 
   hr {
@@ -63,9 +80,11 @@ https://www.jotform.com/blog/css-perfect-print-stylesheet-98272/
   a {
     page-break-inside: avoid;
   }
+
   blockquote {
     page-break-inside: avoid;
   }
+
   h1,
   h2,
   h3,
@@ -75,14 +94,17 @@ https://www.jotform.com/blog/css-perfect-print-stylesheet-98272/
     page-break-after: avoid;
     page-break-inside: avoid;
   }
+
   img {
     page-break-inside: avoid;
     page-break-after: avoid;
   }
+
   table,
   pre {
     page-break-inside: avoid;
   }
+
   ul,
   ol,
   dl {
@@ -108,7 +130,7 @@ https://www.jotform.com/blog/css-perfect-print-stylesheet-98272/
   //   content: " <" attr(href) "> ";
   // }
 
-  a:after > img {
+  a:after>img {
     content: "";
   }
 
@@ -132,6 +154,7 @@ https://www.jotform.com/blog/css-perfect-print-stylesheet-98272/
     line-height: 0pt !important;
     white-space: nowrap;
   }
+
   .embed-youtube,
   .embed-responsive {
     position: absolute;
