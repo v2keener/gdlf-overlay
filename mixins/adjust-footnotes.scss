@@ -2,13 +2,13 @@
 @mixin add-classes($overlayClasses: '', $snippetClasses: '') {
 
   body#{$overlayClasses}#{$snippetClasses} {
-    // For in-text footnote citations
-    --citation-color: var(--text-faint);
-    --citation-link-font-weight: 600;
-    // For footnotes section
-    --footnotes-font-weight: 900;
-    --footnotes-text-font-size: 1.59em;
-    --footnote-shadow: var(--background-primary); //#50b683;
+    // // For in-text footnote citations
+    // --citation-color: var(--text-faint);
+    // --citation-link-font-weight: 600;
+    // // For footnotes section
+    // --footnotes-font-weight: 900;
+    // --footnotes-text-font-size: 1.59em;
+    // --footnote-shadow: var(--background-primary); //#50b683;
 
     // On 4/6/2022, it doesn't seem like any of this is working as I made it to work...
 
@@ -26,19 +26,23 @@
     //   font-weight: normal;
     // }
 
-    a.footnote-backref.footnote-link::before {
-      position:relative;
-      left: -1ex;
-      content: "<<< return to citation";
-      // font-size: 90%;
-      white-space: pre;
-      // border-bottom: 3px double var(--footnote-shadow);
-      // border-top: 3px double var(--footnote-shadow);
-      // border-radius: 0.5em;
+    a.footnote-backref.footnote-link {
+      display: block;
+
+      &::before {
+        position: relative;
+        left: -1ex;
+        content: "<<< return to citation";
+        // font-size: 90%;
+        white-space: pre;
+        // border-bottom: 3px double var(--footnote-shadow);
+        // border-top: 3px double var(--footnote-shadow);
+        // border-radius: 0.5em;
+      }
     }
 
     section.footnotes ol li {
-      border-bottom: solid 1px red;
+      // border-bottom: solid 1px red;
       border-bottom: 0.3ex dotted hsla(var(--interactive-accent-hsl), 0.2);
     }
 

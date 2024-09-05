@@ -248,12 +248,8 @@ body div.HyperMD-header {
   border-bottom: 3px dotted var(--interactive-accent-base);
 }
 
-body {
-  --citation-color: var(--text-faint);
-  --citation-link-font-weight: 600;
-  --footnotes-font-weight: 900;
-  --footnotes-text-font-size: 1.59em;
-  --footnote-shadow: var(--background-primary);
+body a.footnote-backref.footnote-link {
+  display: block;
 }
 body a.footnote-backref.footnote-link::before {
   position: relative;
@@ -262,7 +258,6 @@ body a.footnote-backref.footnote-link::before {
   white-space: pre;
 }
 body section.footnotes ol li {
-  border-bottom: solid 1px red;
   border-bottom: 0.3ex dotted hsla(var(--interactive-accent-hsl), 0.2);
 }
 
@@ -577,9 +572,6 @@ body .theme-dark pre[class*=language-],
 body .theme-light code[class*=language-],
 body .theme-light pre[class*=language-] {
   white-space: pre-wrap;
-}
-body .footnotes-list {
-  font-size: var(--font-adaptive-small);
 }
 body .markdown-preview-view input.task-list-item-checkbox,
 body .markdown-source-view.is-live-preview input.task-list-item-checkbox {
