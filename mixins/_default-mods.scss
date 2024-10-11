@@ -32,6 +32,17 @@
     //   font-size: var(--font-adaptive-small);
     // }
 
+    button.clickable-icon.view-action[aria-label^="Current view: "] {
+      &[aria-label~="reading"] {
+        background: #00a000c0;
+        color: black;
+      }
+      &[aria-label~="editing"] {
+        background: #ffff00f0;
+        color: black;
+      }
+    }
+
     // Make sure checkboxes have --text-accent for their border color
     .markdown-preview-view,
     .markdown-source-view.is-live-preview {

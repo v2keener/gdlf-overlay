@@ -573,6 +573,14 @@ body .theme-light code[class*=language-],
 body .theme-light pre[class*=language-] {
   white-space: pre-wrap;
 }
+body button.clickable-icon.view-action[aria-label^="Current view: "][aria-label~=reading] {
+  background: rgba(0, 160, 0, 0.7529411765);
+  color: black;
+}
+body button.clickable-icon.view-action[aria-label^="Current view: "][aria-label~=editing] {
+  background: rgba(255, 255, 0, 0.9411764706);
+  color: black;
+}
 body .markdown-preview-view input.task-list-item-checkbox,
 body .markdown-source-view.is-live-preview input.task-list-item-checkbox {
   border: 2px solid var(--text-accent);
