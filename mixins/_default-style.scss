@@ -24,7 +24,7 @@
     }
   
     --list-indent: 1.5em; // reduced from default preview list-indent of 2.5em
-    --caret-color: #5050ff;
+    --caret-color: rgb(from hsl(calc(var(--accent-h) + 180), 100%, 50%) r g b);
 
     --luminence-mod-l: 0;
     --text-selection: hsla(var(--interactive-accent-hsl), 0.25);
@@ -127,15 +127,6 @@
       --interactive-accent-s: var(--accent-s);
       --interactive-accent-l: var(--accent-l);
     }
-
-    // .cm-focused > .cm-scroller > .cm-cursorLayer { 
-    //   animation: steps(1) cm-blink 1.2s infinite;
-    // }
-    // @keyframes cm-blink{
-    // 50% {opacity: 0;}}
-
-    // @keyframes cm-blink2{
-    // 50% {opacity: 0;}}
 
     // Make it so links show strikethrough when they have it
     .markdown-source-view.mod-cm6 .cm-link.cm-strikethrough .cm-underline,
