@@ -62,6 +62,13 @@
       color: var(--text-faint);
     }
 
+    @keyframes cm-blink {50% {opacity: 0;}}
+    @keyframes cm-blink2 {
+      50% {opacity: 0;}
+      0% { opacity: 1; background-color: var(--text-accent);}
+    }
+
+
     // // From Faded theme:
     // --custom-global-drop-shadow: drop-shadow(2px 2px 1px gray) drop-shadow(0px 0px 2px gray);
 

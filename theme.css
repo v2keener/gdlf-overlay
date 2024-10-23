@@ -490,6 +490,7 @@ body.gdlf-tag-colors-by-name.theme-light {
 body:is(.theme-dark, .theme-light) .tag,
 body:is(.theme-dark, .theme-light) span[class~=cm-hashtag][class~=cm-hashtag-end],
 body:is(.theme-dark, .theme-light) span[class~=cm-hashtag][class~=cm-hashtag-begin] {
+  z-index: -1000;
   background-color: var(--tag-default-bg-color);
 }
 body:is(.theme-dark, .theme-light) .tag[href^="#org/sch/"],
@@ -624,6 +625,20 @@ body div.titlebar-button-container.mod-right {
 body .cm-comment-start,
 body .cm-comment-end {
   color: var(--text-faint);
+}
+@keyframes cm-blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes cm-blink2 {
+  50% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 1;
+    background-color: var(--text-accent);
+  }
 }
 body div {
   --background-modifier-hover: rgba(var(--mono-rgb-100), 0.25);

@@ -92,6 +92,7 @@
     .tag,
     span[class~="cm-hashtag"][class~="cm-hashtag-end"],
     span[class~="cm-hashtag"][class~="cm-hashtag-begin"] {
+      z-index: -1000;
       background-color: var(--tag-default-bg-color);
     }
     // schools
