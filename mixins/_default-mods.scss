@@ -4,6 +4,7 @@
 // Mostly, this should be specific to my vault
 @mixin add-classes($snippetClasses: "") {
   body#{$snippetClasses} {
+
     // Hide anything under a frame from being clicked
     div.glk-noclick {
       position: absolute;
@@ -32,14 +33,30 @@
     //   font-size: var(--font-adaptive-small);
     // }
 
+    /* Change the "Current view" button for which view is selected*/
+    // First, dark theme vars specified to the button
+    &.theme-dark button.clickable-icon.view-action[aria-label^="Current view: "] {
+      --current-view-color: black;;
+      --reading-current-view-bg-color: #00a000c0;
+      --editing-current-view-bg-color: #ffff00f0;
+    }
+    // ...light theme vars specified to the button
+    &.theme-light button.clickable-icon.view-action[aria-label^="Current view: "] {
+      --current-view-color: black;;
+      --reading-current-view-bg-color: #00a000c0;
+      --editing-current-view-bg-color: #ffe600;
+    }
+    // ...the Current View view-action button customization
     button.clickable-icon.view-action[aria-label^="Current view: "] {
       &[aria-label~="reading"] {
-        background: #00a000c0;
-        color: black;
+        background: var(--reading-current-view-bg-color);
+        color: var(--current-view-color);
+        border: 1px solid var(--text-accent);
       }
       &[aria-label~="editing"] {
-        background: #ffff00f0;
-        color: black;
+        background: var(--editing-current-view-bg-color);
+        color: var(--current-view-color);
+        border: 1px solid var(--text-accent);
       }
     }
 

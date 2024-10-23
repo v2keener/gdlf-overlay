@@ -553,6 +553,7 @@ body:is(.theme-dark, .theme-light) span[class*=tag-k][class~=cm-hashtag-begin][c
   /*format("opentype")*/
 }
 body {
+  /* Change the "Current view" button for which view is selected*/
   --header-height: 30px;
   --titlebar-height: var(--header-height);
 }
@@ -573,13 +574,25 @@ body .theme-light code[class*=language-],
 body .theme-light pre[class*=language-] {
   white-space: pre-wrap;
 }
+body.theme-dark button.clickable-icon.view-action[aria-label^="Current view: "] {
+  --current-view-color: black;
+  --reading-current-view-bg-color: #00a000c0;
+  --editing-current-view-bg-color: #ffff00f0;
+}
+body.theme-light button.clickable-icon.view-action[aria-label^="Current view: "] {
+  --current-view-color: black;
+  --reading-current-view-bg-color: #00a000c0;
+  --editing-current-view-bg-color: #ffe600;
+}
 body button.clickable-icon.view-action[aria-label^="Current view: "][aria-label~=reading] {
-  background: rgba(0, 160, 0, 0.7529411765);
-  color: black;
+  background: var(--reading-current-view-bg-color);
+  color: var(--current-view-color);
+  border: 1px solid var(--text-accent);
 }
 body button.clickable-icon.view-action[aria-label^="Current view: "][aria-label~=editing] {
-  background: rgba(255, 255, 0, 0.9411764706);
-  color: black;
+  background: var(--editing-current-view-bg-color);
+  color: var(--current-view-color);
+  border: 1px solid var(--text-accent);
 }
 body .markdown-preview-view input.task-list-item-checkbox,
 body .markdown-source-view.is-live-preview input.task-list-item-checkbox {
