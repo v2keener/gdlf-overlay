@@ -1,7 +1,8 @@
 /* Custom tag colors for specific tags */
 @mixin add-classes($overlayClasses: "", $snippetClasses: "") {
+
   // set hue
-  body#{$overlayClasses}{
+  body#{$overlayClasses} {
     // this is just to see what hue I pick before I try it below
     // --ye-color-tester-for-vs-code: hsl(204, 88%, 41%);
 
@@ -26,8 +27,9 @@
     // shade of gray
     --default-h: 204;
   }
+
   // theme-dark tag pill colors
-  body#{$overlayClasses}.theme-dark{
+  body#{$overlayClasses}.theme-dark {
     --school-color: hsl(var(--school-h), 55%, 36%);
     --server-color: hsl(var(--server-h), 79%, 40%);
     --banner-color: hsl(var(--banner-h), 67%, 24%);
@@ -39,6 +41,7 @@
     --knowledge-color: hsl(var(--knowledge-h), 81%, 30%);
     --tag-default-bg-color: hsl(var(--default-h), 91%, 31%);
   }
+
   // theme-light tag pill colors
   body#{$overlayClasses}.theme-light {
     --school-color: hsl(var(--school-h), 61%, 77%);
@@ -76,31 +79,38 @@
   body#{$overlayClasses}#{$snippetClasses}.theme-light {
     --school-color: hsl(251, 77%, 91%);
     --server-color: hsl(calc(var(--accent-h) - 254), 79%, 87%); //0
-    --banner-color: hsl(calc(var(--accent-h) - 134), 59%, 75%);//120
-    --tech-color: hsl(calc(var(--accent-h) - 193), 59%, 75%);//61
-    --app-color: hsl(calc(var(--accent-h) - 42), 77%, 85%);//212
-    --slack-color: hsl(calc(var(--accent-h) - 217), 66%, 57%);//37
-    --gdlf-color: hsl(calc(var(--accent-h) + 56), 93%, 73%);//310
-    --issue-color: hsl(calc(var(--accent-h) - 254), 100%, 72%);//0
-    --knowledge-color: hsl(calc(var(--accent-h) - 194), 79%, 71%);//60
+    --banner-color: hsl(calc(var(--accent-h) - 134), 59%, 75%); //120
+    --tech-color: hsl(calc(var(--accent-h) - 193), 59%, 75%); //61
+    --app-color: hsl(calc(var(--accent-h) - 42), 77%, 85%); //212
+    --slack-color: hsl(calc(var(--accent-h) - 217), 66%, 57%); //37
+    --gdlf-color: hsl(calc(var(--accent-h) + 56), 93%, 73%); //310
+    --issue-color: hsl(calc(var(--accent-h) - 254), 100%, 72%); //0
+    --knowledge-color: hsl(calc(var(--accent-h) - 194), 79%, 71%); //60
     --tag-default-bg-color: hsl(calc(var(--accent-h) - 36), calc(var(--accent-s) * 0.8), 87%);
   }
 
   body#{$overlayClasses}:is(.theme-dark, .theme-light) {
+
     // note: all span selectors apply to Editor
     // default
-    .tag,
     span[class~="cm-hashtag"][class~="cm-hashtag-end"],
     span[class~="cm-hashtag"][class~="cm-hashtag-begin"] {
-      z-index: -1000;
+      // For edit view, cusror will display on top of tag background
+      z-index: -1; 
       background-color: var(--tag-default-bg-color);
     }
+
+    .tag {
+      background-color: var(--tag-default-bg-color);
+    }
+
     // schools
-    .tag[href^="#org/sch/"], 
+    .tag[href^="#org/sch/"],
     span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="org/sch"],
     span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="org/sch"] {
       background-color: var(--school-color);
     }
+
     // servers
     .tag[href^="#xe/"],
     .tag[href^="#server/"],
@@ -110,42 +120,49 @@
     span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="server"] {
       background-color: var(--server-color);
     }
+
     // apps
     .tag[href^="#app/"],
     span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="app"],
     span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="app"] {
       background-color: var(--app-color);
     }
+
     // Banner
     .tag[href^="#app/Banner/"],
     span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="Banner"],
     span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="Banner"] {
       background-color: var(--banner-color);
     }
+
     // Slack
     .tag[href^="#app/Slack"],
     span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="Slack"],
     span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="Slack"] {
       background-color: var(--slack-color);
     }
+
     // Tag for my stuff
     .tag[href^="#gdlf"],
-    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="gdlf"], 
-    span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="gdlf"]{
+    span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="gdlf"],
+    span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="gdlf"] {
       background-color: var(--gdlf-color);
     }
+
     // issues
     .tag[href^="#issue"],
     span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="issue"],
     span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="issue"] {
       background-color: var(--issue-color);
     }
+
     // tech
     .tag[href^="#tech/"],
     span[class~="cm-hashtag"][class~="cm-hashtag-end"][class*="tech"],
     span[class~="cm-hashtag"][class~="cm-hashtag-begin"][class*="tech"] {
       background-color: var(--tech-color);
     }
+
     // (k)nowledge, (conf)erence, (doc)uments
     .tag[href^="#conf/"],
     .tag[href^="#k/"],

@@ -487,10 +487,12 @@ body.gdlf-tag-colors-by-name.theme-light {
   --tag-default-bg-color: hsl(calc(var(--accent-h) - 36), calc(var(--accent-s) * 0.8), 87%);
 }
 
-body:is(.theme-dark, .theme-light) .tag,
 body:is(.theme-dark, .theme-light) span[class~=cm-hashtag][class~=cm-hashtag-end],
 body:is(.theme-dark, .theme-light) span[class~=cm-hashtag][class~=cm-hashtag-begin] {
-  z-index: -1000;
+  z-index: -1;
+  background-color: var(--tag-default-bg-color);
+}
+body:is(.theme-dark, .theme-light) .tag {
   background-color: var(--tag-default-bg-color);
 }
 body:is(.theme-dark, .theme-light) .tag[href^="#org/sch/"],
