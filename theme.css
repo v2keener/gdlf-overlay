@@ -642,6 +642,10 @@ body .cm-comment-end {
     background-color: var(--text-accent);
   }
 }
+body .markdown-rendered button.copy-code-button {
+  font-weight: bold;
+  text-shadow: 1px 1px 2px gray;
+}
 body div {
   --background-modifier-hover: rgba(var(--mono-rgb-100), 0.25);
   --nav-item-background-active: rgba(var(--mono-rgb-100), 0.20);
