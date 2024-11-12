@@ -128,7 +128,7 @@ body.gdlf-background:is(.theme-light) {
   --background-primary-alt: hsl(var(--accent-h), 100%, 90%);
 }
 
-body.gdlf-background-secondary:is(.theme-dark) {
+body.gdlf-background-secondary.is-focused:is(.theme-dark) {
   --background-secondary: hsl(var(--accent-h), 80%, 4%);
   --background-secondary-alt: hsl(var(--accent-h), 80%, 10%);
   --background-modifier-hover: rgba(var(--mono-rgb-100), 0.075);
@@ -139,12 +139,15 @@ body.gdlf-background-secondary:is(.theme-dark) {
   --titlebar-background: var(--background-secondary);
   --titlebar-background-focused: hsl(var(--accent-h), 100%, 20%);
   --tab-background-active: var(--background-primary);
-  --tab-container-background: var(--background-secondary);
   --tab-divider-color: var(--background-modifier-border-hover);
   --tab-outline-color: var(--divider-color);
+  --tab-container-background: var(--background-secondary);
+}
+body.gdlf-background-secondary.is-focused:is(.theme-dark) span.cm-inline-code {
+  --code-background: hsl(calc(var(--accent-h) + 120), 30%, 20%);
 }
 
-body.gdlf-background-secondary:is(.theme-light) {
+body.gdlf-background-secondary.is-focused:is(.theme-light) {
   --background-secondary: hsl(var(--accent-h), 80%, 94%);
   --background-secondary-alt: hsl(var(--accent-h), 80%, 90%);
   --background-modifier-active-hover: hsla(var(--interactive-accent-hsl), 0.15);
@@ -154,9 +157,12 @@ body.gdlf-background-secondary:is(.theme-light) {
   --titlebar-background: var(--background-secondary);
   --titlebar-background-focused: hsl(var(--accent-h), 100%, 80%);
   --tab-background-active: var(--background-primary);
-  --tab-container-background: var(--background-secondary);
   --tab-divider-color: var(--background-modifier-border-hover);
   --tab-outline-color: var(--divider-color);
+  --tab-container-background: var(--background-secondary);
+}
+body.gdlf-background-secondary.is-focused:is(.theme-light) span.cm-inline-code {
+  --code-background: hsl(calc(var(--accent-h) + 45), 50%, 70%);
 }
 
 body div.markdown-source-view.is-live-preview div.cm-editor div.cm-contentContainer div.internal-embed div.markdown-embed-content.markdown-embed-block > div > div {

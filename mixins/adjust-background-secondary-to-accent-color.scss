@@ -2,7 +2,7 @@
 // the selected accent color
 // NOTE: It also affects the titlebar and tab backgrounds
 @mixin add-classes($overlayClasses: "", $snippetClasses: "") {
-  body#{$overlayClasses}#{$snippetClasses}:is(.theme-dark) {
+  body#{$overlayClasses}#{$snippetClasses}.is-focused:is(.theme-dark) {
     // Trying to include cool background color based on accent...
     --background-secondary: hsl(var(--accent-h), 80%, 4%);
     --background-secondary-alt: hsl(var(--accent-h), 80%, 10%);
@@ -16,11 +16,15 @@
     --titlebar-background-focused: hsl(var(--accent-h), 100%, 20%);
 
     --tab-background-active: var(--background-primary);
-    --tab-container-background: var(--background-secondary);
     --tab-divider-color: var(--background-modifier-border-hover);
     --tab-outline-color: var(--divider-color);
+    --tab-container-background: var(--background-secondary);
+
+    span.cm-inline-code{
+      --code-background: hsl(calc(var(--accent-h) + 120), 30%, 20%);
+    }
   }
-  body#{$overlayClasses}#{$snippetClasses}:is(.theme-light) {
+  body#{$overlayClasses}#{$snippetClasses}.is-focused:is(.theme-light) {
     --background-secondary: hsl(var(--accent-h), 80%, 94%);
     --background-secondary-alt: hsl(var(--accent-h), 80%, 90%);
     --background-modifier-active-hover: hsla(var(--interactive-accent-hsl), 0.15);
@@ -32,8 +36,12 @@
     --titlebar-background-focused: hsl(var(--accent-h), 100%, 80%);
 
     --tab-background-active: var(--background-primary);
-    --tab-container-background: var(--background-secondary);
     --tab-divider-color: var(--background-modifier-border-hover);
     --tab-outline-color: var(--divider-color);
+    --tab-container-background: var(--background-secondary);
+
+    span.cm-inline-code{
+      --code-background: hsl(calc(var(--accent-h) + 45), 50%, 70%);
+    }
   }
 }
