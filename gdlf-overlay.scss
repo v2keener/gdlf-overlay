@@ -24,8 +24,9 @@
 @use "mixins/adjust-tag-colors-by-name";
 
 body {
-  --gdlf-editor-font-family: "Delafuerza Print", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
+  // --gdlf-editor-font-family: "Delafuerza Print", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  //   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
+  --gdlf-editor-font-family: inherit;
 }
 
 @include adjust-bold-italic-to-accent-color.add-classes(".gdlf-overlay", ".gdlf-bold-italic-to-accent-color");
@@ -177,7 +178,7 @@ settings:
     title: 📏🔨 Editor font-family
     description: Change the editor font (via gdlf-editor-font.scss)
     type: variable-select
-    default: '"Delafuerza Print","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft YaHei Light",sans-serif'
+    default: Default
     options: 
     -
       label: Default
