@@ -17,7 +17,7 @@
     }
 
     // Make hr split for 'new topic' (the --- in Markdown) into a heavier line
-    div > div.hr.cm-line > hr {
+    div>div.hr.cm-line>hr {
       border: 3px solid var(--interactive-accent);
     }
 
@@ -36,16 +36,20 @@
     /* Change the "Current view" button for which view is selected*/
     // First, dark theme vars specified to the button
     &.theme-dark button.clickable-icon.view-action[aria-label^="Current view: "] {
-      --current-view-color: black;;
+      --current-view-color: black;
+      ;
       --reading-current-view-bg-color: #00a000c0;
       --editing-current-view-bg-color: #ffff00f0;
     }
+
     // ...light theme vars specified to the button
     &.theme-light button.clickable-icon.view-action[aria-label^="Current view: "] {
-      --current-view-color: black;;
+      --current-view-color: black;
+      ;
       --reading-current-view-bg-color: #00a000c0;
       --editing-current-view-bg-color: #ffe600;
     }
+
     // ...the Current View view-action button customization
     button.clickable-icon.view-action[aria-label^="Current view: "] {
       &[aria-label~="reading"] {
@@ -53,6 +57,7 @@
         color: var(--current-view-color);
         border: 1px solid var(--text-accent);
       }
+
       &[aria-label~="editing"] {
         background: var(--editing-current-view-bg-color);
         color: var(--current-view-color);
@@ -69,18 +74,19 @@
       }
     }
 
-    // Tags that are not collapsible (i.e. have no subtags)
+    // Tags in Tag Manager
     //  display with a bullet, which is `#u2022;` in html
     //  with a heavy font-weight
-    // This aligns them with items that *do* have subtags
-    //  without making the time seem like a subtag of
-    //  the collapsible tag above or below it
-    .tree-item-self.tag-pane-tag.is-clickable:not(.mod-collapsible)::before {
-      // content: '\2043'; // unicode 'hyphen bullet'
-      font-weight: 900;
-      content: "\2022";
-      color: var(--nav-collapse-icon-color);
-      width: 2ex;
+    .tree-item-self.tag-pane-tag.is-clickable {
+      &:not(.mod-collapsible)::before {
+        // content: '\2043'; // unicode 'hyphen bullet'
+        @include tag-bullet;
+        color: var(--nav-collapse-icon-color);
+      }
+      &:is(.mod-collapsible)::before {
+        @include tag-bullet;
+        color: var(--text-accent);
+      }
     }
 
     // Change view-header height (default is 40px as of 2023 04 19)
@@ -97,4 +103,10 @@
     //   align-items: stretch;
     // }
   }
+}
+
+@mixin tag-bullet {
+  font-weight: 900;
+  content: "\2022";
+  width: 2ex;
 }

@@ -609,8 +609,14 @@ body .markdown-source-view.is-live-preview input.task-list-item-checkbox {
 body .tree-item-self.tag-pane-tag.is-clickable:not(.mod-collapsible)::before {
   font-weight: 900;
   content: "•";
-  color: var(--nav-collapse-icon-color);
   width: 2ex;
+  color: var(--nav-collapse-icon-color);
+}
+body .tree-item-self.tag-pane-tag.is-clickable:is(.mod-collapsible)::before {
+  font-weight: 900;
+  content: "•";
+  width: 2ex;
+  color: var(--text-accent);
 }
 
 body {
