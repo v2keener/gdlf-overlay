@@ -474,7 +474,7 @@ body.gdlf-tag-colors-by-name.theme-dark {
   --app-color: hsl(calc(var(--accent-h) - 55), 84%, 42%);
   --slack-color: hsl(calc(var(--accent-h) + 49), 65%, 31%);
   --gdlf-color: hsl(calc(var(--accent-h) + 71), 72%, 45%);
-  --issue-color: hsl(calc(var(--accent-h) - 254), 100%, 61%);
+  --issue-color: hsl(calc(var(--accent-h) - 244), 100%, 36%);
   --knowledge-color: hsl(calc(var(--accent-h) - 215), 88%, 44%);
   --tag-default-bg-color: hsl(calc(var(--accent-h) - 36), calc(var(--accent-s) * 0.8), 23%);
 }
@@ -496,9 +496,11 @@ body:is(.theme-dark, .theme-light) span[class~=cm-hashtag][class~=cm-hashtag-end
 body:is(.theme-dark, .theme-light) span[class~=cm-hashtag][class~=cm-hashtag-begin] {
   z-index: -1;
   background-color: var(--tag-default-bg-color);
+  text-shadow: grey 1px 1px;
 }
 body:is(.theme-dark, .theme-light) .tag {
   background-color: var(--tag-default-bg-color);
+  text-shadow: grey 1px 1px;
 }
 body:is(.theme-dark, .theme-light) .tag[href^="#org/sch/"],
 body:is(.theme-dark, .theme-light) span[class~=cm-hashtag][class~=cm-hashtag-end][class*="org/sch"],
@@ -807,6 +809,39 @@ div.workspace-split.mod-horizontal.mod-sidedock.mod-right-split > div.workspace-
   background-clip: content-box;
   background-attachment: local;
   border-radius: 0.5ex;
+}
+
+/*
+Works against the expand/collapse icon (button) for the left
+ and right leaf
+
+- Thickens the stroke of the icon for leaf expand/collapse button
+- Adds a little leaf emoji (icon) after left button and 
+   before the right button
+- Adds a hover effect covering the mod-left / mod-right div 
+- Removes a hover effect for only the clickable-icon
+*/
+div.sidebar-toggle-button.mod-right div svg,
+div.sidebar-toggle-button.mod-left div svg {
+  stroke-width: 13%;
+}
+
+div.sidebar-toggle-button.mod-right::before,
+div.sidebar-toggle-button.mod-left::after {
+  font-size: 65%;
+  vertical-align: middle;
+  content: "🍃";
+}
+
+div.sidebar-toggle-button.mod-right:hover,
+div.sidebar-toggle-button.mod-left:hover {
+  background: var(--background-modifier-hover);
+  border-radius: 1ex;
+}
+
+div.sidebar-toggle-button.mod-right div:hover,
+div.sidebar-toggle-button.mod-left div:hover {
+  background: revert;
 }
 
 body {

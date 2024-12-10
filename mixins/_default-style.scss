@@ -330,6 +330,44 @@
     border-radius: 0.5ex;
   }
 
+  /*
+  Works against the expand/collapse icon (button) for the left
+   and right leaf
+  
+  - Thickens the stroke of the icon for leaf expand/collapse button
+  - Adds a little leaf emoji (icon) after left button and 
+     before the right button
+  - Adds a hover effect covering the mod-left / mod-right div 
+  - Removes a hover effect for only the clickable-icon
+  */
+  div.sidebar-toggle-button.mod-right div svg,
+  div.sidebar-toggle-button.mod-left div svg {
+    stroke-width: 13%;
+  }
+  div.sidebar-toggle-button.mod-right::before,
+  div.sidebar-toggle-button.mod-left::after{
+    // line-height: 100%;
+    font-size: 65%;
+    vertical-align: middle;
+    content: "🍃";
+  }
+  // Make it so my custom before/after icon 
+  //  and the clickable-icon div show one
+  //  hover background.
+  div.sidebar-toggle-button.mod-right:hover,
+  div.sidebar-toggle-button.mod-left:hover{
+    background: var(--background-modifier-hover);
+    border-radius: 1ex; // round it, too
+  }
+  // Since I'm overriding default clickable-icon behavior, 
+  //  I'm removing the default background change on hover
+  div.sidebar-toggle-button.mod-right,
+  div.sidebar-toggle-button.mod-left{
+    & div:hover {
+      background: revert;
+    }
+  }
+
   // // With the following, I *could* make span.cm-blockid hidden or display:none,
   // //  but doing so doesn't keep the UX from interacting with the element
   // //  when moving the caret/cursor around with arrow keys.
