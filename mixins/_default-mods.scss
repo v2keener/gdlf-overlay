@@ -90,7 +90,7 @@
     }
 
     // Change view-header height (default is 40px as of 2023 04 19)
-    --header-height: 30px; // anything lower than this cuts off icons
+    --header-height: 40px; // anything lower than this cuts off icons
     // Change view-header-title-container a.k.a. titlebar height (2023 04 21)
     --titlebar-height: var(--header-height);
 

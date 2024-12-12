@@ -564,7 +564,7 @@ body:is(.theme-dark, .theme-light) span[class*=tag-k][class~=cm-hashtag-begin][c
 }
 body {
   /* Change the "Current view" button for which view is selected*/
-  --header-height: 30px;
+  --header-height: 40px;
   --titlebar-height: var(--header-height);
 }
 body div.glk-noclick {
@@ -828,8 +828,8 @@ div.sidebar-toggle-button.mod-left div svg {
 
 div.sidebar-toggle-button.mod-right::before,
 div.sidebar-toggle-button.mod-left::after {
+  margin: auto;
   font-size: 65%;
-  vertical-align: middle;
   content: "🍃";
 }
 

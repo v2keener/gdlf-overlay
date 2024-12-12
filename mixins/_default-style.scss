@@ -346,9 +346,9 @@
   }
   div.sidebar-toggle-button.mod-right::before,
   div.sidebar-toggle-button.mod-left::after{
-    // line-height: 100%;
+    margin: auto;
     font-size: 65%;
-    vertical-align: middle;
+    // vertical-align: middle;
     content: "🍃";
   }
   // Make it so my custom before/after icon 
