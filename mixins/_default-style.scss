@@ -9,6 +9,9 @@
 
   body {
 
+    // Make it so metadata doesn't display while reading (because I don't care about it then)
+    --metadata-display-reading: none;
+
     // // BEGIN DIRECT FROM app.css
     // /* 
     // this stuff, from app.css, is for the multi-cursor caret.
@@ -329,7 +332,6 @@
     background-attachment: local;
     border-radius: 0.5ex;
   }
-
   /*
   Works against the expand/collapse icon (button) for the left
    and right leaf

@@ -622,6 +622,7 @@ body .tree-item-self.tag-pane-tag.is-clickable:is(.mod-collapsible)::before {
 }
 
 body {
+  --metadata-display-reading: none;
   --list-indent: 1.5em;
   --caret-color: rgb(from hsl(calc(var(--accent-h) + 180), 100%, 50%) r g b);
   --luminence-mod-l: 0;
