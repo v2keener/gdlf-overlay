@@ -286,21 +286,7 @@
   .markdown-source-view.mod-cm6 .cm-gutters {
     margin-inline-end: 0; //var(--file-folding-offset);
     //padding-inline-end: var(--file-folding-offset);
-
-    /*
-    As of 2024 07 10, version 1.6.5 on Win11, the following
-    causes the cursor to be 1px wide.
-
-    - It was because I had a string *other than* a space (" ") as
-    content. 
-    */
-
-    ::after {
-      color: red;
-      margin: 0.5ex;
-      // content: "X";
-      content: " ";
-    }
+    border-top: 0; //1px solid var(--background-secondary-alt);
   }
 
 
