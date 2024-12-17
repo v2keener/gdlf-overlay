@@ -281,15 +281,6 @@
     padding-right: calc(var(--file-folding-offset) * 0.3);
   }
 
-  // Adjusting how line numbers display in Windows 10
-  //  (for whatever reason, this isn't the case for Windows 11)
-  .markdown-source-view.mod-cm6 .cm-gutters {
-    margin-inline-end: 0; //var(--file-folding-offset);
-    //padding-inline-end: var(--file-folding-offset);
-    border-top: 0; //1px solid var(--background-secondary-alt);
-  }
-
-
   // Remove most of the padding-inline-start for ul, ol
   //  since I like it aligned further to the left
   .cm-formatting-list-ul,

@@ -108,10 +108,16 @@ body div.cm-content div.cm-active.cm-line.HyperMD-list-line {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+body .markdown-source-view.mod-cm6 .cm-gutters {
+  margin-inline-end: 0;
+}
+body .markdown-source-view .cm-gutters .cm-lineNumbers div.cm-gutterElement {
+  padding-right: 2ex;
+}
 body .markdown-source-view .cm-gutters .cm-lineNumbers div.cm-gutterElement.cm-active {
   background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) 70%);
   border-radius: var(--activeline-border-radius);
-  border-top: 1px solid var(--background-secondary-alt);
+  border-top: 0;
   border-bottom: 1px solid var(--background-secondary-alt);
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -778,22 +784,6 @@ div.cm-sizer div.cm-contentContainer div[class=cm-gutters] {
 
 div[class=cm-lineNumbers] div[class=cm-gutterElement] {
   padding-right: calc(var(--file-folding-offset) * 0.3);
-}
-
-.markdown-source-view.mod-cm6 .cm-gutters {
-  margin-inline-end: 0;
-  /*
-  As of 2024 07 10, version 1.6.5 on Win11, the following
-  causes the cursor to be 1px wide.
-
-  - It was because I had a string *other than* a space (" ") as
-  content. 
-  */
-}
-.markdown-source-view.mod-cm6 .cm-gutters ::after {
-  color: red;
-  margin: 0.5ex;
-  content: " ";
 }
 
 .cm-formatting-list-ul,

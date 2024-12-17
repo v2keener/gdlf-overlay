@@ -36,26 +36,31 @@
       border-bottom-left-radius: 0;
     }
 
+    .markdown-source-view.mod-cm6 .cm-gutters {
 
-    // Copied from theme "Cyber Glow" 20221122 1532
-    // This highlights the active line number
-    .markdown-source-view .cm-gutters {
-
+      // Copied from theme "Cyber Glow" 20221122 1532
+      // This highlights the active line number
       // Adjusting how line numbers display, reducing
       //  empty space created by the gutter's right inline margin
-      margin-inline-end: 0; 
+      margin-inline-end: 0;
+    }
 
-      //padding-inline-end: var(--file-folding-offset);
-      & .cm-lineNumbers div.cm-gutterElement.cm-active {
+    .markdown-source-view .cm-gutters .cm-lineNumbers div.cm-gutterElement {
+      padding-right: 2ex;
+
+      // Make the background match the linear-gradient I use for the other part of this cm-active line highlighting
+      &.cm-active {
         // background: hsla(var(--accent-h), 100%, calc(var(--accent-s) - 30%), 0.1);
         background: linear-gradient(0deg,
             var(--active-background-color-3) 5%,
             var(--active-background-color-2) 25%,
             var(--active-background-color-1) 70%);
+
         border-radius: var(--activeline-border-radius);
-        border-top: 0; //1px solid var(--background-secondary-alt);
+        border-top: 0; // may not be needed (having it 0 removes a visual fragment between gutter active line highlight and in-text active line highlight
         border-bottom: 1px solid var(--background-secondary-alt);
         border-top-right-radius: 0;
+
         border-bottom-right-radius: 0;
       }
     }
