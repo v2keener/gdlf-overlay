@@ -297,7 +297,8 @@
 
   // Tried to get right leaf tabs to show with a scrollbar on their containing div, but couldn't figure it out
   // Tried modeling it off of main window's scrollbar (.cm-scroller)
-  div.workspace-split.mod-horizontal.mod-sidedock.mod-right-split>div.workspace-tabs>div.workspace-tab-header-container>div.workspace-tab-header-container-inner {
+  // #WORKING: div.workspace-split.mod-horizontal.mod-sidedock.mod-right-split>div.workspace-tabs>div.workspace-tab-header-container>div.workspace-tab-header-container-inner {
+  div.horizontal-main-container div.workspace-tab-header-container div.workspace-tab-header-container-inner{
     // // Confirm I have what I want to select:
     // color: red;
     // background: green;
@@ -305,10 +306,19 @@
 
     // background: linear-gradient(360deg, #f00, #00f);
     background: linear-gradient(90deg in hsl longer hue, #ff000051, #56008c58);
-    background-clip: content-box;
+    // background-clip: content-box; // keep color change from bleeding bellow other elements
     background-attachment: local;
-    border-radius: 0.5ex;
+    border-radius: 1.3ex; // nice n' round on Win11 with HD scren ymmv
+    z-index: 1; // make it so background clip won't matter
   }
+
+  // I want to get the above hue effect on the left sidebar
+  div.horizontal-main-container div.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed {
+    background: linear-gradient(180deg in hsl longer hue, #ff000051, #56008c58);
+    background-attachment: local;
+    border-radius: -1.3ex; // nice n' round on Win11 with HD scren ymmv
+  }
+
   /*
   Works against the expand/collapse icon (button) for the left
    and right leaf

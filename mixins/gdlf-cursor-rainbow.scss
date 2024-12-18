@@ -10,17 +10,30 @@
       // --foreground-blink-color: #414141;
       --foreground-blink-color: black;
     }
+
     .theme-light {
       --foreground-blink-color: white;
     }
 
-    .ͼo.cm-focused .cm-fat-cursor, .cm-fat-cursor, .cm-animate-fat-cursor {
+    // .cm-fat-cursor,
+    // .cm-animate-fat-cursor,
+    .cm-focused .cm-fat-cursor {
       // opacity: 0.7; // I like it pastel a bit, but it dulls the foreground, too, which isn't ideal
       background-image: var(--rainbow-image-url) !important;
-      background-repeat: repeat;
+      // background-repeat: repeat;
       background-size: contain !important;
+      border-radius: 0.25ex; // round it out a pinch
       color: var(--foreground-blink-color);
       min-width: var(--ye-rainbow-width);
     }
+
+    div.cm-editor div.cm-scroller.cm-vimMode div.cm-cursorLayer.cm-vimCursorLayer {
+      background-image: var(--rainbow-image-url) !important;
+      content: 'X';
+      width: 1ex;
+      height: 1ex;
+      z-index: 10000;
+    }
+
   }
 }

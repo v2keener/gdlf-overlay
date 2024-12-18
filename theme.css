@@ -446,32 +446,6 @@ body {
   --default-h: 204;
 }
 
-body.theme-dark {
-  --school-color: hsl(var(--school-h), 55%, 36%);
-  --server-color: hsl(var(--server-h), 79%, 40%);
-  --banner-color: hsl(var(--banner-h), 67%, 24%);
-  --tech-color: hsl(var(--tech-h), 83%, 39%);
-  --app-color: hsl(var(--app-h), 73%, 36%);
-  --slack-color: hsl(var(--slack-h), 90%, 27%);
-  --gdlf-color: hsl(var(--gdlf-h), 91%, 30%);
-  --issue-color: hsl(var(--issue-h), 87%, 38%);
-  --knowledge-color: hsl(var(--knowledge-h), 81%, 30%);
-  --tag-default-bg-color: hsl(var(--default-h), 91%, 31%);
-}
-
-body.theme-light {
-  --school-color: hsl(var(--school-h), 61%, 77%);
-  --server-color: hsl(var(--server-h), 67%, 75%);
-  --banner-color: hsl(var(--banner-h), 59%, 75%);
-  --tech-color: hsl(var(--tech-h), 60%, 72%);
-  --app-color: hsl(var(--app-h), 77%, 85%);
-  --slack-color: hsl(var(--slack-h), 66%, 67%);
-  --gdlf-color: hsl(var(--gdlf-h), 93%, 83%);
-  --issue-color: hsl(var(--issue-h), 100%, 74%);
-  --knowledge-color: hsl(var(--knowledge-h), 67%, 64%);
-  --tag-default-bg-color: hsl(var(--default-h), 25%, 71%);
-}
-
 body.gdlf-tag-colors-by-name.theme-dark {
   --school-color: hsl(calc(var(--accent-h) - 4), 47%, 44%);
   --server-color: hsl(calc(var(--accent-h) - 254), 47%, 35%);
@@ -795,11 +769,17 @@ div[class=cm-lineNumbers] div[class=cm-gutterElement] {
   background-color: var(--text-highlight-bg);
 }
 
-div.workspace-split.mod-horizontal.mod-sidedock.mod-right-split > div.workspace-tabs > div.workspace-tab-header-container > div.workspace-tab-header-container-inner {
+div.horizontal-main-container div.workspace-tab-header-container div.workspace-tab-header-container-inner {
   background: linear-gradient(90deg in hsl longer hue, rgba(255, 0, 0, 0.3176470588), rgba(86, 0, 140, 0.3450980392));
-  background-clip: content-box;
   background-attachment: local;
-  border-radius: 0.5ex;
+  border-radius: 1.3ex;
+  z-index: 1;
+}
+
+div.horizontal-main-container div.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed {
+  background: linear-gradient(180deg in hsl longer hue, rgba(255, 0, 0, 0.3176470588), rgba(86, 0, 140, 0.3450980392));
+  background-attachment: local;
+  border-radius: -1.3ex;
 }
 
 /*
@@ -845,12 +825,19 @@ body .theme-dark {
 body .theme-light {
   --foreground-blink-color: white;
 }
-body .ͼo.cm-focused .cm-fat-cursor, body .cm-fat-cursor, body .cm-animate-fat-cursor {
+body .cm-focused .cm-fat-cursor {
   background-image: var(--rainbow-image-url) !important;
-  background-repeat: repeat;
   background-size: contain !important;
+  border-radius: 0.25ex;
   color: var(--foreground-blink-color);
   min-width: var(--ye-rainbow-width);
+}
+body div.cm-editor div.cm-scroller.cm-vimMode div.cm-cursorLayer.cm-vimCursorLayer {
+  background-image: var(--rainbow-image-url) !important;
+  content: "X";
+  width: 1ex;
+  height: 1ex;
+  z-index: 10000;
 }
 
 body div.internal-embed.is-loaded > div.markdown-embed > div.markdown-embed-title {
