@@ -769,17 +769,64 @@ div[class=cm-lineNumbers] div[class=cm-gutterElement] {
   background-color: var(--text-highlight-bg);
 }
 
+div.workspace-tab-header-container {
+  background: var(--background-primary-alt);
+  background: var(--status-bar-border-color);
+}
+
+div.mod-sidedock div.workspace-tabs div.workspace-tab-header-container div.workspace-tab-header-container-inner {
+  background-size: 20ex;
+  background-repeat: no-repeat;
+}
+div.mod-sidedock div.workspace-tabs div.workspace-tab-header-container div.workspace-tab-header-container-inner div.workspace-tab-header.tappable.is-active {
+  background: linear-gradient(180deg in hsl longer hue, var(--background-modifier-hover), transparent);
+  color: var(--text-normal);
+}
+
 div.horizontal-main-container div.workspace-tab-header-container div.workspace-tab-header-container-inner {
   background: linear-gradient(90deg in hsl longer hue, rgba(255, 0, 0, 0.3176470588), rgba(86, 0, 140, 0.3450980392));
   background-attachment: local;
   border-radius: 1.3ex;
-  z-index: 1;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background-clip: padding-box;
+}
+div.horizontal-main-container div.workspace-tab-header-container div.workspace-tab-header-container-inner div.workspace-tab-header-inner-icon {
+  color: var(--icon-color);
 }
 
 div.horizontal-main-container div.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed {
-  background: linear-gradient(180deg in hsl longer hue, rgba(255, 0, 0, 0.3176470588), rgba(86, 0, 140, 0.3450980392));
+  background: var(--status-bar-border-color) linear-gradient(180deg in hsl longer hue, rgba(255, 0, 0, 0.3176470588), rgba(85, 0, 138, 0.3450980392));
+  background-repeat: no-repeat;
   background-attachment: local;
-  border-radius: -1.3ex;
+  border: 1px solid var(--status-bar-border-color);
+  border-radius: 1.3ex;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+div.workspace-tab-header.tappable div.workspace-tab-header-inner div.workspace-tab-header-inner-title {
+  border: 2px solid hsla(var(--interactive-accent-hsl), 0.25);
+  border-radius: 1.2ex;
+  border-top-width: 4px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-left: 2px solid transparent;
+  border-bottom: none;
+  padding-top: 0.5ex;
+}
+
+div.mod-left-split .workspace-tab-header,
+div.mod-right-split .workspace-tab-header {
+  border-radius: 0;
+  background-origin: padding-box;
+  background-origin: border-box;
+}
+
+div.app-container div.status-bar {
+  border-top-left-radius: 0;
 }
 
 /*
@@ -802,6 +849,12 @@ div.sidebar-toggle-button.mod-left::after {
   margin: auto;
   font-size: 65%;
   content: "🍃";
+}
+
+div.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed div.sidebar-toggle-button.mod-left {
+  background: rgba(255, 0, 0, 0.3764705882);
+  border-radius: 0.8ex;
+  border-bottom-right-radius: 0;
 }
 
 div.sidebar-toggle-button.mod-right:hover,

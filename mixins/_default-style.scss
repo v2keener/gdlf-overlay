@@ -4,7 +4,6 @@
   // // The following still only applies to multiple cursors and 
   // //  not the active cursor
   // div.cm-cursorLayer.cm-vimCursorLayer, div.cm-layer.cm-layer-above.cm-cursorLayer {
-  //   * {outline: 2px solid red;}
   // }
 
   body {
@@ -22,7 +21,6 @@
     // .cm-s-obsidian .cm-cursor,
     // .cm-s-obsidian .cm-dropCursor {
     //   border-left-color: var(--caret-color);
-    //   outline: 1px solid red;
     // }
 
     // .cm-fat-cursor-mark {
@@ -65,10 +63,21 @@
       color: var(--text-faint);
     }
 
-    @keyframes cm-blink {50% {opacity: 0;}}
+    @keyframes cm-blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
     @keyframes cm-blink2 {
-      50% {opacity: 0;}
-      0% { opacity: 1; background-color: var(--text-accent);}
+      50% {
+        opacity: 0;
+      }
+
+      0% {
+        opacity: 1;
+        background-color: var(--text-accent);
+      }
     }
 
     .markdown-rendered button.copy-code-button {
@@ -133,7 +142,6 @@
     }
 
     // .tree-item-self.is-active {
-    //   background-color: orange;
     // }
   }
 
@@ -295,28 +303,77 @@
     background-color: var(--text-highlight-bg);
   }
 
+  div.workspace-tab-header-container {
+    background: var(--background-primary-alt);
+    background: var(--status-bar-border-color);
+  }
+
+  div.mod-sidedock div.workspace-tabs div.workspace-tab-header-container div.workspace-tab-header-container-inner {
+    background-size: 20ex; // This makes side tabs have a same-width background, regardless of how many tab icons there are
+    background-repeat: no-repeat;
+
+    & div.workspace-tab-header.tappable.is-active {
+      background: linear-gradient(180deg in hsl longer hue, var(--background-modifier-hover), transparent);
+      // background: var(--background-modifier-hover);
+      color: var(--text-normal);
+    }
+  }
+
+
   // Tried to get right leaf tabs to show with a scrollbar on their containing div, but couldn't figure it out
   // Tried modeling it off of main window's scrollbar (.cm-scroller)
   // #WORKING: div.workspace-split.mod-horizontal.mod-sidedock.mod-right-split>div.workspace-tabs>div.workspace-tab-header-container>div.workspace-tab-header-container-inner {
-  div.horizontal-main-container div.workspace-tab-header-container div.workspace-tab-header-container-inner{
-    // // Confirm I have what I want to select:
-    // color: red;
-    // background: green;
-    // // ...got it!
-
-    // background: linear-gradient(360deg, #f00, #00f);
+  div.horizontal-main-container div.workspace-tab-header-container div.workspace-tab-header-container-inner {
     background: linear-gradient(90deg in hsl longer hue, #ff000051, #56008c58);
-    // background-clip: content-box; // keep color change from bleeding bellow other elements
     background-attachment: local;
     border-radius: 1.3ex; // nice n' round on Win11 with HD scren ymmv
-    z-index: 1; // make it so background clip won't matter
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-clip: padding-box;
+
+    // Make sure icon color is applied to all header icons
+    & div.workspace-tab-header-inner-icon {
+      color: var(--icon-color);
+    }
   }
 
   // I want to get the above hue effect on the left sidebar
   div.horizontal-main-container div.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed {
-    background: linear-gradient(180deg in hsl longer hue, #ff000051, #56008c58);
+    background: var(--status-bar-border-color) linear-gradient(180deg in hsl longer hue, #ff000051, #55008a58);
+    background-repeat: no-repeat;
     background-attachment: local;
-    border-radius: -1.3ex; // nice n' round on Win11 with HD scren ymmv
+    border: 1px solid var(--status-bar-border-color);
+    border-radius: 1.3ex; // nice n' round on Win11 with HD scren ymmv
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  // Touch only the the top (and rows of) document tabs showing doc filename
+  div.workspace-tab-header.tappable div.workspace-tab-header-inner div.workspace-tab-header-inner-title {
+    border: 2px solid hsla(var(--interactive-accent-hsl), 0.25);
+    border-radius: 1.2ex;
+    border-top-width: 4px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-left: 2px solid transparent;
+    border-bottom: none;
+    padding-top: 0.5ex;
+  }
+
+  // Make small tabs display without rounded bottom edges
+  div.mod-left-split .workspace-tab-header,
+  div.mod-right-split .workspace-tab-header {
+    border-radius: 0;
+    background-origin: padding-box;
+    background-origin: border-box;
+    // background-position: top left;
+  }
+
+  // Update status bar corners
+  div.app-container div.status-bar {
+    border-top-left-radius: 0;
   }
 
   /*
@@ -333,24 +390,34 @@
   div.sidebar-toggle-button.mod-left div svg {
     stroke-width: 13%;
   }
+
+  // Add pretty leaves to left/right sidebar toggle buttons
   div.sidebar-toggle-button.mod-right::before,
-  div.sidebar-toggle-button.mod-left::after{
+  div.sidebar-toggle-button.mod-left::after {
     margin: auto;
     font-size: 65%;
     content: "🍃";
   }
+
+  div.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed div.sidebar-toggle-button.mod-left {
+    background: #ff000060;
+    border-radius: 0.8ex;
+    border-bottom-right-radius: 0;
+  }
+
   // Make it so my custom before/after icon 
   //  and the clickable-icon div show one
   //  hover background.
   div.sidebar-toggle-button.mod-right:hover,
-  div.sidebar-toggle-button.mod-left:hover{
+  div.sidebar-toggle-button.mod-left:hover {
     background: var(--background-modifier-hover);
     border-radius: 1ex; // round it, too
   }
+
   // Since I'm overriding default clickable-icon behavior, 
   //  I'm removing the default background change on hover
   div.sidebar-toggle-button.mod-right,
-  div.sidebar-toggle-button.mod-left{
+  div.sidebar-toggle-button.mod-left {
     & div:hover {
       background: revert;
     }
