@@ -35,6 +35,9 @@
       // Reduces how much the window minimize / close buttons take up
       //  by reducing the right padding for the right leaf tab buttons.
       --frame-right-space: 100px;
+      --gdlf-oil-slick: #ff000051, #cfe60058, #09ff0051, #00208a58, #55008a58, transparent 50%;
+      --animation-for-app-edge-background: 3.0s ease-in-out 5s infinite heartbeat-of-gdlf;
+      --app-edge-background-size: 75ex;
     }
 
     div.titlebar-button-container.mod-right div.titlebar-button {
@@ -146,6 +149,7 @@
   }
 
   body#{$overlayClasses}#{$snippetClasses} {
+
     // Set variable for line width (used by app.css as of Obsidian 1.1)
     --file-line-width: 35em;
     --text-highlight-bg: hsla(calc(var(--accent-h) + 120),
@@ -313,20 +317,57 @@
     background-repeat: no-repeat;
 
     & div.workspace-tab-header.tappable.is-active {
-      background: linear-gradient(180deg in hsl longer hue, var(--background-modifier-hover), transparent);
+      background: linear-gradient(180deg, #ffffff70 0.3ex, #ffffff40 0.1ex, var(--background-modifier-hover), transparent);
+      border-top-left-radius: 0;
       // background: var(--background-modifier-hover);
       color: var(--text-normal);
     }
   }
 
+  @keyframes heartbeat-of-gdlf {
+    0% {
+      background-size: var(--app-edge-background-size) var(--app-edge-background-size);
+    }
 
-  // Tried to get right leaf tabs to show with a scrollbar on their containing div, but couldn't figure it out
-  // Tried modeling it off of main window's scrollbar (.cm-scroller)
-  // #WORKING: div.workspace-split.mod-horizontal.mod-sidedock.mod-right-split>div.workspace-tabs>div.workspace-tab-header-container>div.workspace-tab-header-container-inner {
+    40% {
+      // background-size: calc(var(--app-edge-background-size) * 270%) calc(var(--app-edge-background-size) * 270%);
+      background-size: calc(var(--app-edge-background-size) + 10ex) calc(var(--app-edge-background-size) + 10ex);
+    }
+
+    50% {
+      background-size: calc(var(--app-edge-background-size) + 3ex) calc(var(--app-edge-background-size) + 3ex);
+    }
+
+    65% {
+      background-size: calc(var(--app-edge-background-size) + 7ex) calc(var(--app-edge-background-size) + 7ex);
+    }
+
+    75% {
+    //   background-size: calc(var(--app-edge-background-size) * 100%) calc(var(--app-edge-background-size) * 100%);
+      background-size: var(--app-edge-background-size) var(--app-edge-background-size);
+    }
+
+    // 80% {
+    //   background-size: calc(var(--app-edge-background-size) * 100%) calc(var(--app-edge-background-size) * 100%);
+    // }
+  }
+
+  // Change background size for root tab container, which is the one with docs
+  div.horizontal-main-container div.mod-root div.workspace-tab-header-container div.workspace-tab-header-container-inner {
+    // Angle down 
+    background: linear-gradient(135deg, var(--gdlf-oil-slick));
+    background-repeat: no-repeat;
+    animation: var(--animation-for-app-edge-background);
+    background-size: var(--app-edge-background-size) var(--app-edge-background-size);
+  }
+
+  // Affects all horizontal tabs, so documents and leaf tabs
   div.horizontal-main-container div.workspace-tab-header-container div.workspace-tab-header-container-inner {
-    background: linear-gradient(90deg in hsl longer hue, #ff000051, #56008c58);
+    // Because of specificity, this doesn't impact the mod-root background, but I should specify more here so it doesn't touch .mod-root at all
+    background: linear-gradient(90deg, var(--gdlf-oil-slick));
     background-attachment: local;
     border-radius: 1.3ex; // nice n' round on Win11 with HD scren ymmv
+    background-repeat: no-repeat;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     background-clip: padding-box;
@@ -337,16 +378,19 @@
     }
   }
 
-  // I want to get the above hue effect on the left sidebar
+  // I want to get the above hue effect on the left sidebar (the one vertical rainbow background, so far)
   div.horizontal-main-container div.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed {
-    background: var(--status-bar-border-color) linear-gradient(180deg in hsl longer hue, #ff000051, #55008a58);
-    background-repeat: no-repeat;
+    background: var(--status-bar-border-color) linear-gradient(135deg, var(--gdlf-oil-slick));
     background-attachment: local;
     border: 1px solid var(--status-bar-border-color);
     border-radius: 1.3ex; // nice n' round on Win11 with HD scren ymmv
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    background-repeat: no-repeat;
+    // border-bottom-left-radius: 0;
+    // border-bottom-right-radius: 0;
     border-top-right-radius: 0;
+
+    animation: var(--animation-for-app-edge-background);
+    background-size: var(--app-edge-background-size) var(--app-edge-background-size);
   }
 
   // Touch only the the top (and rows of) document tabs showing doc filename
@@ -360,6 +404,8 @@
     border-left: 2px solid transparent;
     border-bottom: none;
     padding-top: 0.5ex;
+    //background-size: var(--app-edge-background-size) auto;
+    background-size: var(--app-edge-background-size) var(--app-edge-background-size);
   }
 
   // Make small tabs display without rounded bottom edges

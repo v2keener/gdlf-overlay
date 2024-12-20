@@ -611,6 +611,9 @@ body {
 }
 body div {
   --frame-right-space: 100px;
+  --gdlf-oil-slick: #ff000051, #cfe60058, #09ff0051, #00208a58, #55008a58, transparent 50%;
+  --animation-for-app-edge-background: 3.0s ease-in-out 5s infinite heartbeat-of-gdlf;
+  --app-edge-background-size: 75ex;
 }
 body div.titlebar-button-container.mod-right div.titlebar-button {
   padding: 0 1.5ex;
@@ -779,14 +782,40 @@ div.mod-sidedock div.workspace-tabs div.workspace-tab-header-container div.works
   background-repeat: no-repeat;
 }
 div.mod-sidedock div.workspace-tabs div.workspace-tab-header-container div.workspace-tab-header-container-inner div.workspace-tab-header.tappable.is-active {
-  background: linear-gradient(180deg in hsl longer hue, var(--background-modifier-hover), transparent);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4392156863) 0.3ex, rgba(255, 255, 255, 0.2509803922) 0.1ex, var(--background-modifier-hover), transparent);
+  border-top-left-radius: 0;
   color: var(--text-normal);
 }
 
+@keyframes heartbeat-of-gdlf {
+  0% {
+    background-size: var(--app-edge-background-size) var(--app-edge-background-size);
+  }
+  40% {
+    background-size: calc(var(--app-edge-background-size) + 10ex) calc(var(--app-edge-background-size) + 10ex);
+  }
+  50% {
+    background-size: calc(var(--app-edge-background-size) + 3ex) calc(var(--app-edge-background-size) + 3ex);
+  }
+  65% {
+    background-size: calc(var(--app-edge-background-size) + 7ex) calc(var(--app-edge-background-size) + 7ex);
+  }
+  75% {
+    background-size: var(--app-edge-background-size) var(--app-edge-background-size);
+  }
+}
+div.horizontal-main-container div.mod-root div.workspace-tab-header-container div.workspace-tab-header-container-inner {
+  background: linear-gradient(135deg, var(--gdlf-oil-slick));
+  background-repeat: no-repeat;
+  animation: var(--animation-for-app-edge-background);
+  background-size: var(--app-edge-background-size) var(--app-edge-background-size);
+}
+
 div.horizontal-main-container div.workspace-tab-header-container div.workspace-tab-header-container-inner {
-  background: linear-gradient(90deg in hsl longer hue, rgba(255, 0, 0, 0.3176470588), rgba(86, 0, 140, 0.3450980392));
+  background: linear-gradient(90deg, var(--gdlf-oil-slick));
   background-attachment: local;
   border-radius: 1.3ex;
+  background-repeat: no-repeat;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   background-clip: padding-box;
@@ -796,14 +825,14 @@ div.horizontal-main-container div.workspace-tab-header-container div.workspace-t
 }
 
 div.horizontal-main-container div.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed {
-  background: var(--status-bar-border-color) linear-gradient(180deg in hsl longer hue, rgba(255, 0, 0, 0.3176470588), rgba(85, 0, 138, 0.3450980392));
-  background-repeat: no-repeat;
+  background: var(--status-bar-border-color) linear-gradient(135deg, var(--gdlf-oil-slick));
   background-attachment: local;
   border: 1px solid var(--status-bar-border-color);
   border-radius: 1.3ex;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  background-repeat: no-repeat;
   border-top-right-radius: 0;
+  animation: var(--animation-for-app-edge-background);
+  background-size: var(--app-edge-background-size) var(--app-edge-background-size);
 }
 
 div.workspace-tab-header.tappable div.workspace-tab-header-inner div.workspace-tab-header-inner-title {
@@ -816,6 +845,7 @@ div.workspace-tab-header.tappable div.workspace-tab-header-inner div.workspace-t
   border-left: 2px solid transparent;
   border-bottom: none;
   padding-top: 0.5ex;
+  background-size: var(--app-edge-background-size) var(--app-edge-background-size);
 }
 
 div.mod-left-split .workspace-tab-header,
