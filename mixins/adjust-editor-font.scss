@@ -55,10 +55,13 @@
     // Tags for editor
     .cm-hashtag.cm-hashtag-end, .cm-hashtag.cm-hashtag-begin {
       font-size: var(--gdlf-tag-font-size);
+      text-align: center;
+      line-height: 100%;
     }
     // Tags for preview
     .tag {
-      font-size: var(--gdlf-tag-font-size);
+      // increase by 5% to match observed preview 2024 12 23
+      font-size: calc(var(--gdlf-tag-font-size) * 1.05);
     }
 
     // Set all preview content to default to this font

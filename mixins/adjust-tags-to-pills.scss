@@ -8,12 +8,23 @@
   body#{$overlayClasses}:is(.theme-dark) {
     // --tag-text-color: var(--background-primary);
     --tag-text-color: var(--text-normal);
+    --begin-tag-gradient: #0000007f;
+    --end-tag-gradient: #ffffff0f;
   }
   body#{$overlayClasses}:is(.theme-light) {
     --tag-text-color: var(--text-normal);
+    --begin-tag-gradient: #ffffff0f;
+    --end-tag-gradient: #ffffff7f;
   }
   body#{$overlayClasses}#{$snippetClasses} {
     // Editor tags display to be seen in editor
+
+    .cm-hashtag:not(.cm-hashtag-begin) {
+      background: linear-gradient(90deg, var(--begin-tag-gradient), var(--end-tag-gradient));
+    }
+    .cm-hashtag.cm-hashtag-begin{
+      background: linear-gradient(90deg, var(--begin-tag-gradient), var(--begin-tag-gradient));
+    }
 
     .cm-hashtag.cm-hashtag-end, .cm-hashtag.cm-hashtag-begin {
       position:relative;
@@ -47,7 +58,7 @@
     .cm-hashtag.cm-hashtag-end:hover,
     .cm-hashtag.cm-hashtag-begin:hover{
       text-decoration: underline;
-      outline: 0.2ex solid hsl(var(--accent-h), var(--accent-s), var(--accent-l))
+      // outline: 0.2ex solid hsl(var(--accent-h), var(--accent-s), var(--accent-l))
     }
 
     // Tags in Preview (where pills will show)
