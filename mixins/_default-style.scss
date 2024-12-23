@@ -313,7 +313,8 @@
   }
 
   div.mod-sidedock div.workspace-tabs div.workspace-tab-header-container div.workspace-tab-header-container-inner {
-    background-size: 20ex; // This makes side tabs have a same-width background, regardless of how many tab icons there are
+    --right-sidebar-tab-background-width: 40ex;
+    background-size: var(--right-sidebar-tab-background-width); // This makes side tabs have a same-width background, regardless of how many tab icons there are
     background-repeat: no-repeat;
 
     & div.workspace-tab-header.tappable.is-active {
