@@ -476,4 +476,38 @@
   // .cm-s-obsidian span.cm-blockid {
   //   visibility: hidden;
   // }
+
+  // Replace pin SVG with pushpin emoji
+  div.workspace-tab-header-status-icon.mod-pinned{
+    svg { 
+      visibility: hidden;
+      margin-right: -1.2em;
+    }
+    &::after {
+      content: '📌'
+    }
+  }
+  // Replace the close button SVG with 'X' emoji
+  div.workspace-tab-header-inner-close-button{
+    svg { 
+      visibility: hidden;
+      margin-right: -1.1em;
+    }
+    &::after{
+      content: '❌'
+    }
+  }
+
+  // For Navigate backward/forward buttons when 
+  //  they are not available because the tab hasn't navigated
+  //  forward yet to create a trail of breadcrumbs.
+  //  I'm hoping it doesn't affect too much else.
+  //
+  // When I hover over a button, I don't like it when the cursor 
+  // (mouse pointer) shows a large 🚫 (no entry / do not enter) sign.
+  // My feeling is the the UX gives enough clues with highlighting to
+  //  let me know I can't go back.
+  button[disabled], button[aria-disabled="true"], button[disabled="true"]{
+    cursor:auto;
+  }
 }
