@@ -169,7 +169,7 @@ body.gdlf-background-secondary.is-focused:is(.theme-light) {
   --tab-container-background: var(--background-secondary);
 }
 body.gdlf-background-secondary.is-focused:is(.theme-light) span.cm-inline-code {
-  --code-background: hsl(calc(var(--accent-h) + 45), 50%, 70%);
+  --code-background: hsl(calc(var(--accent-h) + 45), 50%, 90%);
 }
 
 body div.markdown-source-view.is-live-preview div.cm-editor div.cm-contentContainer div.internal-embed div.markdown-embed-content.markdown-embed-block > div > div {
@@ -403,15 +403,15 @@ body .cm-hashtag.cm-hashtag-end, body .cm-hashtag.cm-hashtag-begin {
 body .cm-hashtag.cm-hashtag-begin {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  padding-left: 0.5ex;
+  padding-left: 0.7ex;
   padding-right: 0.2ex;
   margin-left: -0.4ex;
 }
 body .cm-hashtag.cm-hashtag-end {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  padding-right: 0.3ex;
-  margin-right: -0.2ex;
+  padding-right: 0.7ex;
+  margin-right: -0.4ex;
 }
 body .cm-hashtag.cm-hashtag-end:hover,
 body .cm-hashtag.cm-hashtag-begin:hover {
@@ -426,9 +426,8 @@ body .tag {
   font-style: normal;
   display: inline-block;
   border-radius: 1.7ex;
-  padding: 0 0.3ex 0 0;
-  margin: 0.1ex 0 0 -0.2ex;
-  margin-top: 1.2ex;
+  padding: 0.2ex 0.5ex;
+  margin: 1.2ex 0 0 -0.2ex;
   border-bottom-width: 0.2ex;
   position: relative;
   top: -0.1em;
@@ -908,6 +907,26 @@ div.sidebar-toggle-button.mod-left:hover {
 div.sidebar-toggle-button.mod-right div:hover,
 div.sidebar-toggle-button.mod-left div:hover {
   background: revert;
+}
+
+div.workspace-tab-header-status-icon.mod-pinned svg {
+  visibility: hidden;
+  margin-right: -1.2em;
+}
+div.workspace-tab-header-status-icon.mod-pinned::after {
+  content: "📌";
+}
+
+div.workspace-tab-header-inner-close-button svg {
+  visibility: hidden;
+  margin-right: -1.1em;
+}
+div.workspace-tab-header-inner-close-button::after {
+  content: "❌";
+}
+
+button[disabled], button[aria-disabled=true], button[disabled=true] {
+  cursor: auto;
 }
 
 body {
