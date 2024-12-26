@@ -635,20 +635,6 @@ body .cm-comment-start,
 body .cm-comment-end {
   color: var(--text-faint);
 }
-@keyframes cm-blink {
-  50% {
-    opacity: 0;
-  }
-}
-@keyframes cm-blink2 {
-  50% {
-    opacity: 0;
-  }
-  0% {
-    opacity: 1;
-    background-color: var(--text-accent);
-  }
-}
 body .markdown-rendered button.copy-code-button {
   font-weight: bold;
   text-shadow: 1px 1px 2px gray;
@@ -945,13 +931,6 @@ body .cm-focused .cm-fat-cursor {
   border-radius: 0.25ex;
   color: var(--foreground-blink-color);
   min-width: var(--ye-rainbow-width);
-}
-body div.cm-editor div.cm-scroller.cm-vimMode div.cm-cursorLayer.cm-vimCursorLayer {
-  background-image: var(--rainbow-image-url) !important;
-  content: "X";
-  width: 1ex;
-  height: 1ex;
-  z-index: 10000;
 }
 
 body div.internal-embed.is-loaded > div.markdown-embed > div.markdown-embed-title {

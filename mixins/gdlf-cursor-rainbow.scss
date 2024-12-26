@@ -27,13 +27,17 @@
       min-width: var(--ye-rainbow-width);
     }
 
-    div.cm-editor div.cm-scroller.cm-vimMode div.cm-cursorLayer.cm-vimCursorLayer {
-      background-image: var(--rainbow-image-url) !important;
-      content: 'X';
-      width: 1ex;
-      height: 1ex;
-      z-index: 10000;
-    }
+    // // The following will cause a reverse rainbow to appear
+    // //  blinking for some pages in the top right corner of 
+    // //  text content when editing. It doesn't do anything 
+    // //  useful, imo. (Leaving this comment until I remove the following)
+    // div.cm-editor div.cm-scroller.cm-vimMode div.cm-cursorLayer.cm-vimCursorLayer {
+    //   background-image: var(--rainbow-image-url) !important;
+    //   content: 'X';
+    //   width: 1ex;
+    //   height: 1ex;
+    //   z-index: 10000;
+    // }
 
   }
 }
