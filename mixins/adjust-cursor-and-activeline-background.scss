@@ -25,10 +25,11 @@
     div.cm-content div.cm-active.cm-line.HyperMD-list-line {
 
       // Make it gradient, which I think is nicer
-      background: linear-gradient(0deg,
-          var(--active-background-color-3) 5%,
-          var(--active-background-color-2) 25%,
-          var(--active-background-color-1) 70%);
+      // background: linear-gradient(0deg,
+          // var(--active-background-color-3) 5%,
+          // var(--active-background-color-2) 25%,
+          // var(--active-background-color-1) 70%);
+        animation: heartbeat 1.3s ease-in-out infinite;
 
       // background-color: var(--active-background-color-1);
       border-radius: var(--activeline-border-radius);
@@ -51,10 +52,7 @@
       // Make the background match the linear-gradient I use for the other part of this cm-active line highlighting
       &.cm-active {
         // background: hsla(var(--accent-h), 100%, calc(var(--accent-s) - 30%), 0.1);
-        background: linear-gradient(0deg,
-            var(--active-background-color-3) 5%,
-            var(--active-background-color-2) 25%,
-            var(--active-background-color-1) 70%);
+        animation: heartbeat 1.3s ease-in-out infinite;
 
         border-radius: var(--activeline-border-radius);
         border-top: 0; // may not be needed (having it 0 removes a visual fragment between gutter active line highlight and in-text active line highlight
@@ -62,6 +60,49 @@
         border-top-right-radius: 0;
 
         border-bottom-right-radius: 0;
+      }
+    }
+
+    --third-background-gradient-percent: 50%;
+
+    @keyframes heartbeat {
+      /* Adapted from a web search, this seems to have the correct timing */
+      0%,
+      30%,
+      100% {
+        // transform: scale(1) rotate(-45deg); //ORIG
+        background: linear-gradient(0deg,
+        var(--active-background-color-3) 5%,
+        var(--active-background-color-2) 25%,
+        var(--active-background-color-1) var(--third-background-gradient-percent));
+      }
+      40%{
+        // transform: scale(0.95) rotate(-45deg); //ORIG
+        background: linear-gradient(0deg,
+        var(--active-background-color-3) 5%,
+        var(--active-background-color-2) 25%,
+        var(--active-background-color-1) calc(var(--third-background-gradient-percent) * 0.95));
+      }
+      50% {
+        // transform: scale(1.2) rotate(-45deg); //ORIG
+        background: linear-gradient(0deg,
+        var(--active-background-color-3) 5%,
+        var(--active-background-color-2) 25%,
+        var(--active-background-color-1) calc(var(--third-background-gradient-percent) * 1.2));
+      }
+      65% {
+        // transform: scale(0.9) rotate(-45deg); //ORIG
+        background: linear-gradient(0deg,
+        var(--active-background-color-3) 5%,
+        var(--active-background-color-2) 25%,
+        var(--active-background-color-1) calc(var(--third-background-gradient-percent) * 0.9));
+      }
+      75% {
+        // transform: scale(1.05) rotate(-45deg); //ORIG
+        background: linear-gradient(0deg,
+        var(--active-background-color-3) 5%,
+        var(--active-background-color-2) 25%,
+        var(--active-background-color-1) calc(var(--third-background-gradient-percent) * 1.05));
       }
     }
   }

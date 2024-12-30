@@ -36,7 +36,7 @@
       //  by reducing the right padding for the right leaf tab buttons.
       --frame-right-space: 100px;
       --gdlf-oil-slick: #ff000051, #cfe60058, #09ff0051, #00208a58, #55008a58, transparent 50%;
-      --animation-for-app-edge-background: 3.0s ease-in-out 5s infinite heartbeat-of-gdlf;
+      // --animation-for-app-edge-background: 3.0s ease-in-out 5s infinite heartbeat-of-gdlf;
       --app-edge-background-size: 75ex;
     }
 
@@ -358,7 +358,7 @@
     // Angle down 
     background: linear-gradient(135deg, var(--gdlf-oil-slick));
     background-repeat: no-repeat;
-    animation: var(--animation-for-app-edge-background);
+    // animation: var(--animation-for-app-edge-background);
     background-size: var(--app-edge-background-size) var(--app-edge-background-size);
   }
 
@@ -390,7 +390,7 @@
     // border-bottom-right-radius: 0;
     border-top-right-radius: 0;
 
-    animation: var(--animation-for-app-edge-background);
+    // animation: var(--animation-for-app-edge-background);
     background-size: var(--app-edge-background-size) var(--app-edge-background-size);
   }
 

@@ -102,10 +102,11 @@ body {
   --active-background-color-2: hsla(var(--accent-h), 60%, calc(var(--accent-s) + var(--saturation-mod-s)), calc(4% + var(--opacity-mod-s)));
   --active-background-color-3: hsla(var(--accent-h), 90%, calc(var(--accent-s) + var(--saturation-mod-s)), calc(8% + var(--opacity-mod-s)));
   --active-background-color-1: hsla(var(--accent-h), 70%, calc(var(--accent-s) + var(--saturation-mod-s)), calc(12% + var(--opacity-mod-s)));
+  --third-background-gradient-percent: 50%;
 }
 body div.cm-active.cm-line,
 body div.cm-content div.cm-active.cm-line.HyperMD-list-line {
-  background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) 70%);
+  animation: heartbeat 1.3s ease-in-out infinite;
   border-radius: var(--activeline-border-radius);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -117,12 +118,30 @@ body .markdown-source-view .cm-gutters .cm-lineNumbers div.cm-gutterElement {
   padding-right: 2ex;
 }
 body .markdown-source-view .cm-gutters .cm-lineNumbers div.cm-gutterElement.cm-active {
-  background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) 70%);
+  animation: heartbeat 1.3s ease-in-out infinite;
   border-radius: var(--activeline-border-radius);
   border-top: 0;
   border-bottom: 1px solid var(--background-secondary-alt);
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+@keyframes heartbeat {
+  /* Adapted from a web search, this seems to have the correct timing */
+  0%, 30%, 100% {
+    background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) var(--third-background-gradient-percent));
+  }
+  40% {
+    background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) calc(var(--third-background-gradient-percent) * 0.95));
+  }
+  50% {
+    background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) calc(var(--third-background-gradient-percent) * 1.2));
+  }
+  65% {
+    background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) calc(var(--third-background-gradient-percent) * 0.9));
+  }
+  75% {
+    background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) calc(var(--third-background-gradient-percent) * 1.05));
+  }
 }
 
 body.gdlf-background:is(.theme-dark) {
@@ -622,7 +641,6 @@ body {
 body div {
   --frame-right-space: 100px;
   --gdlf-oil-slick: #ff000051, #cfe60058, #09ff0051, #00208a58, #55008a58, transparent 50%;
-  --animation-for-app-edge-background: 3.0s ease-in-out 5s infinite heartbeat-of-gdlf;
   --app-edge-background-size: 75ex;
 }
 body div.titlebar-button-container.mod-right div.titlebar-button {
@@ -804,7 +822,6 @@ div.mod-sidedock div.workspace-tabs div.workspace-tab-header-container div.works
 div.horizontal-main-container div.mod-root div.workspace-tab-header-container div.workspace-tab-header-container-inner {
   background: linear-gradient(135deg, var(--gdlf-oil-slick));
   background-repeat: no-repeat;
-  animation: var(--animation-for-app-edge-background);
   background-size: var(--app-edge-background-size) var(--app-edge-background-size);
 }
 
@@ -828,7 +845,6 @@ div.horizontal-main-container div.workspace-ribbon.side-dock-ribbon.mod-left.is-
   border-radius: 1.3ex;
   background-repeat: no-repeat;
   border-top-right-radius: 0;
-  animation: var(--animation-for-app-edge-background);
   background-size: var(--app-edge-background-size) var(--app-edge-background-size);
 }
 
@@ -1266,12 +1282,12 @@ settings:
   -
     id: gdlf-editor-font-size
     title: 📏🔨 Editor font size (adjustment)
-    description: The percent font size when in Edit mode. Default is 90%
+    description: The percent font size when in Edit mode. Default is 100%
     type: variable-number-slider
     format: '%'
-    default: 90
-    min: 60
-    max: 130
+    default: 100
+    min: 50
+    max: 140
     step: 5
   -
     id: gdlf-tag-font-size

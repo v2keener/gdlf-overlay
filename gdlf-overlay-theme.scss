@@ -138,12 +138,12 @@ settings:
   -
     id: gdlf-editor-font-size
     title: 📏🔨 Editor font size (adjustment)
-    description: The percent font size when in Edit mode. Default is 90%
+    description: The percent font size when in Edit mode. Default is 100%
     type: variable-number-slider
     format: '%'
-    default: 90
-    min: 60
-    max: 130
+    default: 100
+    min: 50
+    max: 140
     step: 5
   -
     id: gdlf-tag-font-size
