@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="credit-apology" content="I'm sorry I didn't get the reference for *WHERE* I got this. It's from the web, but that's not too helpful. I'm grateful to the person who originated this, I only changed the keyframes for the heartbeat.">
+  <title>Heartbeat Animation</title>
+  <style>
+    body {
+      padding: 2ex;
+    }
+
+    .heart {
+      width: 100px;
+      height: 90px;
+      left: 25%;
+      top: 5em;
+      position: relative;
+      transform: rotate(-45deg);
+      transform-origin: center;
+      background-color: red;
+      animation: heartbeat 1s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 100px;
+      height: 90px;
+      position: absolute;
+      border-radius: 50%;
+      background-color: red;
+    }
+
+    .heart::before {
+      top: -50px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: 50px;
+    }
+
+    @keyframes heartbeat {
+      /* Adapted from a web search, this seems to have the correct timing */
+      0%,
+      30%,
+      100% {
+        transform: scale(1) rotate(-45deg);
+      }
+      40%{
+        transform: scale(0.95) rotate(-45deg);
+      }
+      50% {
+        transform: scale(1.2) rotate(-45deg);
+      }
+      65% {
+        transform: scale(0.9) rotate(-45deg);
+      }
+      75% {
+        transform: scale(1.05) rotate(-45deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="heart"></div>
+</body>
+
+</html>
