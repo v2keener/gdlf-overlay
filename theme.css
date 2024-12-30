@@ -102,23 +102,22 @@ body {
   --active-background-color-2: hsla(var(--accent-h), 60%, calc(var(--accent-s) + var(--saturation-mod-s)), calc(4% + var(--opacity-mod-s)));
   --active-background-color-3: hsla(var(--accent-h), 90%, calc(var(--accent-s) + var(--saturation-mod-s)), calc(8% + var(--opacity-mod-s)));
   --active-background-color-1: hsla(var(--accent-h), 70%, calc(var(--accent-s) + var(--saturation-mod-s)), calc(12% + var(--opacity-mod-s)));
-  --third-background-gradient-percent: 50%;
-}
-body div.cm-active.cm-line,
-body div.cm-content div.cm-active.cm-line.HyperMD-list-line {
-  animation: heartbeat 1.3s ease-in-out infinite;
-  border-radius: var(--activeline-border-radius);
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
 }
 body .markdown-source-view.mod-cm6 .cm-gutters {
   margin-inline-end: 0;
 }
 body .markdown-source-view .cm-gutters .cm-lineNumbers div.cm-gutterElement {
-  padding-right: 2ex;
+  --gdlf-gutter-margin-right: 1.2ex;
+  --gdlf-gutter-padding-right: 2ex;
+  --gdlf-gutter-border-right: 3px;
+  --gdlf-gutter-border-hsl: var(--accent-h), var(--accent-s), var(--accent-l);
+  padding-right: var(--gdlf-gutter-padding-right);
+  margin-right: var(--gdlf-gutter-margin-right);
+  border-right: 3px solid transparent;
 }
 body .markdown-source-view .cm-gutters .cm-lineNumbers div.cm-gutterElement.cm-active {
-  animation: heartbeat 1.3s ease-in-out infinite;
+  animation: heartbeat 1.1s linear infinite;
+  background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) 70%);
   border-radius: var(--activeline-border-radius);
   border-top: 0;
   border-bottom: 1px solid var(--background-secondary-alt);
@@ -128,19 +127,23 @@ body .markdown-source-view .cm-gutters .cm-lineNumbers div.cm-gutterElement.cm-a
 @keyframes heartbeat {
   /* Adapted from a web search, this seems to have the correct timing */
   0%, 30%, 100% {
-    background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) var(--third-background-gradient-percent));
+    border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), 30%);
   }
   40% {
-    background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) calc(var(--third-background-gradient-percent) * 0.95));
+    --pwave: -3%;
+    border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), 25%);
   }
   50% {
-    background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) calc(var(--third-background-gradient-percent) * 1.2));
+    --qrswave: 10%;
+    border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), 60%);
   }
   65% {
-    background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) calc(var(--third-background-gradient-percent) * 0.9));
+    --twave: -5%;
+    border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), 20%);
   }
   75% {
-    background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) calc(var(--third-background-gradient-percent) * 1.05));
+    --uwave: 2.5%;
+    border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), 35%);
   }
 }
 
@@ -286,7 +289,7 @@ body a.footnote-backref.footnote-link {
 body a.footnote-backref.footnote-link::before {
   position: relative;
   left: -1ex;
-  content: "<<< return to citation";
+  content: "<<< return to 1st citation";
   white-space: pre;
 }
 body section.footnotes ol li {

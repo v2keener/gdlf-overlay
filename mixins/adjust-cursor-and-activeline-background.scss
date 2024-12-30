@@ -21,21 +21,22 @@
     --active-background-color-1: hsla(var(--accent-h), 70%, calc(var(--accent-s) + var(--saturation-mod-s)), calc(12% + var(--opacity-mod-s)));
 
     // For 2022 editor (while also previewing)
-    div.cm-active.cm-line,
-    div.cm-content div.cm-active.cm-line.HyperMD-list-line {
+    // // This is for the text being edited
+    // div.cm-active.cm-line,
+    // div.cm-content div.cm-active.cm-line.HyperMD-list-line {
 
-      // Make it gradient, which I think is nicer
-      // background: linear-gradient(0deg,
-          // var(--active-background-color-3) 5%,
-          // var(--active-background-color-2) 25%,
-          // var(--active-background-color-1) 70%);
-        animation: heartbeat 1.3s ease-in-out infinite;
+    //   // Make it gradient, which I think is nicer
+    //   background: linear-gradient(0deg,
+    //       var(--active-background-color-3) 5%,
+    //       var(--active-background-color-2) 25%,
+    //       var(--active-background-color-1) 70%);
+    //   animation: heartbeat 1.3s linear infinite;
 
-      // background-color: var(--active-background-color-1);
-      border-radius: var(--activeline-border-radius);
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
+    //   // background-color: var(--active-background-color-1);
+    //   border-radius: var(--activeline-border-radius);
+    //   border-top-left-radius: 0;
+    //   border-bottom-left-radius: 0;
+    // }
 
     .markdown-source-view.mod-cm6 .cm-gutters {
 
@@ -47,63 +48,68 @@
     }
 
     .markdown-source-view .cm-gutters .cm-lineNumbers div.cm-gutterElement {
-      padding-right: 2ex;
+      --gdlf-gutter-margin-right: 1.2ex;
+      --gdlf-gutter-padding-right: 2ex;
+      --gdlf-gutter-border-right: 3px;
+      --gdlf-gutter-border-hsl: var(--accent-h), var(--accent-s), var(--accent-l);
+      padding-right: var(--gdlf-gutter-padding-right);
+      margin-right: var(--gdlf-gutter-margin-right);
+      border-right: 3px solid transparent;
 
+
+      // This is for the gutter element to match the active text element, above
       // Make the background match the linear-gradient I use for the other part of this cm-active line highlighting
       &.cm-active {
-        // background: hsla(var(--accent-h), 100%, calc(var(--accent-s) - 30%), 0.1);
-        animation: heartbeat 1.3s ease-in-out infinite;
+        @keyframes heartbeat {
+
+          /* Adapted from a web search, this seems to have the correct timing */
+          0%,
+          30%,
+          100% {
+            // transform: scale(1) rotate(-45deg); //ORIG
+            border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), 30%);
+          }
+
+          40% {
+            // transform: scale(0.95) rotate(-45deg); //ORIG
+            --pwave: -3%;
+            border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), 25%);
+          }
+
+          50% {
+            // transform: scale(1.2) rotate(-45deg); //ORIG
+            --qrswave: 10%;
+            border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), 60%);
+          }
+
+          65% {
+            // transform: scale(0.9) rotate(-45deg); //ORIG
+            --twave: -5%;
+            border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), 20%);
+          }
+
+          75% {
+            // transform: scale(1.05) rotate(-45deg); //ORIG
+            --uwave: 2.5%;
+            border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), 35%);
+          }
+        }
+
+        animation: heartbeat 1.1s linear infinite;
+
+        background: linear-gradient(0deg,
+          var(--active-background-color-3) 5%,
+          var(--active-background-color-2) 25%,
+          var(--active-background-color-1) 70%);
+
 
         border-radius: var(--activeline-border-radius);
         border-top: 0; // may not be needed (having it 0 removes a visual fragment between gutter active line highlight and in-text active line highlight
         border-bottom: 1px solid var(--background-secondary-alt);
         border-top-right-radius: 0;
-
         border-bottom-right-radius: 0;
       }
     }
 
-    --third-background-gradient-percent: 50%;
-
-    @keyframes heartbeat {
-      /* Adapted from a web search, this seems to have the correct timing */
-      0%,
-      30%,
-      100% {
-        // transform: scale(1) rotate(-45deg); //ORIG
-        background: linear-gradient(0deg,
-        var(--active-background-color-3) 5%,
-        var(--active-background-color-2) 25%,
-        var(--active-background-color-1) var(--third-background-gradient-percent));
-      }
-      40%{
-        // transform: scale(0.95) rotate(-45deg); //ORIG
-        background: linear-gradient(0deg,
-        var(--active-background-color-3) 5%,
-        var(--active-background-color-2) 25%,
-        var(--active-background-color-1) calc(var(--third-background-gradient-percent) * 0.95));
-      }
-      50% {
-        // transform: scale(1.2) rotate(-45deg); //ORIG
-        background: linear-gradient(0deg,
-        var(--active-background-color-3) 5%,
-        var(--active-background-color-2) 25%,
-        var(--active-background-color-1) calc(var(--third-background-gradient-percent) * 1.2));
-      }
-      65% {
-        // transform: scale(0.9) rotate(-45deg); //ORIG
-        background: linear-gradient(0deg,
-        var(--active-background-color-3) 5%,
-        var(--active-background-color-2) 25%,
-        var(--active-background-color-1) calc(var(--third-background-gradient-percent) * 0.9));
-      }
-      75% {
-        // transform: scale(1.05) rotate(-45deg); //ORIG
-        background: linear-gradient(0deg,
-        var(--active-background-color-3) 5%,
-        var(--active-background-color-2) 25%,
-        var(--active-background-color-1) calc(var(--third-background-gradient-percent) * 1.05));
-      }
-    }
   }
 }
