@@ -289,7 +289,7 @@ body a.footnote-backref.footnote-link {
 body a.footnote-backref.footnote-link::before {
   position: relative;
   left: -1ex;
-  content: "<<< return to 1st citation";
+  content: "<<< return to citation";
   white-space: pre;
 }
 body section.footnotes ol li {

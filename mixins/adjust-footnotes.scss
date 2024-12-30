@@ -39,6 +39,17 @@
         // border-top: 3px double var(--footnote-shadow);
         // border-radius: 0.5em;
       }
+      // // For this kind of scheme to work, I would really need to use SASS instead of CSS
+      // &[href*="fnref-"][href*="-2-1-"],
+      // &[href*="fnref-"][href*="-1-1-"] {
+      //   content: "<<< return to 2nd citation";
+      // }
+      // &:nth-last-child(1)::before {
+      //   content: "<<< return to 1st citation";
+      // }
+      // &:nth-last-child(2)::before {
+      //   content: "<<< return to 2nd citation";
+      // }
     }
 
     section.footnotes ol li {
