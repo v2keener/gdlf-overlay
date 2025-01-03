@@ -1,22 +1,21 @@
 @mixin add-classes($overlayClasses: '', $snippetClasses: '') {
 body#{$overlayClasses}#{$snippetClasses} {
-  span.cm-foldPlaceholder::after {
-    // color: red; //FLARE!!!
-    font-weight: 900;
-    // font-size:90%;
-    // content: 'A';
-    // content: '➕';
-    // content: '+';
-    // content: '∴≫≣≡≻⊕⊞⊿⋇⋗⋑⋙⋺⋱⊾';
-    // content: '⊾';
-    // content: '⊕';
-    // content: "⊞";
-    content: ' ➕';
-    // content: ' >';
-    // vertical-align: middle;
-    vertical-align: -13%;
-    font-size: 70%;
-  }
+  // span.cm-foldPlaceholder::after {
+  //   // color: red; //FLARE!!!
+  //   font-weight: 900;
+  //   // font-size:90%;
+  //   // content: 'A';
+  //   // content: '+';
+  //   // content: '∴≫≣≡≻⊕⊞⊿⋇⋗⋑⋙⋺⋱⊾';
+  //   // content: '⊾';
+  //   // content: '⊕';
+  //   // content: "⊞";
+  //   content: ' ➕';
+  //   // content: ' >';
+  //   // vertical-align: middle;
+  //   vertical-align: -13%;
+  //   font-size: 70%;
+  // }
 
   div.HyperMD-header {
     //}:has(div.cm-fold-indicator.is-collapsed) {
