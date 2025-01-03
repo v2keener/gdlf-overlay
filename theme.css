@@ -107,44 +107,47 @@ body .markdown-source-view.mod-cm6 .cm-gutters {
   margin-inline-end: 0;
 }
 body .markdown-source-view .cm-gutters .cm-lineNumbers div.cm-gutterElement {
-  --gdlf-gutter-margin-right: 1.2ex;
   --gdlf-gutter-padding-right: 2ex;
-  --gdlf-gutter-border-right: 3px;
+  --gdlf-gutter-border-right: 2px;
   --gdlf-gutter-border-hsl: var(--accent-h), var(--accent-s), var(--accent-l);
   padding-right: var(--gdlf-gutter-padding-right);
-  margin-right: var(--gdlf-gutter-margin-right);
   border-right: 3px solid transparent;
 }
 body .markdown-source-view .cm-gutters .cm-lineNumbers div.cm-gutterElement.cm-active {
-  animation: heartbeat 1.1s linear infinite;
+  --amplitude: 100%;
+  animation: heartbeat 1.5s ease-in-out infinite;
   background: linear-gradient(0deg, var(--active-background-color-3) 5%, var(--active-background-color-2) 25%, var(--active-background-color-1) 70%);
   border-radius: var(--activeline-border-radius);
   border-top: 0;
-  border-bottom: 1px solid var(--background-secondary-alt);
+  border-bottom: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 @keyframes heartbeat {
   /* Adapted from a web search, this seems to have the correct timing */
   0%, 30%, 100% {
-    border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), 30%);
+    border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), calc(var(--amplitude) * 0.5));
   }
   40% {
     --pwave: -3%;
-    border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), 25%);
+    border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), calc(var(--amplitude) * 0.416));
   }
   50% {
     --qrswave: 10%;
-    border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), 60%);
+    border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), calc(var(--amplitude) * 1));
   }
   65% {
     --twave: -5%;
-    border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), 20%);
+    border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), calc(var(--amplitude) * 0.333));
   }
   75% {
     --uwave: 2.5%;
-    border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), 35%);
+    border-right: var(--gdlf-gutter-border-right) solid hsla(var(--gdlf-gutter-border-hsl), calc(var(--amplitude) * 0.583));
   }
+}
+
+div.cm-sizer div.cm-contentContainer div.cm-content div.cm-line {
+  padding-left: 0.3ex;
 }
 
 body.gdlf-background:is(.theme-dark) {
@@ -273,12 +276,6 @@ body:is(.theme-light, .theme-dark) div.workspace-tab-header:is(.is-active) div.w
   top: -0.3em;
 }
 
-body span.cm-foldPlaceholder::after {
-  font-weight: 900;
-  content: " ➕";
-  vertical-align: -13%;
-  font-size: 70%;
-}
 body div.HyperMD-header {
   border-bottom: 3px dotted var(--interactive-accent-base);
 }
