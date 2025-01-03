@@ -29,11 +29,7 @@
       // Fix size of hashtags displayed in headers for Editor as well
       span.cm-header.cm-hashtag.#{$header} {
         font-size: $size;
-        // same as text-accent
-        //      color: hsl(var(--accent-h), var(--accent-s), $lum);
       }
-
-      // }
     }
 
     $header-magnification: 1.3;
