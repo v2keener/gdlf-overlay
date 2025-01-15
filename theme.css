@@ -912,19 +912,7 @@ div.sidebar-toggle-button.mod-left div:hover {
 }
 
 div.workspace-tab-header-status-icon.mod-pinned svg {
-  visibility: hidden;
-  margin-right: -1.2em;
-}
-div.workspace-tab-header-status-icon.mod-pinned::after {
-  content: "📌";
-}
-
-div.workspace-tab-header-inner-close-button svg {
-  visibility: hidden;
-  margin-right: -1.1em;
-}
-div.workspace-tab-header-inner-close-button::after {
-  content: "❌";
+  transform: rotate(30deg);
 }
 
 button[disabled], button[aria-disabled=true], button[disabled=true] {

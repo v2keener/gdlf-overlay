@@ -477,25 +477,31 @@
   //   visibility: hidden;
   // }
 
-  // Replace pin SVG with pushpin emoji
-  div.workspace-tab-header-status-icon.mod-pinned{
-    svg { 
-      visibility: hidden;
-      margin-right: -1.2em;
-    }
-    &::after {
-      content: '📌'
-    }
-  }
-  // Replace the close button SVG with 'X' emoji
-  div.workspace-tab-header-inner-close-button{
-    svg { 
-      visibility: hidden;
-      margin-right: -1.1em;
-    }
-    &::after{
-      content: '❌'
-    }
+  // // Replace pin SVG with pushpin emoji
+  // div.workspace-tab-header-status-icon.mod-pinned{
+  //   svg { 
+  //     visibility: hidden;
+  //     margin-right: -1.2em;
+  //   }
+  //   &::after {
+  //     content: '📌'
+  //   }
+  // }
+  // // Replace the close button SVG with 'X' emoji
+  // div.workspace-tab-header-inner-close-button{
+  //   svg { 
+  //     visibility: hidden;
+  //     margin-right: -1.1em;
+  //   }
+  //   &::after{
+  //     content: '❌'
+  //   }
+  // }
+  // Instead of all of the above, I think it's easier to do this to get
+  //  what I want, which is a skewed pushpin like 📌, but unlike
+  //  the Windows 11 version of that emoji, it's at 30 instead of 45 degrees
+  div.workspace-tab-header-status-icon.mod-pinned svg {
+    transform: rotate(30deg);
   }
 
   // For Navigate backward/forward buttons when 
