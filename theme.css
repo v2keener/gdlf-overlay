@@ -1186,6 +1186,14 @@ body div.nav-folder-title[data-path^="xtras/from-backup"] div.nav-folder-title-c
 body div.nav-file-title[data-path^="xtras/from-backup"] div.nav-file-title-content {
   color: var(--interactive-accent-text);
 }
+body div.nav-file-title[data-path="find-conflicts.ps1"],
+body div.nav-file-title[data-path="templated-gitattributes.txt"],
+body div.nav-file-title[data-path=_vimrc] {
+  display: none;
+}
+body div.nav-file-title[data-path="iPhone-tx.md"] div.nav-file-title-content::before {
+  content: "📲";
+}
 body div.nav-file-title[data-path*=" - Home"] div.nav-file-title-content::after,
 body div.nav-file-title[data-path="README.md"] div.nav-file-title-content::after {
   content: " 🏠";

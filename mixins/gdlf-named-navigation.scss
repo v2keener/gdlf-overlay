@@ -275,6 +275,22 @@
       color: var(--interactive-accent-text);
     }
 
+    // Hide some root files
+    div.nav-file-title[data-path="find-conflicts.ps1"],
+    div.nav-file-title[data-path="templated-gitattributes.txt"],
+    div.nav-file-title[data-path="_vimrc"] {
+      display: none;
+    }
+    // Add a clock before iPhone-tx ( a file typically not needing to be used )
+    //  (the intent of the file is to have a place to take notes from Working Copy
+    //  if I'm unable or incapable of figuring out how to link the work vault
+    //  to its Obsidian folder.
+    div.nav-file-title[data-path="iPhone-tx.md"] {
+      div.nav-file-title-content::before {
+        content: "📲";
+      }
+    }
+
     // **************************************
     // " - Home" Files, including the README.md
     // **************************************
