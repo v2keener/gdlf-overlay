@@ -16,6 +16,8 @@
   */
     }
 
+
+
     // Make hr split for 'new topic' (the --- in Markdown) into a heavier line
     div>div.hr.cm-line>hr {
       border: 3px solid var(--interactive-accent);
@@ -50,6 +52,12 @@
       --editing-current-view-bg-color: #ffe600;
     }
 
+      div.suggestion-item.mod-complex.is-selected {
+        span {
+          color: var(--text-on-accent-inverted);
+        }
+      }
+
     // ...the Current View view-action button customization
     button.clickable-icon.view-action[aria-label^="Current view: "] {
       &[aria-label~="reading"] {
@@ -83,6 +91,7 @@
         @include tag-bullet;
         color: var(--nav-collapse-icon-color);
       }
+
       &:is(.mod-collapsible)::before {
         @include tag-bullet;
         color: var(--text-accent);

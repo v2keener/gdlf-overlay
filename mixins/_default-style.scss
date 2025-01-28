@@ -53,7 +53,12 @@
 
     --list-indent: 1.5em; // reduced from default preview list-indent of 2.5em
     // Whatever the accent hue selected, do the opposite at full saturation, 50% lightness
+    &.theme-dark {
     --caret-color: rgb(from hsl(calc(var(--accent-h) + 180), 100%, 50%) r g b);
+    }
+    &.theme-light{
+    --caret-color: rgb(from hsl(calc(var(--accent-h) + 180), 10%, 50%) r g b);
+    }
 
     --luminence-mod-l: 0;
     --text-selection: hsla(var(--interactive-accent-hsl), 0.25);

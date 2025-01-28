@@ -603,6 +603,9 @@ body.theme-light button.clickable-icon.view-action[aria-label^="Current view: "]
   --reading-current-view-bg-color: #00a000c0;
   --editing-current-view-bg-color: #ffe600;
 }
+body div.suggestion-item.mod-complex.is-selected span {
+  color: var(--text-on-accent-inverted);
+}
 body button.clickable-icon.view-action[aria-label^="Current view: "][aria-label~=reading] {
   background: var(--reading-current-view-bg-color);
   color: var(--current-view-color);
@@ -633,7 +636,6 @@ body .tree-item-self.tag-pane-tag.is-clickable:is(.mod-collapsible)::before {
 body {
   --metadata-display-reading: none;
   --list-indent: 1.5em;
-  --caret-color: rgb(from hsl(calc(var(--accent-h) + 180), 100%, 50%) r g b);
   --luminence-mod-l: 0;
   --text-selection: hsla(var(--interactive-accent-hsl), 0.25);
   --code-comment: var(--color-base-60);
@@ -648,6 +650,12 @@ body div.titlebar-button-container.mod-right div.titlebar-button {
 }
 body div.titlebar-button-container.mod-right {
   margin: 0.3ex;
+}
+body.theme-dark {
+  --caret-color: rgb(from hsl(calc(var(--accent-h) + 180), 100%, 50%) r g b);
+}
+body.theme-light {
+  --caret-color: rgb(from hsl(calc(var(--accent-h) + 180), 10%, 50%) r g b);
 }
 body .cm-comment-start,
 body .cm-comment-end {
