@@ -135,9 +135,10 @@
     */
     --text-selection: hsla(calc(var(--accent-h) + 90), var(--accent-s), var(--accent-l), 0.35);
 
-    .markdown-source-view .cm-editor {
-      background: linear-gradient(0deg, #e0e0e0e0, transparent)
-    }
+    // // Set background of editor to a gradient
+    // .markdown-source-view .cm-editor {
+    //   background: linear-gradient(0deg, #e0e0e0e0, transparent)
+    // }
 
   }
 
@@ -145,9 +146,10 @@
     --luminence-mod-l: -5%;
     --text-selection: hsla(calc(var(--accent-h) + 30), var(--accent-s), var(--accent-l), 0.35);
 
-    .markdown-source-view .cm-editor {
-      background: linear-gradient(0deg, #000000e0, transparent)
-    }
+    // // Set background of editor to a gradient
+    // .markdown-source-view .cm-editor {
+    //   background: linear-gradient(0deg, #000000e0, transparent)
+    // }
 
     // .tree-item-self.is-active {
     // }

@@ -688,16 +688,10 @@ body:not(.is-mobile).is-focused {
   */
   --text-selection: hsla(calc(var(--accent-h) + 90), var(--accent-s), var(--accent-l), 0.35);
 }
-.theme-light .markdown-source-view .cm-editor {
-  background: linear-gradient(0deg, rgba(224, 224, 224, 0.8784313725), transparent);
-}
 
 .theme-dark {
   --luminence-mod-l: -5%;
   --text-selection: hsla(calc(var(--accent-h) + 30), var(--accent-s), var(--accent-l), 0.35);
-}
-.theme-dark .markdown-source-view .cm-editor {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8784313725), transparent);
 }
 
 body {
