@@ -387,7 +387,7 @@
   }
 
   // I want to get the above hue effect on the left sidebar (the one vertical rainbow background, so far)
-  div.horizontal-main-container div.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed {
+  div.horizontal-main-container div.workspace-ribbon.side-dock-ribbon.mod-left {
     background: var(--status-bar-border-color) linear-gradient(135deg, var(--gdlf-oil-slick));
     background-attachment: local;
     border: 1px solid var(--status-bar-border-color);
@@ -453,8 +453,8 @@
     content: "🍃";
   }
 
-  div.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed div.sidebar-toggle-button.mod-left {
-    background: #ff000060;
+  div.workspace-ribbon.side-dock-ribbon.mod-left div.sidebar-toggle-button.mod-left {
+    background: #ff000060; // directly related to --gdlf-oil-slick
     border-radius: 0.8ex;
     border-bottom-right-radius: 0;
   }

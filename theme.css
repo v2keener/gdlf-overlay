@@ -840,7 +840,7 @@ div.horizontal-main-container div.workspace-tab-header-container div.workspace-t
   color: var(--icon-color);
 }
 
-div.horizontal-main-container div.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed {
+div.horizontal-main-container div.workspace-ribbon.side-dock-ribbon.mod-left {
   background: var(--status-bar-border-color) linear-gradient(135deg, var(--gdlf-oil-slick));
   background-attachment: local;
   border: 1px solid var(--status-bar-border-color);
@@ -896,7 +896,7 @@ div.sidebar-toggle-button.mod-left::after {
   content: "🍃";
 }
 
-div.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed div.sidebar-toggle-button.mod-left {
+div.workspace-ribbon.side-dock-ribbon.mod-left div.sidebar-toggle-button.mod-left {
   background: rgba(255, 0, 0, 0.3764705882);
   border-radius: 0.8ex;
   border-bottom-right-radius: 0;
