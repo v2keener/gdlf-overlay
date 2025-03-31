@@ -15,6 +15,7 @@
 @use "mixins/adjust-root-folder-add-title-content";
 @use "mixins/gdlf-hide-some-folders";
 @use "mixins/gdlf-named-navigation";
+@use "mixins/add-invert-webview";
 // ****************************************************************
 // Everything after this *shouldn't
 // match the gdlf-overlay-theme.scss
@@ -36,6 +37,7 @@
     @include adjust-root-folder-add-title-content.add-classes(".gdlf-overlay", ".gdlf-add-vault-icon");
     @include gdlf-hide-some-folders.add-classes(".gdlf-overlay", ".gdlf-hide-folders");
     @include gdlf-named-navigation.add-classes(".gdlf-overlay", ".gdlf-named-navigation");
+    @include add-invert-webview.add-classes(".gdlf-overlay-invert", ".add-invert-webview");
     // ****************************************************************
     // STYLE SETTINGS for GDLF Extras
     // ****************************************************************

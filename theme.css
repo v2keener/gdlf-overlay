@@ -4,6 +4,27 @@
     > A custom theme by Gustavo DeLaFuerza
 */
 /* Custom tag colors for specific tags */
+/* @settings
+
+name: GDLF Overlay WebView Inversion
+id: gdlf-invert-webview
+settings:
+  -
+    id: gdlf-invert-webview-enable
+    title: 🖥️ Enable WebView inversion
+    type: class-toggle
+    default: false
+  -
+    id: gdlf-invert-webview-percentage
+    title: 🖥️ Percentage inversion of colors on WebView
+    description: The percent inversion, the default is 92%, and it can only be set to values at or over 60%
+    type: variable-number-slider
+    format: '%'
+    default: 92
+    min: 60
+    max: 100
+    step: 1
+*/
 :root {
   --gdlf-editor-font-family: inherit;
 }
@@ -564,6 +585,10 @@ body:is(.theme-dark, .theme-light) span[class*=tag-conf][class~=cm-hashtag-begin
 body:is(.theme-dark, .theme-light) span[class*=tag-doc][class~=cm-hashtag-begin][class~=cm-hashtag],
 body:is(.theme-dark, .theme-light) span[class*=tag-k][class~=cm-hashtag-begin][class~=cm-hashtag] {
   background-color: var(--knowledge-color);
+}
+
+.gdlf-invert-webview-enable div.view-content.webviewer-content {
+  filter: invert(var(--gdlf-invert-webview-percentage));
 }
 
 @font-face {
@@ -1214,7 +1239,7 @@ settings:
     default: Default
     options: 
     -
-      label: Default
+      label: Default Obsidian Font
       value: inherit
     -
       label: Bradley Hand

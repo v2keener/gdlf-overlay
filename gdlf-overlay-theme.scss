@@ -19,6 +19,7 @@
 @use "mixins/adjust-status-bar";
 @use "mixins/adjust-tags-to-pills";
 @use "mixins/adjust-tag-colors-by-name";
+@use "mixins/add-invert-webview.scss";
 
 // Optional stuff that's also included (for Obsidian Snippet CSS) as part of gdlf-for-me.scss
 @use "gdlf-for-me";
@@ -47,6 +48,8 @@
 @include adjust-tags-to-pills.add-classes;
 @include adjust-tag-colors-by-name.add-classes("", ".gdlf-tag-colors-by-name");
 
+@include add-invert-webview.add-classes;
+
 @include gdlf-for-me.add-snippet-classes;
 
 // ****************************************************************
@@ -72,7 +75,7 @@ settings:
     default: Default
     options: 
     -
-      label: Default
+      label: Default Obsidian Font
       value: inherit
     -
       label: Bradley Hand

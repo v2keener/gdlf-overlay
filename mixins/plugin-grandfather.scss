@@ -13,9 +13,17 @@ body:is(.theme-light, .theme-dark) {
     order: 1; // show on far right - use -1 to show on far left
 
     span.grandfather-emoji {
+      // From status-bar-item-segment as shown in devtools
+      margin-inline-end: var(--size-4-2);
+//      margin-top: 1%; // this might make the status bar larger as a whole...
+      margin-bottom: -1.1%; // this should leave the status bar alone
+
       font-size: 190%;
-      margin-bottom: -5%;
-      margin-top: -6%;
+      // margin-bottom: -5%;
+      // margin-top: -6%;
+      // margin: auto;
+      text-align: center;
+      vertical-align: middle;
     }
   }
 }

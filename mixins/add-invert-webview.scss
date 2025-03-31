@@ -1,0 +1,31 @@
+/* @settings
+
+name: GDLF Overlay WebView Inversion
+id: gdlf-invert-webview
+settings:
+  -
+    id: gdlf-invert-webview-enable
+    title: 🖥️ Enable WebView inversion
+    type: class-toggle
+    default: false
+  -
+    id: gdlf-invert-webview-percentage
+    title: 🖥️ Percentage inversion of colors on WebView
+    description: The percent inversion, the default is 92%, and it can only be set to values at or over 60%
+    type: variable-number-slider
+    format: '%'
+    default: 92
+    min: 60
+    max: 100
+    step: 1
+*/
+// Inverts web viewer
+@mixin add-classes($overlayClasses: "gdlf-invert-webview-enable", $snippetClasses: "gdlf-invert-webview-enable") {
+  // Trying to impact webview iframe
+  //fail: div.view-content.webviewer-content webview iframe {
+  // in devtools, found with,
+  // document.querySelectorAll('div.view-content.webviewer-content')[0].childNodes[2]
+  .gdlf-invert-webview-enable div.view-content.webviewer-content {
+    filter: invert(var(--gdlf-invert-webview-percentage));
+  }
+}
