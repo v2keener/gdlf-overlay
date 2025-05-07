@@ -1032,6 +1032,9 @@ body div.nav-folder-title[data-path^="contacts/"] div.nav-folder-title-content::
 body div.nav-file-title[data-path^=contacts] div.nav-file-title-content::before {
   content: "🙂 ";
 }
+body div.nav-file-title[data-path^="daily/"] div.nav-file-title-content::before {
+  content: "🗒️";
+}
 body div.nav-folder-title[data-path=daily] div.nav-folder-title-content::after {
   content: " 📅";
 }
@@ -1104,14 +1107,13 @@ body div.nav-file-title[data-path^="daily/"][data-path*="/2021 1"] div.nav-file-
 body div.nav-file-title[data-path^="daily/"][data-path*="/2022 0"] div.nav-file-title-content::before,
 body div.nav-file-title[data-path^="daily/"][data-path*="/2022 1"] div.nav-file-title-content::before,
 body div.nav-file-title[data-path^="daily/"][data-path*="/2023 0"] div.nav-file-title-content::before,
-body div.nav-file-title[data-path^="daily/"][data-path*="/2023 1"] div.nav-file-title-content::before {
+body div.nav-file-title[data-path^="daily/"][data-path*="/2023 1"] div.nav-file-title-content::before div.nav-file-title[data-path^="daily/"][data-path*="/2024 0"] div.nav-file-title-content::before,
+body div.nav-file-title[data-path^="daily/"][data-path*="/2024 1"] div.nav-file-title-content::before div.nav-file-title[data-path^="daily/"][data-path*="/2025 0"] div.nav-file-title-content::before,
+body div.nav-file-title[data-path^="daily/"][data-path*="/2025 1"] div.nav-file-title-content::before {
   content: "💡";
 }
 body div.nav-file-title[data-path^="daily/"][data-path*="/Day Planner"] div.nav-file-title-content::before {
   content: "💡";
-}
-body div.nav-file-title[data-path^="daily/"] div.nav-file-title-content::before {
-  content: "❓";
 }
 body div.nav-file-title[data-path^="daily/"][data-path*="vacation all week"] div.nav-file-title-content::before {
   content: "🎉";
