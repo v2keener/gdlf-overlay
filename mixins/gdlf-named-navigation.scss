@@ -29,7 +29,7 @@
     // DAILY folder
     // **************************************
     div.nav-file-title[data-path^="daily/"] div.nav-file-title-content::before {
-      content: "🗒️";
+      content: "🗒️"; // Default file icon.
     }
     div.nav-folder-title[data-path="daily"] div.nav-folder-title-content::after {
       content: " 📅";
