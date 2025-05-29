@@ -49,5 +49,17 @@
     span.cm-link span.cm-underline {
       overflow-wrap: break-word;
     }
+
+    // Remove color from links (helps with pasting to external apps without then 
+    //  having to clear formatting in the external app). DISCLAIMER: "External app"
+    //  is the "New" Outlook, which I think is an Electron or Electron-like app
+    //  of Outlook's progressive web app (PWA). Word didn't mess up copy-and-pasted
+    //  links from Obsidian, and I didn't test other apps.
+    // .metadata-container a.internal-link, .markdown-rendered a.internal-link, a.external-link {
+    //   color: unset;
+    //   color: inherit;
+    //   color: initial;
+    // }
+
   }
 }
