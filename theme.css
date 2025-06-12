@@ -628,8 +628,14 @@ body.theme-light button.clickable-icon.view-action[aria-label^="Current view: "]
   --reading-current-view-bg-color: #00a000c0;
   --editing-current-view-bg-color: #ffe600;
 }
-body div.suggestion-item.mod-complex.is-selected span {
+body div.suggestion-item.is-selected {
+  background-color: var(--text-highlight-bg);
+}
+body div.suggestion-item.is-selected.mod-complex span {
   color: var(--text-on-accent-inverted);
+}
+body div.suggestion-item.is-selected div.suggestion-note {
+  color: var(--interactive-normal);
 }
 body button.clickable-icon.view-action[aria-label^="Current view: "][aria-label~=reading] {
   background: var(--reading-current-view-bg-color);
@@ -807,10 +813,6 @@ div[class=cm-lineNumbers] div[class=cm-gutterElement] {
 .cm-formatting-list-ul,
 .cm-formatting-list-ol {
   padding-inline-start: 0.3ex;
-}
-
-.suggestion-item.is-selected {
-  background-color: var(--text-highlight-bg);
 }
 
 div.workspace-tab-header-container {

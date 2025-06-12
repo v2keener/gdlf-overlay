@@ -307,13 +307,6 @@
     padding-inline-start: 0.3ex;
   }
 
-  // Make the selected item in the popup selection box display with a higher contrast
-  .suggestion-item.is-selected {
-    // // Obsidian default:
-    // background-color: var(--background-modifier-hover);
-    background-color: var(--text-highlight-bg);
-  }
-
   div.workspace-tab-header-container {
     background: var(--background-primary-alt);
     background: var(--status-bar-border-color);

@@ -52,11 +52,21 @@
       --editing-current-view-bg-color: #ffe600;
     }
 
-      div.suggestion-item.mod-complex.is-selected {
-        span {
-          color: var(--text-on-accent-inverted);
-        }
+    // Make the selected item in the popup selection box display with a higher contrast
+    div.suggestion-item.is-selected {
+      // // Obsidian default:
+      // background-color: var(--background-modifier-hover);
+      background-color: var(--text-highlight-bg);
+
+      &.mod-complex span {
+        color: var(--text-on-accent-inverted);
       }
+
+      div.suggestion-note {
+        // selected suggested note should remain higher-contrast
+        color: var(--interactive-normal);
+      }
+    }
 
     // ...the Current View view-action button customization
     button.clickable-icon.view-action[aria-label^="Current view: "] {
