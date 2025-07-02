@@ -396,14 +396,22 @@ body .cm-highlight {
   padding-left: 0.3ex;
   padding-right: 0.3ex;
 }
-body div.view-content div.markdown-reading-view mark,
-body .cm-s-obsidian span.cm-formatting-highlight,
-body .cm-s-obsidian span.cm-highlight {
+body div.view-content div.markdown-reading-view mark:not(.cm-strikethrough),
+body .cm-s-obsidian span.cm-formatting-highlight:not(.cm-strikethrough),
+body .cm-s-obsidian span.cm-highlight:not(.cm-strikethrough) {
   background-color: hsla(calc(var(--accent-h) + 25), 100%, calc(50% + var(--luminence-mod-l)), 0.6);
   text-shadow: 1px 1px 1px hsla(calc(var(--accent-h) - 45), 100%, 50%, 0.7);
 }
+body div.view-content div.markdown-reading-view mark.cm-strikethrough,
+body .cm-s-obsidian span.cm-formatting-highlight.cm-strikethrough,
+body .cm-s-obsidian span.cm-highlight.cm-strikethrough {
+  background-color: inherit;
+}
 body div.view-content div.markdown-reading-view mark {
   font-weight: 350;
+}
+body .cm-s-obsidian span.cm-strikethrough {
+  opacity: 0.4;
 }
 
 body div.status-bar {

@@ -4,46 +4,62 @@
 //   color: var(--text-normal);
 // }
 @mixin add-classes($overlayClasses: '', $snippetClasses: '') {
-body#{$overlayClasses}#{$snippetClasses} {
-  // Following may no longer be current for 1.0
-  .theme-light.pt-highlight-text-color-lt mark,
-  .theme-light.pt-highlight-text-color-lt .cm-highlight,
-  .theme-dark.pt-highlight-text-color-dt mark,
-  .theme-dark.pt-highlight-text-color-dt .cm-highlight {
-    // Try not to change text color for the highlight (except for stuff further defined, like em, strong, etc.)
-    color: var(--text-normal);
-  }
+  body#{$overlayClasses}#{$snippetClasses} {
 
-  // Following items should still work:
+    // Following may no longer be current for 1.0
+    .theme-light.pt-highlight-text-color-lt mark,
+    .theme-light.pt-highlight-text-color-lt .cm-highlight,
+    .theme-dark.pt-highlight-text-color-dt mark,
+    .theme-dark.pt-highlight-text-color-dt .cm-highlight {
+      // Try not to change text color for the highlight (except for stuff further defined, like em, strong, etc.)
+      color: var(--text-normal);
+    }
 
-  // When using the <mark> tag to highlight, keep
-  //  the text mostly the same as everything else (presumably)
-  mark,
-  .cm-highlight {
-    font-size: 1em;
-    border-radius: 0.5ex;
-    padding-left: 0.3ex;
-    padding-right: 0.3ex;
-  }
+    // Following items should still work:
 
-  div.view-content div.markdown-reading-view mark,
-  .cm-s-obsidian span.cm-formatting-highlight,
-  .cm-s-obsidian span.cm-highlight {
-    // Base background-color of highlight and mark to 
-    //  be dependent on the selected Accent Color for 1.0
-    background-color: hsla(calc(var(--accent-h) + 25), 100%, calc(50% + var(--luminence-mod-l)), 0.6);
-    // For contrast, a text-shadow
-    //  Same as with background-color for the color used for this shadow
-    //  The shadow makes text stand out a pinch more from the Accent-dependent
-    //  background-color
-    text-shadow: 1px 1px 1px hsla(calc(var(--accent-h) - 45), 100%, 50%, 0.7);
+    // When using the <mark> tag to highlight, keep
+    //  the text mostly the same as everything else (presumably)
+    mark,
+    .cm-highlight {
+      font-size: 1em;
+      border-radius: 0.5ex;
+      padding-left: 0.3ex;
+      padding-right: 0.3ex;
+    }
+
+    div.view-content div.markdown-reading-view mark,
+    .cm-s-obsidian span.cm-formatting-highlight,
+    .cm-s-obsidian span.cm-highlight {
+
+      // Base background-color of highlight and mark to 
+      //  be dependent on the selected Accent Color for 1.0
+      &:not(.cm-strikethrough) {
+        background-color: hsla(calc(var(--accent-h) + 25), 100%, calc(50% + var(--luminence-mod-l)), 0.6);
+        text-shadow: 1px 1px 1px hsla(calc(var(--accent-h) - 45), 100%, 50%, 0.7);
+      }
+
+      &.cm-strikethrough {
+        background-color: inherit;
+      }
+
+      // For contrast, a text-shadow
+      //  Same as with background-color for the color used for this shadow
+      //  The shadow makes text stand out a pinch more from the Accent-dependent
+      //  background-color
+    }
+
+    div.view-content div.markdown-reading-view mark {
+      // default theme, 20221121 had preview mark w/ heavier font-weight
+      //  which made everything look BOLD, which was too much, so this
+      //  reduces that back to a lower font-weight.
+      // (It will still look a bit heavier from the text-shadow, above)
+      font-weight: 350;
+    }
+
+    // Also, similar to marking text, I suppose, set it to where
+    //  comments are way less opaque
+    .cm-s-obsidian span.cm-strikethrough {
+      opacity: 0.4;
+    }
   }
-  div.view-content div.markdown-reading-view mark {
-    // default theme, 20221121 had preview mark w/ heavier font-weight
-    //  which made everything look BOLD, which was too much, so this
-    //  reduces that back to a lower font-weight.
-    // (It will still look a bit heavier from the text-shadow, above)
-    font-weight: 350;
-  }
-}
 }
