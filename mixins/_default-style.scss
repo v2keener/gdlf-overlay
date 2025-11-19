@@ -159,7 +159,7 @@
   body#{$overlayClasses}#{$snippetClasses} {
 
     // Set variable for line width (used by app.css as of Obsidian 1.1)
-    --file-line-width: 35em;
+    // --file-line-width: 35em;
     --text-highlight-bg: hsla(calc(var(--accent-h) + 120),
         var(--accent-s),
         calc(var(--accent-l) + var(--luminence-mod-l)),

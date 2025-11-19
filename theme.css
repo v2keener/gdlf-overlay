@@ -746,7 +746,6 @@ body div {
 }
 
 body {
-  --file-line-width: 35em;
   --text-highlight-bg: hsla(calc(var(--accent-h) + 120),
       var(--accent-s),
       calc(var(--accent-l) + var(--luminence-mod-l)),
